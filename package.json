@@ -1,0 +1,68 @@
+{
+  "name": "akagi-website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "next build",
+    "lint:js": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "lint:css": "stylelint './static/**/*.js' './pages/**/*.js' './test/**/*.js' './utils/**/*.js' './components/**/*.js' './sections/**/*.js'",
+    "start": "NODE_ENV=production node server.js",
+    "jest": "jest",
+    "test": "run-s jest lint:js",
+    "precommit": "lint-staged"
+  },
+  "dependencies": {
+    "babel-plugin-polished": "^1.1.0",
+    "babel-plugin-styled-components": "^1.1.7",
+    "express": "^4.15.2",
+    "isomorphic-fetch": "^2.2.1",
+    "lru-cache": "^4.0.2",
+    "module-alias": "^2.0.0",
+    "next": "^4.1.4",
+    "preact": "^8.2.1",
+    "preact-compat": "^3.16.0",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "styled-components": "^2.1.2",
+    "sw-precache-webpack-plugin": "^0.11.4",
+    "webpack-bundle-analyzer": "^2.4.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-module-resolver": "^2.7.1",
+    "enzyme": "^2.9.1",
+    "enzyme-to-json": "^1.5.1",
+    "eslint": "^4.3.0",
+    "eslint-config-prettier": "^2.3.0",
+    "eslint-plugin-prettier": "^2.1.2",
+    "eslint-plugin-react": "^7.1.0",
+    "husky": "^0.14.3",
+    "jest": "^20.0.4",
+    "jest-styled-components": "^4.4.1",
+    "lint-staged": "^4.0.2",
+    "npm-run-all": "^4.0.2",
+    "prettier": "^1.5.3",
+    "react-addons-test-utils": "15.4.2",
+    "react-test-renderer": "15.4.2",
+    "stylelint": "^8.0.0",
+    "stylelint-config-standard": "^17.0.0",
+    "stylelint-processor-styled-components": "^0.2.1",
+    "stylint-stylish": "^1.4.0"
+  },
+  "lint-staged": {
+    "*.js": [
+      "jest --findRelatedTests",
+      "stylelint",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  }
+}
