@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import SeoHead from 'components/SeoHead'
 // import Editor from './components/Editor'
 import NavBar from './containers/NavBarContainer'
 import CategoryTree from './containers/CategoryTreeContainer'
@@ -7,9 +8,6 @@ import CategoryTree from './containers/CategoryTreeContainer'
 
 // import testThoughts from './thoughts/component.thoughts'
 
-const AppWrapper = styled.div`
-  display: flex;
-`
 
 const SideBarContainer = styled.div`
   width: 20%;
@@ -22,7 +20,8 @@ const MainPageWrapper = styled.div`
 `
 
 const Thoughts = (props) => (
-  <AppWrapper>
+  <div>
+    <SeoHead />
     <SideBarContainer>
       <NavBar
         onNewThought={() => console.log('onNewThought')}
@@ -39,7 +38,7 @@ const Thoughts = (props) => (
         commenting={false}
       />*/}
     </MainPageWrapper>
-  </AppWrapper>
+  </div>
 )
 
 export default Thoughts
