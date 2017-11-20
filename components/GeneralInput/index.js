@@ -13,12 +13,13 @@ const TextArea = styled.textarea`
   padding: 6px;
   border-color: ${silverDark};
   border-width: 1px;
+  ${props => props.resize ? 'resize: ' + props.resize : ''}
 `
 
 const GeneralInput = (props) => {
   if (props.type === 'textarea') {
     return (
-      <TextArea {...props} />
+      <TextArea resize={'none'} {...props} />
     )
   }
   return (
