@@ -1,16 +1,17 @@
 import styled from 'styled-components'
 import GeneralInput from 'components/GeneralInput'
+import { black } from 'utils/colors'
 
 const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 24px;
+  max-width: 500px;
 `
 
 const InputWrapper = styled.div`
   width: 100%;
-  max-width: 500px;
   margin-bottom: 12px;
 `
 
@@ -21,7 +22,9 @@ const ContactInput = (props) => (
 )
 
 const SubmitButton = styled.button`
-
+  width: 100%;
+  border: 1px solid ${black};
+  padding: 6px;
 `
 
 const ContactMe = ({ formId = 'contact-me', ...props }) => (

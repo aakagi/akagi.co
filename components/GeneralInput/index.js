@@ -13,7 +13,7 @@ const TextArea = styled.textarea`
   padding: 6px;
   border-color: ${silverDark};
   border-width: 1px;
-  ${props => props.resize ? 'resize: ' + props.resize : ''}
+  resize: ${props => props.resize || 'auto'};
 `
 
 const GeneralInput = (props) => {

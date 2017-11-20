@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import { Provider as MobxProvider } from 'mobx-react'
 import { initStore } from 'store'
 import GlobalStyles from './GlobalStyles'
+import theme from 'utils/theme'
 
 export default class Thoughts extends Component {
   static getInitialProps ({ req }) {
@@ -20,10 +21,12 @@ export default class Thoughts extends Component {
   render () {
     return (
       <MobxProvider store={this.store}>
-        <div>
-          <GlobalStyles />
-          {this.props.children}
-        </div>
+        <ThemeProvider theme={theme}>
+          <div>
+            <GlobalStyles />
+            {this.props.children}
+          </div>
+        </ThemeProvider>
       </MobxProvider>
     )
   }
