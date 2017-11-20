@@ -11,6 +11,9 @@ const { parse } = require('url')
 const express = require('express')
 const LRUCache = require('lru-cache')
 const next = require('next')
+const mobxReact = require('mobx-react')
+
+mobxReact.useStaticRendering(true)
 
 const app = next({ dir: '.', dev })
 const handle = app.getRequestHandler()

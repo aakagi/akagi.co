@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
+
+import AppLayout from 'containers/AppLayout'
 import SeoHead from 'components/SeoHead'
+
 // import Editor from './components/Editor'
-import NavBar from './containers/NavBarContainer'
-import CategoryTree from './containers/CategoryTreeContainer'
+// import NavBar from './containers/NavBarContainer'
+// import CategoryTree from './containers/CategoryTreeContainer'
+import NavBar from 'components/NavBar'
+import CategoryTree from 'components/CategoryTree'
+// 
+// 
 // import ToolBar from './containers/ToolBarContainer'
 
-// import testThoughts from './thoughts/component.thoughts'
-
-
-const SideBarContainer = styled.div`
+const SideBarWrapper = styled.div`
   width: 20%;
   display: flex;
 `
@@ -19,16 +23,16 @@ const MainPageWrapper = styled.div`
   flex: 2;
 `
 
-const Thoughts = (props) => (
-  <div>
+const Thoughts = () => (
+  <AppLayout>
     <SeoHead />
-    <SideBarContainer>
+    <SideBarWrapper>
       <NavBar
         onNewThought={() => console.log('onNewThought')}
         onNewFolder={() => console.log('onNewFolder')}
       />
       <CategoryTree />
-    </SideBarContainer>
+    </SideBarWrapper>
     <MainPageWrapper>
       {/*<ToolBar />
       <Editor
@@ -38,7 +42,7 @@ const Thoughts = (props) => (
         commenting={false}
       />*/}
     </MainPageWrapper>
-  </div>
+  </AppLayout>
 )
 
 export default Thoughts

@@ -1,6 +1,5 @@
 import NextHead from 'next/head'
 import { Component } from 'react'
-import GlobalStyles from './GlobalStyles'
 
 export default class SeoHead extends Component {
   render() {
@@ -14,59 +13,58 @@ export default class SeoHead extends Component {
     } = this.props
     const properCanonical = canonical || url
     return (
-      <div>
-        <NextHead>
-          <title>
-            {title}
-          </title>
+      <NextHead>
+        <title>
+          {title}
+        </title>
 
-          <meta name="description" content={description} />
+        <meta name="description" content={description} />
 
-          {/* Open Graph */}
-          <link itemProp="url" href="https://styled-components.com/" />
-          <meta itemProp="name" content={title} />
-          <meta itemProp="description" content={description} />
-          <meta itemProp="image" content="/static/atom.png" />
+        {/* Open Graph */}
+        <link itemProp="url" href="https://styled-components.com/" />
+        <meta itemProp="name" content={title} />
+        <meta itemProp="description" content={description} />
+        <meta itemProp="image" content="/static/atom.png" />
 
-          <meta
-            name="google-site-verification"
-            content="lWntYW6AWVMcShSIWLmOzKr8Wyek2TR-zuQn6_XGu_c"
-          />
+        <meta
+          name="google-site-verification"
+          content="lWntYW6AWVMcShSIWLmOzKr8Wyek2TR-zuQn6_XGu_c"
+        />
 
-          <meta property="og:locale" content="en_US" />
-          <meta property="og:type" content="website" />
-          <meta property="og:title" content={title} />
-          <meta property="og:url" content={url} />
-          <meta property="og:image" content={image} />
-          <meta property="og:image:height" content="652" />
-          <meta property="og:image:width" content="652" />
-          <meta property="og:description" content={description} />
-          <meta property="og:site_name" content="styled-components" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={title} />
+        <meta property="og:url" content={url} />
+        <meta property="og:image" content={image} />
+        <meta property="og:image:height" content="652" />
+        <meta property="og:image:width" content="652" />
+        <meta property="og:description" content={description} />
+        <meta property="og:site_name" content="styled-components" />
 
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:site" content="@mxstbr" />
-          <meta name="twitter:title" content={title} />
-          <meta name="twitter:description" content={description} />
-          <meta name="twitter:creator" content="@mxstbr" />
-          <meta name="twitter:image" content={image} />
-          <meta name="twitter:url" content={url} />
-          <meta
-            name="twitter:image:src"
-            content="https://styled-components.com/static/meta.png"
-          />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@mxstbr" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:creator" content="@mxstbr" />
+        <meta name="twitter:image" content={image} />
+        <meta name="twitter:url" content={url} />
+        <meta
+          name="twitter:image:src"
+          content="https://styled-components.com/static/meta.png"
+        />
 
-          <link
-            rel="canonical"
-            href={`https://www.styled-components.com${properCanonical}`}
-          />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-          {children}
+        <link
+          rel="canonical"
+          href={`https://www.styled-components.com${properCanonical}`}
+        />
 
-          <link rel="shortcut icon" href="/static/atom.png" />
-          <link rel="icon" href="/static/atom.png" />
-        </NextHead>
-        <GlobalStyles />
-      </div>
+        {children}
+
+        <link rel="shortcut icon" href="/static/atom.png" />
+        <link rel="icon" href="/static/atom.png" />
+      </NextHead>
     )
   }
 }

@@ -4,7 +4,9 @@
     ["module-resolver", {
       "alias": {
         "components": "./components",
-        "utils": "./utils"
+        "utils": "./utils",
+        "store": "./store",
+        "containers": "./containers"
       }
     }]
   ],
@@ -12,6 +14,7 @@
     "development": {
       "presets": "next/babel",
       "plugins": [
+        "transform-decorators-legacy",
         ["babel-plugin-styled-components", {
           "displayName": true,
           "ssr": true
