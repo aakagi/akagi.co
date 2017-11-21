@@ -2,7 +2,9 @@ import styled from 'styled-components'
 import Link from 'next/link'
 
 const LinksWrapper = styled.div`
-  margin: 72px 24px;
+  margin: 0 auto;
+  padding: 24px;
+  max-width: 500px;
 `
 
 const PageLinkWrapper = styled.div`

@@ -6,7 +6,8 @@ const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 24px;
+  margin: 0 auto;
+  padding: 24px;
   max-width: 500px;
 `
 

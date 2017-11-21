@@ -52,9 +52,10 @@ app.prepare()
 
     server.disable('x-powered-by')
 
-    // server.get('/docs', (req, res) => {
-    //   cachedRender(req, res, '/docs')
-    // })
+    server.get('/post', (req, res) => {
+      
+      cachedRender(req, res, '/me/0001-gift-list')
+    })
 
     // server.get('/docs/basics', (req, res) => {
     //   cachedRender(req, res, '/docs/basics')
