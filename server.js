@@ -2,10 +2,10 @@ const dev = process.env.NODE_ENV !== 'production'
 const moduleAlias = require('module-alias')
 const path = require('path')
 
-if (!dev) {
-  moduleAlias.addAlias('react', 'preact-compat')
-  moduleAlias.addAlias('react-dom', 'preact-compat')
-}
+// if (!dev) {
+//   moduleAlias.addAlias('react', 'preact-compat')
+//   moduleAlias.addAlias('react-dom', 'preact-compat')
+// }
 
 const { parse } = require('url')
 const express = require('express')
