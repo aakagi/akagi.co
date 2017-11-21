@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "engines": {
-    "node": ">=8.2.1",
+    "node": "^8.2.1",
     "npm": "^5.3.0"
   },
   "scripts": {
