@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "engines": {
+    "node": ">=8.2.1",
+    "npm": "^5.3.0"
+  },
   "scripts": {
     "dev": "node server.js",
     "nodemon": "nodemon server.js",
