@@ -6,7 +6,8 @@
         "components": "./components",
         "utils": "./utils",
         "store": "./store",
-        "containers": "./containers"
+        "containers": "./containers",
+        "THOUGHT": "./TEMP-DATA/gifts.js"
       }
     }]
   ],
@@ -18,11 +19,6 @@
         ["babel-plugin-styled-components", {
           "displayName": true,
           "ssr": true
-        }],
-        ["module-resolver", {
-          "alias": {
-            "THOUGHT": "./TEMP-DATA/gifts.js"
-          }
         }]
       ]
     },
@@ -32,11 +28,6 @@
         ["babel-plugin-styled-components", {
           "displayName": true,
           "ssr": true
-        }],
-        ["module-resolver", {
-          "alias": {
-            "THOUGHT": "./utils/temp.js"
-          }
         }]
       ]
     },
