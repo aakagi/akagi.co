@@ -11,6 +11,7 @@
     "lint:fix": "eslint . --fix",
     "lint:css": "stylelint './static/**/*.js' './pages/**/*.js' './test/**/*.js' './utils/**/*.js' './components/**/*.js' './sections/**/*.js'",
     "start": "NODE_ENV=production node server.js",
+    "heroku-postbuild": "next build",
     "jest": "jest",
     "test": "run-s jest lint:js",
     "precommit": "lint-staged"
