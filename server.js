@@ -52,9 +52,10 @@ app.prepare()
 
     server.disable('x-powered-by')
 
-    server.get('/post', (req, res) => {
-      
-      cachedRender(req, res, '/me/0001-gift-list')
+    server.get('/me/:pageId', (req, res) => {
+      const pageId = req.params.pageId
+      console.log('pageId', pageId)
+      cachedRender(req, res, '/post', { pageId })
     })
 
     // server.get('/docs/basics', (req, res) => {

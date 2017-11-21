@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "node server.js",
+    "nodemon": "nodemon server.js",
     "build": "next build",
     "lint:js": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -46,6 +47,7 @@
     "jest": "^20.0.4",
     "jest-styled-components": "^4.4.1",
     "lint-staged": "^4.0.2",
+    "nodemon": "^1.12.1",
     "npm-run-all": "^4.0.2",
     "prettier": "^1.5.3",
     "react-addons-test-utils": "15.4.2",
