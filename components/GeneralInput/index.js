@@ -13,6 +13,7 @@ const TextArea = styled.textarea`
   padding: 6px;
   border-color: ${silverDark};
   border-width: 1px;
+  line-height: 1.7;
   resize: ${props => props.resize || 'auto'};
 `
 

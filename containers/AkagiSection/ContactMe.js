@@ -40,7 +40,7 @@ const ContactMe = ({ formId = 'contact-me', ...props }) => (
     <ContactInput
       form={formId}
       type={'textarea'}
-      placeholder={'Who are you and how did we meet? Why are we keeping in touch?'}
+      placeholder={'Who are you?\nHow did we meet?\nWhy keep in touch?'}
       rows={5}
       name={'message'}
     />
