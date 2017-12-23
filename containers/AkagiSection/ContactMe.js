@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import GeneralInput from 'components/GeneralInput'
-import { black } from 'utils/colors'
+import { black, white, red } from 'utils/colors'
 
 const FormWrapper = styled.form`
   display: flex;
@@ -26,6 +26,11 @@ const SubmitButton = styled.button`
   width: 100%;
   border: 1px solid ${black};
   padding: 6px;
+
+  &:hover {
+    border-color: ${red};
+    color: ${red};
+  }
 `
 
 const ContactMe = ({ formId = 'contact-me', ...props }) => (

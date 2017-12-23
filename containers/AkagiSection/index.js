@@ -27,7 +27,7 @@ const AkagiSection = ({ onSubmit }) => (
       AKAGI<Red>.</Red>CO
     </AkagiHeader>
     <ContactSubtext>
-      Let's keep in touch!
+      Let<Red>’</Red>s keep in touch<Red>!</Red>
     </ContactSubtext>
     <ContactMe
       onSubmit={onSubmit}
