@@ -32,15 +32,21 @@ const ContactMe = ({ formId = 'contact-me', ...props }) => (
   <FormWrapper id={formId} {...props}>
     <ContactInput
       form={formId}
-      placeholder={'What is your email? *'}
+      placeholder={'What’s your email? *'}
       name={'email'}
       type={'email'}
       required
     />
     <ContactInput
       form={formId}
+      placeholder={'What’s your name? *'}
+      name={'name'}
+      required
+    />
+    <ContactInput
+      form={formId}
       type={'textarea'}
-      placeholder={'Who are you?\nHow did we meet?\nWhy keep in touch?'}
+      placeholder={'What’s up?'}
       rows={5}
       name={'message'}
     />

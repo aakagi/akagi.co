@@ -8,7 +8,7 @@ const SectionWrapper = styled.div`
 `
 
 const AkagiHeader = styled.h1`
-  font-size: 50px;
+  font-size: 48px;
   padding: 24px 0;
 `
 
