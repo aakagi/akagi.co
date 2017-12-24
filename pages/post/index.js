@@ -25,7 +25,7 @@ const TemplateLiteralDisplay = (jsString) => {
 const text = publicPost[0].text
 
 const PostReaderWrapper = styled.div`
-  font-family: 'Lora';
+  // font-family: 'Lora Georgia';
   padding: 24px;
   line-height: 1.25;
   font-size: 18px;
