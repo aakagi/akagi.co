@@ -1,7 +1,6 @@
 const dev = process.env.NODE_ENV !== 'production'
-const moduleAlias = require('module-alias')
-const path = require('path')
-
+// const moduleAlias = require('module-alias')
+// 
 // if (!dev) {
 //   moduleAlias.addAlias('react', 'preact-compat')
 //   moduleAlias.addAlias('react-dom', 'preact-compat')
@@ -12,6 +11,7 @@ const express = require('express')
 const LRUCache = require('lru-cache')
 const next = require('next')
 const mobxReact = require('mobx-react')
+const compression = require('compression')
 
 mobxReact.useStaticRendering(true)
 
@@ -49,6 +49,9 @@ const PORT = process.env.PORT || 3000
 app.prepare()
   .then(() => {
     const server = express()
+    
+    // Gzip
+    server.use(compression())
 
     server.disable('x-powered-by')
 
@@ -57,22 +60,6 @@ app.prepare()
       console.log('pageId', pageId)
       cachedRender(req, res, '/post', { pageId })
     })
-
-    // server.get('/docs/basics', (req, res) => {
-    //   cachedRender(req, res, '/docs/basics')
-    // })
-
-    // server.get('/docs/advanced', (req, res) => {
-    //   cachedRender(req, res, '/docs/advanced')
-    // })
-
-    // server.get('/docs/api', (req, res) => {
-    //   cachedRender(req, res, '/docs/api')
-    // })
-
-    // server.get('/sw.js', (req, res) => {
-    //   res.sendFile(path.resolve('./.next/sw.js'))
-    // })
 
     server.use('/static', express.static('./static', {
       maxage: '48h',
