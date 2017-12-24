@@ -60,10 +60,6 @@ export default class SeoHead extends Component {
           href={`https://www.styled-components.com${properCanonical}`}
         />
 
-        <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Lora"
-        />
-
         {children}
 
         <link rel="shortcut icon" href="/static/atom.png" />
