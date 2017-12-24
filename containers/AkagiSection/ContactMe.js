@@ -30,6 +30,7 @@ const SubmitButton = styled.button`
   &:hover {
     border-color: ${red};
     color: ${red};
+    cursor: pointer;
   }
 `
 
