@@ -595,12 +595,12 @@ babel-plugin-react-require@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-react-require/-/babel-plugin-react-require-3.0.0.tgz#2e4e7b4496b93a654a1c80042276de4e4eeb20e3"
 
-babel-plugin-styled-components@^1.1.7:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-styled-components/-/babel-plugin-styled-components-1.3.0.tgz#9e4d9f718b2975dadbfab0bc1c6793d93c751404"
+babel-plugin-styled-components@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-styled-components/-/babel-plugin-styled-components-1.4.0.tgz#3a2207a1852770a383f0106ca85aded4f3e3488f"
   dependencies:
     babel-types "^6.26.0"
-    stylis "3.x"
+    stylis "^3.0.0"
 
 babel-plugin-syntax-async-functions@^6.8.0:
   version "6.13.0"
@@ -6031,13 +6031,9 @@ sane@~1.6.0:
     walker "~1.0.5"
     watch "~0.10.0"
 
-sax@1.2.1:
+sax@1.2.1, sax@>=0.6.0, sax@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.1.tgz#7b8e656190b228e81a66aea748480d828cd2d37a"
-
-sax@>=0.6.0, sax@^1.2.1:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
 
 semantic-release@^8.0.3:
   version "8.2.3"
@@ -6550,7 +6546,7 @@ stylis-rule-sheet@0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/stylis-rule-sheet/-/stylis-rule-sheet-0.0.6.tgz#059f89125a8e8db546e8adb0e07c4b4bcb81911b"
 
-stylis@3.3.2, stylis@3.x:
+stylis@3.3.2, stylis@3.x, stylis@^3.0.0:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/stylis/-/stylis-3.3.2.tgz#95ef285836e98243f8b8f64a9a72706ea6c893ea"
 

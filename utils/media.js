@@ -5,9 +5,3 @@ export const mobile = inner => css`
     ${inner}
   }
 `
-
-export const phone = inner => css`
-  @media (max-width: ${650 / 16}em) {
-    ${inner}
-  }
-`

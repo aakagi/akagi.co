@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-
 import { ThemeProvider } from 'styled-components'
 import { Provider as MobxProvider } from 'mobx-react'
+import NextHead from 'next/head'
 import { initStore } from 'store'
 import GlobalStyles from './GlobalStyles'
 import theme from 'utils/theme'
@@ -23,7 +23,6 @@ export default class Thoughts extends Component {
       <MobxProvider store={this.store}>
         <ThemeProvider theme={theme}>
           <div>
-            <GlobalStyles />
             {this.props.children}
           </div>
         </ThemeProvider>
