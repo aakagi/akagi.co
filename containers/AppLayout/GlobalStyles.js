@@ -85,13 +85,6 @@ injectGlobal`
   }
 
   body {
-    margin: 0;
-    padding: 0;
     font-family: gotham, helvetica, arial, sans-serif;
-  }
-
-  .scraps {
-    font-size: 30px;
-    margin-top: 6px;
   }
 `
