@@ -1,6 +1,6 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-import GoogleAnalyticsTag from 'components/GoogleAnalyticsTag'
+// import GoogleAnalyticsTag from 'components/GoogleAnalyticsTag'
 
 // For styled components + Next.js SSR prerender styles
 export default class MyDocument extends Document {
@@ -17,9 +17,9 @@ export default class MyDocument extends Document {
         <Head>
           {this.props.styleTags}
         </Head>
-        <GoogleAnalyticsTag
+        {/*<GoogleAnalyticsTag
           trackingId={'UA-76371065-1'}
-        />
+        />*/}
         <body>
           <Main />
           <NextScript />

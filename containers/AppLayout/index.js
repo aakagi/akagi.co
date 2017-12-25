@@ -1,3 +1,4 @@
+import './GlobalStyles'
 import React, { Component } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { Provider as MobxProvider } from 'mobx-react'

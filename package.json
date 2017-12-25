@@ -17,8 +17,7 @@
     "start": "NODE_ENV=production node server.js",
     "heroku-postbuild": "next build",
     "jest": "jest",
-    "test": "run-s jest lint:js",
-    "precommit": "lint-staged"
+    "test": "run-s jest lint:js"
   },
   "dependencies": {
     "babel-plugin-polished": "^1.1.0",
