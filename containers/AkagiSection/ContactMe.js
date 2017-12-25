@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import GeneralInput from 'components/GeneralInput'
-import { black, white, red } from 'utils/colors'
+import { black, red } from 'utils/colors'
 
 const FormWrapper = styled.form`
   display: flex;

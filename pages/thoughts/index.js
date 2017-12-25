@@ -1,6 +1,4 @@
-import React, { Component } from 'react'
 import styled from 'styled-components'
-
 import AppLayout from 'containers/AppLayout'
 import SeoHead from 'components/SeoHead'
 

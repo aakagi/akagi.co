@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { Provider as MobxProvider } from 'mobx-react'
 import { initStore } from 'store'
-import GlobalStyles from './GlobalStyles'
 import theme from 'utils/theme'
 
 export default class Thoughts extends Component {

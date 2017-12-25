@@ -1,4 +1,4 @@
-const path = require('path')
+// const path = require('path')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 

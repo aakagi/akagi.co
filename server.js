@@ -12,6 +12,7 @@ const LRUCache = require('lru-cache')
 const next = require('next')
 const mobxReact = require('mobx-react')
 const compression = require('compression')
+const forceHTTPS = require('express-force-https')
 
 mobxReact.useStaticRendering(true)
 
@@ -49,6 +50,11 @@ const PORT = process.env.PORT || 3000
 app.prepare()
   .then(() => {
     const server = express()
+    
+    // Force SSL on prod
+    if (!dev) {
+      server.use(forceHTTPS)
+    }
     
     // Gzip
     server.use(compression())

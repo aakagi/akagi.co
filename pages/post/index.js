@@ -4,8 +4,8 @@ import SeoHead from 'components/SeoHead'
 
 import {
   publicPost,
-  friends,
-  personal,
+  // friends,
+  // personal,
 } from 'THOUGHT'
 
 const TemplateLiteralDisplay = (jsString) => {
