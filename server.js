@@ -1,6 +1,6 @@
 const dev = process.env.NODE_ENV !== 'production'
 // const moduleAlias = require('module-alias')
-// 
+
 // if (!dev) {
 //   moduleAlias.addAlias('react', 'preact-compat')
 //   moduleAlias.addAlias('react-dom', 'preact-compat')
@@ -13,6 +13,8 @@ const next = require('next')
 const mobxReact = require('mobx-react')
 const compression = require('compression')
 const forceHTTPS = require('express-force-https')
+
+const socialUrls = require('./constants/socialUrls')
 
 mobxReact.useStaticRendering(true)
 
@@ -47,42 +49,49 @@ const cachedRender = (req, res, pagePath, queryParams) => {
 
 const PORT = process.env.PORT || 3000
 
-app.prepare()
-  .then(() => {
-    const server = express()
+app.prepare().then(() => {
+  const server = express()
 
-    // Force SSL on prod
-    if (!dev) {
-      server.use(forceHTTPS)
-    }
+  // Force SSL on prod
+  if (!dev) {
+    server.use(forceHTTPS)
+  }
 
-    // Gzip
-    server.use(compression())
+  // Gzip
+  server.use(compression())
 
-    server.disable('x-powered-by')
+  server.disable('x-powered-by')
 
-    server.get('/me/:pageId', (req, res) => {
-      const pageId = req.params.pageId
-      console.log('pageId', pageId)
-      cachedRender(req, res, '/post', { pageId })
-    })
-
-    server.use('/static', express.static('./static', {
-      maxage: '48h',
-      index: false,
-      redirect: false
-    }))
-
-    server.get('*', (req, res) => {
-      const parsedUrl = parse(req.url, true)
-      handle(req, res, parsedUrl)
-    })
-
-    server.listen(PORT, err => {
-      if (err) {
-        throw err
-      }
-
-      console.log(`> Ready on http://localhost:${PORT}`)
+  // Redirects for links
+  Object.keys(socialUrls).forEach(socialAccount => {
+    server.get('/' + socialAccount, (req, res) => {
+      res.redirect(301, socialUrls[socialAccount])
     })
   })
+
+  // Server-side render pages
+  server.get('/me/:pageId', (req, res) => {
+    const pageId = req.params.pageId
+    console.log('pageId', pageId)
+    cachedRender(req, res, '/post', { pageId })
+  })
+
+  server.use('/static', express.static('./static', {
+    maxage: '48h',
+    index: false,
+    redirect: false
+  }))
+
+  server.get('*', (req, res) => {
+    const parsedUrl = parse(req.url, true)
+    handle(req, res, parsedUrl)
+  })
+
+  server.listen(PORT, err => {
+    if (err) {
+      throw err
+    }
+
+    console.log(`> Ready on http://localhost:${PORT}`)
+  })
+})

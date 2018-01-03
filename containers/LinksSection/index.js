@@ -44,6 +44,10 @@ const LinksSection = () => (
         href={`/user?username=me`}
       />
       <PageLink
+        text={'Source For This Website'}
+        href={'https://github.com/aakagi/akagi-website'}
+      />
+      <PageLink
         text={'Gift List'}
         as={'/me/0001-gift-list'}
         href={'/post?postId=0001'}
@@ -55,19 +59,23 @@ const LinksSection = () => (
     </Group>
     <Group>
       <GroupTitle>
-        Public Essays
+        Heliocentric
       </GroupTitle>
       <PageLink
-        text={'How Alex’s Brain Works'}
-        href={'/thoughts'}
+        text={'1 - Heliocentric'}
+        href={'https://medium.com/@akagi/heliocentric-ef6d80001ef2'}
       />
       <PageLink
-        text={'How to Life'}
-        href={'/thoughts'}
+        text={'2 - How Alex’s Brain Works'}
+        href={'https://medium.com/@akagi/how-alexs-brain-works-39451a4becd0'}
+      />
+      <PageLink
+        text={'3 - The Ephemeral River'}
+        href={''}
       />
       <PageLink
         text={'Master Plan'}
-        href={'/thoughts'}
+        href={''}
       />
     </Group>
     <Group>
