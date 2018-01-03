@@ -6,7 +6,6 @@ yarn.lock
 node_modules
 *.log
 .env
-lib/
 es/
 dist/
 npm-debug.log
