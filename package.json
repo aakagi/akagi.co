@@ -11,7 +11,7 @@
     "dev": "node server.js",
     "nodemon": "nodemon server.js",
     "build": "next build",
-    "lint:js": "eslint .",
+    "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "lint:css": "stylelint './static/**/*.js' './pages/**/*.js' './test/**/*.js' './utils/**/*.js' './components/**/*.js' './sections/**/*.js'",
     "start": "NODE_ENV=production node server.js",
@@ -37,6 +37,7 @@
     "preact-compat": "^3.17.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
+    "react-recaptcha": "^2.3.5",
     "styled-components": "^2.1.2",
     "sw-precache-webpack-plugin": "^0.11.4",
     "webpack-bundle-analyzer": "^2.4.0"

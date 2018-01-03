@@ -6,6 +6,7 @@
       "alias": {
         "components": "./components",
         "utils": "./utils",
+        "lib": "./lib",
         "store": "./store",
         "containers": "./containers",
         "THOUGHT": "./TEMP-DATA/gifts.js"
