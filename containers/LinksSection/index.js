@@ -53,8 +53,8 @@ const LinksSection = () => (
         href={'/post?postId=0001'}
       />
       <PageLink
-        text={'Helio Ventures'}
-        href={'/thoughts'}
+        text={'Heliocentric Ventures'}
+        href={'http://helio.ventures'}
       />
     </Group>
     <Group>
@@ -70,11 +70,7 @@ const LinksSection = () => (
         href={'https://medium.com/@akagi/how-alexs-brain-works-39451a4becd0'}
       />
       <PageLink
-        text={'3 - The Ephemeral River'}
-        href={''}
-      />
-      <PageLink
-        text={'Master Plan'}
+        text={'3 - The Ephemeral River (in progress)'}
         href={''}
       />
     </Group>
