@@ -69,6 +69,11 @@ app.prepare().then(() => {
     })
   })
 
+  // Temp things redirect
+  server.get('/' + socialAccount, (req, res) => {
+    res.redirect(301, 'https://github.com/aakagi/akagi-website/tree/master/pages/things/temp.md')
+  })
+
   // Server-side render pages
   server.get('/me/:pageId', (req, res) => {
     const pageId = req.params.pageId

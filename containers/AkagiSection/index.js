@@ -8,7 +8,7 @@ import formToJson from 'lib/formToJson'
 
 const API_BASE = process.env.NODE_ENV === 'production'
   ? 'https://5ltiyzowya.execute-api.us-east-1.amazonaws.com/production'
-  : 'localhost:4000'
+  : 'http://localhost:4000'
 
 // TODO: Move out of this component
 function onSubmit(e) {
@@ -21,6 +21,8 @@ function onSubmit(e) {
     body: body,
   })
   .then(({ message, error }) => {
+    console.log('message', message)
+    console.log('error', error)
     if (error) {
       return alert(error)
     } else {
