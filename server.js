@@ -70,7 +70,7 @@ app.prepare().then(() => {
   })
 
   // Temp things redirect
-  server.get('/' + socialAccount, (req, res) => {
+  server.get('/things' + socialAccount, (req, res) => {
     res.redirect(301, 'https://github.com/aakagi/akagi-website/tree/master/pages/things/temp.md')
   })
 

@@ -1,4 +1,4 @@
-const things () => (
+const things = () => (
   <div>
   </div>
 )
