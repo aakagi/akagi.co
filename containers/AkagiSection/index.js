@@ -9,7 +9,6 @@ import formToJson from 'lib/formToJson'
 const API_BASE = process.env.NODE_ENV === 'production'
   ? 'https://5ltiyzowya.execute-api.us-east-1.amazonaws.com/production'
   : 'http://localhost:4000'
-  // : 'https://5ltiyzowya.execute-api.us-east-1.amazonaws.com/production'
 
 // TODO: Move out of this component
 function onSubmit(e) {
@@ -32,8 +31,8 @@ function onSubmit(e) {
     document.getElementById(formId).reset()
   })
   .catch(err => {
-    // console.error('err', err)
-    // alert(err)
+    console.error('err', err)
+    alert(err)
   })
 }
 
