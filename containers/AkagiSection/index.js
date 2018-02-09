@@ -8,7 +8,8 @@ import formToJson from 'lib/formToJson'
 
 const API_BASE = process.env.NODE_ENV === 'production'
   ? 'https://5ltiyzowya.execute-api.us-east-1.amazonaws.com/production'
-  : 'http://localhost:4000'
+  : 'https://5ltiyzowya.execute-api.us-east-1.amazonaws.com/production'
+  // : 'http://localhost:4000'
 
 // TODO: Move out of this component
 function onSubmit(e) {
@@ -19,8 +20,9 @@ function onSubmit(e) {
   const body = formToJson(elements)
   jsonFetch('POST', `${API_BASE}/akagi-contact`, {
     body: body,
+    mode: 'cors',
   })
-  .then(({ message, error }) => {
+  .then(({ error, message }) => {
     if (error) {
       return alert(error)
     } else {
