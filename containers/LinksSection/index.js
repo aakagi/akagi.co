@@ -70,7 +70,11 @@ const LinksSection = () => (
         href={'https://medium.com/@akagi/how-alexs-brain-works-39451a4becd0'}
       />
       <PageLink
-        text={'3 - The Ephemeral River (in progress)'}
+        text={'3 - Living Lavish Out of a Backpack'}
+        href={'https://medium.com/@akagi/living-lavish-out-of-a-backpack-61a80401d6a4'}
+      />
+      <PageLink
+        text={'4 - The Ephemeral River (in progress)'}
         href={''}
       />
     </Group>
