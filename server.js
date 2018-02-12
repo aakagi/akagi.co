@@ -73,12 +73,28 @@ app.prepare().then(() => {
   server.get('/things', (req, res) => {
     res.redirect(301, 'https://github.com/aakagi/akagi-website/tree/master/pages/things/temp.md')
   })
+  
+  server.get('/thoughts', (req, res) => {
+    cachedRender(req, res, '/thoughts')
+  })
 
   // Server-side render pages
-  server.get('/me/:pageId', (req, res) => {
-    const pageId = req.params.pageId
-    console.log('pageId', pageId)
-    cachedRender(req, res, '/post', { pageId })
+  server.get('/:username', (req, res) => {
+    const username = req.params.username
+
+    // All usernames have @ symbol to differentiate
+    const isUsername = username.contains('@')
+    if (isUsername) {
+      cachedRender(req, res, '/username', { username })
+    } else {
+      // Not actually a username, refers to page slug
+      cachedRender(req, res, `/${username}`)
+    }
+  })
+
+  server.get('/:username/:slug', (req, res) => {
+    const slug = req.params.slug
+    cachedRender(req, res, '/enote', { username, slug })
   })
 
   server.use('/static', express.static('./static', {
