@@ -37,6 +37,10 @@ function onSubmit(e) {
   })
 }
 
+const ContactWrapper = styled.div`
+  margin-bottom: 36px;
+`
+
 const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
@@ -70,31 +74,33 @@ const SubmitButton = styled.button`
 `
 
 const ContactMe = ({ formId = 'contact-me', ...props }) => (
-  <FormWrapper id={formId} onSubmit={onSubmit} {...props}>
-    <ContactInput
-      form={formId}
-      placeholder={'What’s your email? *'}
-      name={'email'}
-      type={'email'}
-      required
-    />
-    <ContactInput
-      form={formId}
-      placeholder={'What’s your name? *'}
-      name={'name'}
-      required
-    />
-    <ContactInput
-      form={formId}
-      type={'textarea'}
-      placeholder={'What’s up?'}
-      rows={5}
-      name={'message'}
-    />
-    <SubmitButton form={formId}>
-      Submit
-    </SubmitButton>
-  </FormWrapper>
+  <ContactWrapper>
+    <FormWrapper id={formId} onSubmit={onSubmit} {...props}>
+      <ContactInput
+        form={formId}
+        placeholder={'What’s your email? *'}
+        name={'email'}
+        type={'email'}
+        required
+      />
+      <ContactInput
+        form={formId}
+        placeholder={'What’s your name? *'}
+        name={'name'}
+        required
+      />
+      <ContactInput
+        form={formId}
+        type={'textarea'}
+        placeholder={'What’s up?'}
+        rows={5}
+        name={'message'}
+      />
+      <SubmitButton form={formId}>
+        Submit
+      </SubmitButton>
+    </FormWrapper>
+  </ContactWrapper>
 )
 
 export default ContactMe
