@@ -9,7 +9,10 @@ export default class Thoughts extends Component {
   static getInitialProps ({ req }) {
     const isServer = !!req
     const store = initStore(isServer)
-    return { lastUpdate: store.lastUpdate, isServer }
+    return {
+      isServer,
+      lastUpdate: store.lastUpdate,
+    }
   }
 
   constructor (props) {
