@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { silverDark } from 'utils/colors'
+import PropTypes from 'prop-types'
 
 const Input = styled.input`
   width: 100%;
@@ -26,6 +27,10 @@ const GeneralInput = (props) => {
   return (
     <Input {...props} />
   )
+}
+
+GeneralInput.propTypes = {
+  name: PropTypes.string.isRequired,
 }
 
 export default GeneralInput

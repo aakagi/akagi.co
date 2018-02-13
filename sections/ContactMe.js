@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import Form from 'components/Form'
 import GeneralInput from 'components/GeneralInput'
 import Button from 'components/Button'
-import { black, red } from 'utils/colors'
+import { red } from 'utils/colors'
 
 const ContactWrapper = styled.div`
   margin-bottom: 36px;
