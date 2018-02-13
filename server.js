@@ -79,19 +79,23 @@ app.prepare().then(() => {
     cachedRender(req, res, '/thoughts')
   })
 
-  // Server-side render pages
-  // server.get('/:username', (req, res) => {
-  //   const username = req.params.username
+  server.get('/new', (req, res) => {
+    cachedRender(req, res, '/new')
+  })
 
-  //   // All usernames have @ symbol to differentiate
-  //   const isUsername = username.includes('@')
-  //   if (isUsername) {
-  //     cachedRender(req, res, '/username', { username })
-  //   } else {
-  //     // Not actually a username, refers to page slug
-  //     cachedRender(req, res, `/${username}`)
-  //   }
-  // })
+  // Server-side render pages
+  server.get('/:username', (req, res) => {
+    const username = req.params.username
+
+    // All usernames have @ symbol to differentiate
+    const isUsername = username.includes('@')
+    if (isUsername) {
+      cachedRender(req, res, '/username', { username })
+    } else {
+      // Not actually a username, refers to page slug
+      cachedRender(req, res, `/${username}`)
+    }
+  })
 
   // server.get('/:username/:slug', (req, res) => {
   //   const username = req.params.username
