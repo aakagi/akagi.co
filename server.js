@@ -59,17 +59,18 @@ app.prepare().then(() => {
 
   // Gzip
   server.use(compression())
-
+  
+  // Remove Express default header
   server.disable('x-powered-by')
 
-  // Redirects for links
+  // Redirects for social links
   Object.keys(socialUrls).forEach(socialAccount => {
     server.get('/' + socialAccount, (req, res) => {
       res.redirect(301, socialUrls[socialAccount])
     })
   })
 
-  // Temp things redirect
+  // Temp "things" redirect
   server.get('/things', (req, res) => {
     res.redirect(301, 'https://github.com/aakagi/akagi-website/tree/master/pages/things/temp.md')
   })
@@ -83,7 +84,7 @@ app.prepare().then(() => {
     const username = req.params.username
 
     // All usernames have @ symbol to differentiate
-    const isUsername = username.contains('@')
+    const isUsername = username.includes('@')
     if (isUsername) {
       cachedRender(req, res, '/username', { username })
     } else {
@@ -93,8 +94,9 @@ app.prepare().then(() => {
   })
 
   server.get('/:username/:slug', (req, res) => {
+    const username = req.params.username
     const slug = req.params.slug
-    cachedRender(req, res, '/enote', { username, slug })
+    cachedRender(req, res, '/username/enote', { username, slug })
   })
 
   server.use('/static', express.static('./static', {

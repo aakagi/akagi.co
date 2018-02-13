@@ -7,6 +7,7 @@
         "components": "./components",
         "utils": "./utils",
         "lib": "./lib",
+        "sections": "./sections",
         "store": "./store",
         "containers": "./containers",
         "THOUGHT": "./TEMP-DATA/gifts.js"
