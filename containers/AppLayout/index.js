@@ -1,21 +1,10 @@
 import './GlobalStyles'
-import React, { Component } from 'react'
-import { ThemeProvider } from 'styled-components'
 import { Provider as MobxProvider } from 'mobx-react'
+import { ThemeProvider } from 'styled-components'
 import { initStore } from 'store'
 import theme from 'utils/theme'
 
-export default class AppLayout extends Component {
-  static getInitialProps ({ req }) {
-    const isServer = !!req
-    console.log('isServer', isServer)
-    const store = initStore(isServer)
-    return {
-      isServer,
-      lastUpdate: store.lastUpdate,
-    }
-  }
-
+export default class AppLayout extends React.Component {
   constructor (props) {
     super(props)
     this.store = initStore(props.isServer, props.lastUpdate)

@@ -1,7 +1,8 @@
 {
+  "presets": "next/babel",
   "plugins": [
-    "babel-plugin-polished",
     "transform-decorators-legacy",
+    "babel-plugin-polished",
     ["module-resolver", {
       "alias": {
         "components": "./components",
@@ -21,7 +22,6 @@
   ],
   "env": {
     "development": {
-      "presets": "next/babel",
       "plugins": [
         ["babel-plugin-styled-components", {
           "displayName": true,
@@ -30,7 +30,6 @@
       ]
     },
     "production": {
-      "presets": "next/babel",
       "plugins": [
         ["babel-plugin-styled-components", {
           "displayName": true,
@@ -40,8 +39,7 @@
     },
     "test": {
       "presets": [
-        ["env", { "modules": "commonjs" }],
-        "next/babel"
+        ["env", { "modules": "commonjs" }]
       ]
     }
   }

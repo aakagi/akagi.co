@@ -1,14 +1,28 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import { initStore } from 'store'
 // import GoogleAnalyticsTag from 'components/GoogleAnalyticsTag'
 
-// For styled components + Next.js SSR prerender styles
+// 
+// Custom document for pre-rendered code on server
+// 
 export default class MyDocument extends Document {
-  static getInitialProps ({ renderPage }) {
+  static getInitialProps ({ renderPage, req }) {
+    // Render styled components on server
     const sheet = new ServerStyleSheet()
     const page = renderPage(App => props => sheet.collectStyles(<App {...props} />))
     const styleTags = sheet.getStyleElement()
-    return { ...page, styleTags }
+
+    // Init MobX store
+    const isServer = !!req
+    const store = initStore(isServer)
+
+    return {
+      ...page,
+      styleTags,
+      isServer,
+      lastUpdate: store.lastUpdate,
+    }
   }
 
   render () {
@@ -17,9 +31,7 @@ export default class MyDocument extends Document {
         <Head>
           {this.props.styleTags}
         </Head>
-        {/*<GoogleAnalyticsTag
-          trackingId={'UA-76371065-1'}
-        />*/}
+        {/*<GoogleAnalyticsTag trackingId={'UA-76371065-1'} />*/}
         <body>
           <Main />
           <NextScript />

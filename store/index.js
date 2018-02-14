@@ -3,6 +3,7 @@ import { action, observable } from 'mobx'
 let store = null
 
 class Store {
+  @observable test = 0
   @observable lastUpdate = 0
   @observable light = false
 
