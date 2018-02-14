@@ -3,7 +3,6 @@ import Router from 'next/router'
 
 const GoogleAnalyticsTag = ({ gaTrackingId }) => {
   // Tracks the page location etc for GA on route change
-  window.gaTrackingId = '${gaTrackingId}'
   Router.onRouteChangeComplete = () => {
     if (window.gtag) {
       window.gtag('config', window.gaTrackingId, {
@@ -25,6 +24,7 @@ const GoogleAnalyticsTag = ({ gaTrackingId }) => {
       */}
 
       <script dangerouslySetInnerHTML={{ __html: `
+        window.gaTrackingId = '${gaTrackingId}'
         window.dataLayer = window.dataLayer || []
         function gtag(){
           dataLayer.push(arguments)
