@@ -1,16 +1,16 @@
 import './GlobalStyles'
 import { Provider as MobxProvider } from 'mobx-react'
 import { ThemeProvider } from 'styled-components'
-import { initStore } from 'store'
+import initStore from 'store'
 import theme from 'utils/theme'
 
 export default class AppLayout extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
-    this.store = initStore(props.isServer, props.lastUpdate)
+    this.store = initStore(props.isServer)
   }
 
-  render () {
+  render() {
     return (
       <MobxProvider store={this.store}>
         <ThemeProvider theme={theme}>

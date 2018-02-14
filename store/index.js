@@ -1,32 +1,27 @@
-import { action, observable } from 'mobx'
+import { action, observable, runInAction } from 'mobx'
+import ContactFormStore from './ContactFormStore'
 
 let store = null
 
-class Store {
-  @observable test = 0
-  @observable lastUpdate = 0
-  @observable light = false
-
-  constructor (isServer, lastUpdate) {
-    this.lastUpdate = lastUpdate
+class AppStore {
+  constructor(isServer) {
+    this.isServer = isServer
+    this.init()
   }
 
-  @action start = () => {
-    this.timer = setInterval(() => {
-      this.lastUpdate = Date.now()
-      this.light = true
+  @action async init() {
+    runInAction(() => {
+      this.contactForm = new ContactFormStore(this)
     })
   }
-
-  stop = () => clearInterval(this.timer)
 }
 
-export function initStore (isServer, lastUpdate = Date.now()) {
+export default function initStore(isServer) {
   if (isServer) {
-    return new Store(isServer, lastUpdate)
+    return new AppStore(isServer)
   } else {
     if (store === null) {
-      store = new Store(isServer, lastUpdate)
+      store = new AppStore(isServer)
     }
     return store
   }

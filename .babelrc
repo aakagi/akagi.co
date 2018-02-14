@@ -11,6 +11,7 @@
         "sections": "./sections",
         "store": "./store",
         "containers": "./containers",
+        "constants": "./constants",
         "THOUGHT": "./TEMP-DATA/gifts.js"
       }
     }],
