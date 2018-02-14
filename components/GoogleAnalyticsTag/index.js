@@ -3,16 +3,14 @@ import Router from 'next/router'
 
 const GoogleAnalyticsTag = ({ gaTrackingId }) => {
   // Tracks the page location etc for GA on route change
+  window.gaTrackingId = '${gaTrackingId}'
   Router.onRouteChangeComplete = () => {
     if (window.gtag) {
-      console.log('testing')
       window.gtag('config', window.gaTrackingId, {
         page_location: window.location.href,
         page_path: window.location.pathname,
         page_title: window.document.title,
       })
-    } else {
-      console.log('hmmm')
     }
   }
 
