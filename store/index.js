@@ -1,4 +1,4 @@
-import { action, observable, runInAction } from 'mobx'
+import { action, runInAction } from 'mobx'
 import ContactFormStore from './ContactFormStore'
 
 let store = null

@@ -1,17 +1,41 @@
 import NextHead from 'next/head'
+import Router from 'next/router'
 
-const GoogleAnalyticsTag = ({ trackingId }) => (
-  <div>
+const GoogleAnalyticsTag = ({ gaTrackingId }) => {
+  // Tracks the page location etc for GA on route change
+  Router.onRouteChangeComplete = () => {
+    if (window.gtag) {
+      console.log('testing')
+      window.gtag('config', window.gaTrackingId, {
+        page_location: window.location.href,
+        page_path: window.location.pathname,
+        page_title: window.document.title,
+      })
+    } else {
+      console.log('hmmm')
+    }
+  }
+
+  return (
     <NextHead>
-      <script
-        dangerouslySetInnerHTML={{__html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','${trackingId}');`}} />
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`} />
+      
+      {/*
+        This ensures that the first page view gets sent to GA. All subsequent
+        page views will be handled by the `Router.onRouteChangeComplete`
+        method we set up above.
+      */}
+
+      <script dangerouslySetInnerHTML={{ __html: `
+        window.dataLayer = window.dataLayer || []
+        function gtag(){
+          dataLayer.push(arguments)
+        }
+        gtag('js', new Date())
+        gtag('config', '${gaTrackingId}')
+      `}} />
     </NextHead>
-    <noscript dangerouslySetInnerHTML={{__html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${trackingId}" height="0" width="0" style="display:none;visibility:hidden;"></iframe>`}} />
-  </div>
-)
+  )
+}
 
 export default GoogleAnalyticsTag
