@@ -39,11 +39,6 @@ const LinksSection = () => (
         Links
       </GroupTitle>
       <PageLink
-        text={'Me'}
-        as={`/me`}
-        href={`/user?username=me`}
-      />
-      <PageLink
         text={'Source For This Website'}
         href={'https://github.com/aakagi/akagi-website'}
       />
