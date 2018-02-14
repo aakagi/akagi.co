@@ -18,10 +18,6 @@ const Red = styled.span`
   color: ${red};
 `
 
-const SubmitButton = Button.extend`
-  width: 100%;
-`
-
 const ContactMe = ({ formId = 'contact-me', ...props }) => (
   <ContactWrapper>
     <ContactSubtext>
@@ -48,9 +44,9 @@ const ContactMe = ({ formId = 'contact-me', ...props }) => (
         rows={5}
         name={'message'}
       />
-      <SubmitButton form={formId}>
+      <Button width={'100%'} form={formId}>
         Submit
-      </SubmitButton>
+      </Button>
     </Form>
   </ContactWrapper>
 )

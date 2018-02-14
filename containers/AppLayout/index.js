@@ -5,9 +5,10 @@ import { Provider as MobxProvider } from 'mobx-react'
 import { initStore } from 'store'
 import theme from 'utils/theme'
 
-export default class Thoughts extends Component {
+export default class AppLayout extends Component {
   static getInitialProps ({ req }) {
     const isServer = !!req
+    console.log('isServer', isServer)
     const store = initStore(isServer)
     return {
       isServer,

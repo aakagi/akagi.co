@@ -13,10 +13,6 @@ const Title = styled.h2`
   padding: 24px 0;
 `
 
-const SubmitButton = Button.extend`
-  width: 100%;
-`
-
 const NewUser = ({ formId = 'contact-me', ...props }) => (
   <NewUserWrapper>
     <Title>
@@ -34,9 +30,9 @@ const NewUser = ({ formId = 'contact-me', ...props }) => (
         placeholder={'Password'}
         form={formId}
       />
-      <SubmitButton form={formId}>
+      <Button width={'100%'} form={formId}>
         Submit
-      </SubmitButton>
+      </Button>
     </Form>
   </NewUserWrapper>
 )
