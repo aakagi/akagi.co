@@ -14,7 +14,11 @@ const mobxReact = require('mobx-react')
 const compression = require('compression')
 const forceHTTPS = require('express-force-https')
 
-const socialUrls = require('./constants/socialUrls')
+const socialUrls = require('../constants/socialUrls')
+const usernameController = require('./controllers/usernameController')
+
+// Temp gun server hosted on port 8080
+require('./gunServer')
 
 mobxReact.useStaticRendering(true)
 
@@ -80,22 +84,13 @@ app.prepare().then(() => {
   })
 
   server.get('/new', (req, res) => {
-    cachedRender(req, res, '/new')
+    const username = req.query.username
+    console.log('username', username)
+    cachedRender(req, res, '/new', { username })
   })
 
   // Server-side render pages
-  server.get('/:username', (req, res) => {
-    const username = req.params.username
-
-    // All usernames have @ symbol to differentiate
-    const isUsername = username.includes('@')
-    if (isUsername) {
-      cachedRender(req, res, '/username', { username })
-    } else {
-      // Not actually a username, refers to page slug
-      cachedRender(req, res, `/${username}`)
-    }
-  })
+  server.get('/:username', usernameController(cachedRender))
 
   // server.get('/:username/:slug', (req, res) => {
   //   const username = req.params.username

@@ -8,13 +8,13 @@
     "npm": "^5.3.0"
   },
   "scripts": {
-    "dev": "node server.js",
-    "nodemon": "nodemon server.js",
+    "dev": "node server",
+    "nodemon": "nodemon server",
     "build": "next build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "lint:css": "stylelint './static/**/*.js' './pages/**/*.js' './test/**/*.js' './utils/**/*.js' './components/**/*.js' './sections/**/*.js'",
-    "start": "NODE_ENV=production node server.js",
+    "start": "NODE_ENV=production node server",
     "heroku-postbuild": "next build",
     "jest": "jest",
     "test": "run-s jest lint:js"
@@ -26,7 +26,7 @@
     "compression": "^1.7.1",
     "express": "^4.15.2",
     "express-force-https": "^1.0.0",
-    "gun": "^0.9.1",
+    "gun": "^0.9.94",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.5",
     "lru-cache": "^4.0.2",

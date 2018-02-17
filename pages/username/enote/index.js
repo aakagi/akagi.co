@@ -9,7 +9,7 @@ const ENoteWrapper = styled.div`
   margin-bottom: 300px;
 `
 
-const Post = () => (
+const ENote = () => (
   <AppLayout>
     <SeoHead />
     <ENoteWrapper>
@@ -18,4 +18,4 @@ const Post = () => (
   </AppLayout>
 )
 
-export default Post
+export default ENote
