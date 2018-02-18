@@ -1,6 +1,8 @@
 import NextHead from 'next/head'
 import Router from 'next/router'
 
+const dev = process.env.NODE_ENV !== 'production'
+
 const GoogleAnalyticsTag = ({ gaTrackingId }) => {
   // Tracks the page location etc for GA on route change
   Router.onRouteChangeComplete = () => {
@@ -12,8 +14,8 @@ const GoogleAnalyticsTag = ({ gaTrackingId }) => {
       })
     }
   }
-
-  return (
+  
+  return dev ? <div /> : (
     <NextHead>
       <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`} />
       
