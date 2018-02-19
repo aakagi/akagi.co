@@ -1,5 +1,4 @@
 import { inject, observer } from 'mobx-react'
-import NextHead from 'next/head'
 import styled from 'styled-components'
 import Form from 'components/Form'
 import GeneralInput from 'components/GeneralInput'
@@ -25,14 +24,7 @@ const UsernameInput = styled(GeneralInput)`
 export default class NewUser extends React.Component {
   constructor(props) {
     super(props)
-    props.store.userForm.init(props.username)
-  }
-
-  componentDidMount() {
-    // 'Temporary' hack to prevent server error because
-    //   Gun is imported globally client-side
-    //   loadGun() can't be passed down as a prop because react
-    this.props.store.userForm.loadGun(Gun)
+    props.store.userForm.setUsername(props.username)
   }
 
   render() {
@@ -41,10 +33,6 @@ export default class NewUser extends React.Component {
 
     return (
       <NewUserWrapper>
-        <NextHead>
-          <script src="https://cdn.jsdelivr.net/npm/gun/gun.js" />
-          <script src="https://cdn.jsdelivr.net/npm/gun/sea.js" />
-        </NextHead>
         <Title>
           Create an Account
         </Title>

@@ -4,27 +4,21 @@ import UserFormStore from './UserFormStore'
 
 let store = null
 
-class AppStore {
-  constructor(isServer) {
-    this.isServer = isServer
+export default class AppStore {
+  constructor() {
     this.init()
   }
 
-  @action async init() {
+  @action init() {
     runInAction(() => {
       this.contactForm = new ContactFormStore(this)
       this.userForm = new UserFormStore(this)
     })
   }
-}
 
-export default function initStore(isServer) {
-  if (isServer) {
-    return new AppStore(isServer)
-  } else {
-    if (store === null) {
-      store = new AppStore(isServer)
-    }
-    return store
+  @action loadGun(Gun) {
+    runInAction(() => {
+      this.userForm.loadGun(Gun)
+    })
   }
 }

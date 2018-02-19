@@ -4,12 +4,12 @@ import Router from 'next/router'
 export default class UserFormStore {
   @observable username = '@'
 
-  @action init(username) {
-    this.username = username
-  }
-
   @action loadGun(Gun) {
     this.gun = Gun('http://localhost:8080/gun')
+  }
+
+  @action setUsername(username) {
+    this.username = username
   }
 
   @action onUsernameChange = (e) => {
@@ -19,10 +19,10 @@ export default class UserFormStore {
 
   @action onSubmit = (e) => {
     e.preventDefault()
-    const { elements, id: formId } = e.target
+    const { elements } = e.target
     const username = elements.username.value
-    const password = elements.username.password
-    console.log('this.gun', this.gun)
+    const password = elements.password.value
+
     this.gun.user().create(username, password, (cb) => {
       if (cb.err) {
         return alert(cb.err)

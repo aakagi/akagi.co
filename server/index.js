@@ -15,7 +15,8 @@ const compression = require('compression')
 const forceHTTPS = require('express-force-https')
 
 const socialUrls = require('../constants/socialUrls')
-const usernameController = require('./controllers/usernameController')
+const redirectUsername = require('./middleware/redirectUsername')
+// const enoteController = require('./enote')
 
 // Temp gun server hosted on port 8080
 require('./gunServer')
@@ -85,18 +86,14 @@ app.prepare().then(() => {
 
   server.get('/new', (req, res) => {
     const username = req.query.username
-    console.log('username', username)
     cachedRender(req, res, '/new', { username })
   })
 
-  // Server-side render pages
-  server.get('/:username', usernameController(cachedRender))
+  server.get('/:username', redirectUsername, (req, res) => {
+    cachedRender(req, res, res.locals.renderPath, res.locals.renderParams)
+  })
 
-  // server.get('/:username/:slug', (req, res) => {
-  //   const username = req.params.username
-  //   const slug = req.params.slug
-  //   cachedRender(req, res, '/username/enote', { username, slug })
-  // })
+  // server.get('/:username/:enote', enoteController)
 
   server.use('/static', express.static('./static', {
     maxage: '48h',
