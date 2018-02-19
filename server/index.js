@@ -73,6 +73,14 @@ app.prepare().then(() => {
     redirect: false
   }))
 
+  // Catch update pings in dev
+  if (dev) {
+    server.get('/_next/*', (req, res) => {
+      const parsedUrl = parse(req.url, true)
+      handle(req, res, parsedUrl)
+    })
+  }
+
   // Redirects for social links
   Object.keys(socialUrls).forEach(socialAccount => {
     server.get('/' + socialAccount, (req, res) => {
@@ -97,22 +105,13 @@ app.prepare().then(() => {
   server.get('/:username', redirectUsername, (req, res) => {
     cachedRender(req, res, res.locals.renderPath, res.locals.renderParams)
   })
-  
-  // Gets rid of annoying recompiling when server gets pinged for updates
-  server.get('/_next/*', (req, res) => {
-    const parsedUrl = parse(req.url, true)
-    handle(req, res, parsedUrl)
-  })
 
   server.get('/:username/:enote', redirectUsername, (req, res) => {
     // Note: missing username would have already been redirected
     const username = req.params.username
     const enote = req.params.enote
-    console.log('here?')
     gun.get(`alias/${enote}`).val(enoteExists => {
-        cachedRender(req, res, '/enote', { username })
-      // if (enoteExists) {
-      // }
+      cachedRender(req, res, '/username/enote')
     })
   })
 
