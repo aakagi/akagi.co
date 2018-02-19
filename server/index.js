@@ -67,6 +67,12 @@ app.prepare().then(() => {
   // Remove Express default header
   server.disable('x-powered-by')
 
+  server.use('/static', express.static('./static', {
+    maxage: '48h',
+    index: false,
+    redirect: false
+  }))
+
   // Redirects for social links
   Object.keys(socialUrls).forEach(socialAccount => {
     server.get('/' + socialAccount, (req, res) => {
@@ -91,23 +97,24 @@ app.prepare().then(() => {
   server.get('/:username', redirectUsername, (req, res) => {
     cachedRender(req, res, res.locals.renderPath, res.locals.renderParams)
   })
+  
+  // Gets rid of annoying recompiling when server gets pinged for updates
+  server.get('/_next/*', (req, res) => {
+    const parsedUrl = parse(req.url, true)
+    handle(req, res, parsedUrl)
+  })
 
   server.get('/:username/:enote', redirectUsername, (req, res) => {
     // Note: missing username would have already been redirected
     const username = req.params.username
     const enote = req.params.enote
+    console.log('here?')
     gun.get(`alias/${enote}`).val(enoteExists => {
         cachedRender(req, res, '/enote', { username })
       // if (enoteExists) {
       // }
     })
   })
-
-  server.use('/static', express.static('./static', {
-    maxage: '48h',
-    index: false,
-    redirect: false
-  }))
 
   server.get('*', (req, res) => {
     const parsedUrl = parse(req.url, true)
