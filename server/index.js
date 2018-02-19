@@ -16,10 +16,9 @@ const forceHTTPS = require('express-force-https')
 
 const socialUrls = require('../constants/socialUrls')
 const redirectUsername = require('./middleware/redirectUsername')
-// const enoteController = require('./enote')
 
 // Temp gun server hosted on port 8080
-require('./gunServer')
+const gun = require('./gunServer')
 
 mobxReact.useStaticRendering(true)
 
@@ -93,7 +92,16 @@ app.prepare().then(() => {
     cachedRender(req, res, res.locals.renderPath, res.locals.renderParams)
   })
 
-  // server.get('/:username/:enote', enoteController)
+  server.get('/:username/:enote', redirectUsername, (req, res) => {
+    // Note: missing username would have already been redirected
+    const username = req.params.username
+    const enote = req.params.enote
+    gun.get(`alias/${enote}`).val(enoteExists => {
+        cachedRender(req, res, '/enote', { username })
+      // if (enoteExists) {
+      // }
+    })
+  })
 
   server.use('/static', express.static('./static', {
     maxage: '48h',

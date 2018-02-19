@@ -1,6 +1,4 @@
-const Gun = require('gun')
-
-const GUN_SERVER = 'http://localhost:8080/gun'
+const gun = require('../gunServer')
 
 module.exports = (req, res, done) => {
   const username = req.params.username
@@ -12,7 +10,6 @@ module.exports = (req, res, done) => {
   }
 
   // Check to see if username exists otherwise redirect to /new
-  const gun = Gun(GUN_SERVER)
   gun.get(`alias/${username}`).val(userExists => {
     if (userExists) {
       res.locals.renderPath = '/username'
