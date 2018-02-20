@@ -92,7 +92,7 @@ app.prepare().then(() => {
   server.get('/things', (req, res) => {
     res.redirect(301, 'https://github.com/aakagi/akagi-website/tree/master/pages/things/temp.md')
   })
-  
+
   server.get('/thoughts', (req, res) => {
     cachedRender(req, res, '/thoughts')
   })

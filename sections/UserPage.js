@@ -1,37 +1,33 @@
+import styled from 'styled-components'
+
+const UserPageWrapper = styled.div`
+  margin-top:48px;
+  text-align: center;
+`
+
+const Title = styled.h1`
+  font-size: 48px;
+`
 
 export default class UserPage extends React.Component {
-  constructor(props) {
-    super(props)
-    this.test = 0
-  }
-
   render() {
+    const username = this.props.url.query.username
+
     return (
-      <div>
+      <UserPageWrapper>
+        <Title>
+          Welcome, {username}!
+        </Title>
         <div>
-          <a onClick={this.createUnencrypted}>
-            Create unencrypted
-          </a>
+          We still don't have a list of all of your links, we are waiting for a database upgrade...
         </div>
-        <br />
         <div>
-          <a onClick={this.createUser}>
-          Create user
-          </a>
+          That said, you can still create links! Just type anything after your url.
         </div>
-        <br />
         <div>
-          <a onClick={this.attachUser}>
-            Attach user
-          </a>
+          For instance: <a href={`/${username}/try-this-out`}>https://akagi.co/{username}/try-this-out</a>
         </div>
-        <br />
-        <div>
-          <a onClick={this.logVal}>
-            logVal
-          </a>
-        </div>
-      </div>
+      </UserPageWrapper>
     )
   }
 }

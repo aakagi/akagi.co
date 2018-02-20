@@ -1,5 +1,4 @@
 import { observable, action } from 'mobx'
-import Router from 'next/router'
 
 export default class UserFormStore {
   @observable username = '@'
@@ -27,7 +26,9 @@ export default class UserFormStore {
       if (cb.err) {
         return alert(cb.err)
       }
-      Router.push(`/${username}`)
+
+      // Not using router because that shows 404, we want page to ping server
+      window.location.href = `/${username}`
     })
   }
 }

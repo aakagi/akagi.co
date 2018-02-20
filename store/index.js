@@ -2,8 +2,6 @@ import { action, runInAction } from 'mobx'
 import ContactFormStore from './ContactFormStore'
 import UserFormStore from './UserFormStore'
 
-let store = null
-
 export default class AppStore {
   constructor() {
     this.init()
