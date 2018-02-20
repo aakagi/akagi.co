@@ -30,6 +30,7 @@ export default class NewUser extends React.Component {
   render() {
     const formId = 'new-user'
     const userForm = this.props.store.userForm
+    const autoFocusUsername = !userForm.username || userForm.username === '@'
 
     return (
       <NewUserWrapper>
@@ -42,6 +43,7 @@ export default class NewUser extends React.Component {
             form={formId}
             name={'username'}
             placeholder={'Username'}
+            autoFocus={autoFocusUsername}
             value={userForm.username}
             onChange={userForm.onUsernameChange}
           />
@@ -51,6 +53,7 @@ export default class NewUser extends React.Component {
             name={'password'}
             type={'password'}
             placeholder={'Password'}
+            autoFocus={!autoFocusUsername}
           />
           <Button width={'100%'} form={formId}>
             Submit

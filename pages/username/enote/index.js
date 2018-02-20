@@ -9,7 +9,7 @@ const ENoteWrapper = styled.div`
   margin-bottom: 300px;
 `
 
-const ENote = () => (
+const ENote = (props) => (
   <AppLayout>
     <SeoHead />
     <ENoteWrapper>
