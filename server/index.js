@@ -110,8 +110,12 @@ app.prepare().then(() => {
     // Note: missing username would have already been redirected
     const username = req.params.username
     const enote = req.params.enote
-    gun.get(`alias/${enote}`).val(enoteExists => {
-      cachedRender(req, res, '/username/enote')
+    gun.get(`alias/${username}/${enote}`).val(enoteExists => {
+      cachedRender(req, res, '/username/enote', {
+        username,
+        enote,
+        enoteExists: !!enoteExists,
+      })
     })
   })
 

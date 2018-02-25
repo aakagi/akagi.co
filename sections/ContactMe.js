@@ -51,8 +51,8 @@ export default class ContactMe extends React.Component {
             rows={5}
             name={'message'}
           />
-          <Button width={'100%'} form={formId}>
-            {contactForm.isLoading ? 'Sending...' : 'Submit'}
+          <Button hoverAnimation={'pop'} width={'100%'} form={formId}>
+            {contactForm.isLoading ? 'Sending...' : 'Send'}
           </Button>
         </Form>
       </ContactWrapper>

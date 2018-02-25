@@ -14,12 +14,6 @@ const Title = styled.h2`
   padding: 24px 0;
 `
 
-const UsernameInput = styled(GeneralInput)`
-  &:first-letter {
-    color: red;
-  }
-`
-
 @inject('store') @observer
 export default class NewUser extends React.Component {
   constructor(props) {
@@ -38,7 +32,7 @@ export default class NewUser extends React.Component {
           Create an Account
         </Title>
         <Form id={formId} onSubmit={userForm.onSubmit}>
-          <UsernameInput
+          <GeneralInput
             required
             form={formId}
             name={'username'}
@@ -46,6 +40,7 @@ export default class NewUser extends React.Component {
             autoFocus={autoFocusUsername}
             value={userForm.username}
             onChange={userForm.onUsernameChange}
+            error={userForm.usernameError}
           />
           <GeneralInput
             required
@@ -55,8 +50,8 @@ export default class NewUser extends React.Component {
             placeholder={'Password'}
             autoFocus={!autoFocusUsername}
           />
-          <Button width={'100%'} form={formId}>
-            Submit
+          <Button hoverAnimation={'pop'} width={'100%'} form={formId}>
+            {userForm.complete ? 'Success!' : 'Next'}
           </Button>
         </Form>
       </NewUserWrapper>
