@@ -7,11 +7,6 @@ const Form = styled.form`
   margin: 0 auto;
   padding: 24px;
   max-width: ${props => props.maxWidth ? props.maxWidth : '500px'};
-
-  input, textarea, select {
-    width: 100%;
-    margin-bottom: 12px;
-  }
 `
 
 export default Form

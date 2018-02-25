@@ -1,7 +1,11 @@
-// import * as colors from './colors'
+import { red, redFill } from './colors'
 
 const theme = {
-  // colors,
+  input: {
+    border: red,
+    errorText: red,
+    errorFill: redFill,
+  },
 }
 
 export default theme
