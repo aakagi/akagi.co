@@ -51,7 +51,11 @@ export default class NewUser extends React.Component {
             autoFocus={!autoFocusUsername}
           />
           <Button hoverAnimation={'pop'} width={'100%'} form={formId}>
-            {userForm.complete ? 'Success!' : 'Next'}
+            {
+              userForm.loading ? 'Loading...'
+              : userForm.complete ? 'Success!'
+              : 'Next'
+            }
           </Button>
         </Form>
       </NewUserWrapper>
