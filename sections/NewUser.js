@@ -53,7 +53,7 @@ export default class NewUser extends React.Component {
           <Button hoverAnimation={'pop'} width={'100%'} form={formId}>
             {
               userForm.loading ? 'Loading...'
-              : userForm.complete ? 'Success!'
+              : userForm.complete ? 'Success! Building Your New Page...'
               : 'Next'
             }
           </Button>

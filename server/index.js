@@ -106,17 +106,11 @@ app.prepare().then(() => {
     cachedRender(req, res, res.locals.renderPath, res.locals.renderParams)
   })
 
-  server.get('/:username/:enote', redirectUsername, (req, res) => {
+  server.get('/:username/:enoteSlug', redirectUsername, (req, res) => {
     // Note: missing username would have already been redirected
     const username = req.params.username
-    const enote = req.params.enote
-    gun.get(`alias/${username}/${enote}`).val(enoteExists => {
-      cachedRender(req, res, '/username/enote', {
-        username,
-        enote,
-        enoteExists: !!enoteExists,
-      })
-    })
+    const enoteSlug = req.params.enoteSlug
+    cachedRender(req, res, '/enote', { username, enoteSlug })
   })
 
   server.get('*', (req, res) => {

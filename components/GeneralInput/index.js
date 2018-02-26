@@ -7,12 +7,12 @@ const baseStyles = (props) => `
   width: 100%;
   padding: 6px;
   border-width: 1px;
+  outline: none;
 `
 
 const Input = styled.input`
   ${props => baseStyles(props)}
   background-color: ${props => props.error ? props.theme.input.errorFill : white};
-  outline: none;
 `
 
 const TextArea = styled.textarea`

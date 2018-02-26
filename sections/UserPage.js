@@ -11,7 +11,7 @@ const Title = styled.h1`
 
 export default class UserPage extends React.Component {
   render() {
-    const username = this.props.url.query.username
+    const username = this.props.username
 
     return (
       <UserPageWrapper>
@@ -20,6 +20,9 @@ export default class UserPage extends React.Component {
         </Title>
         <div>
           We still don't have a list of all of your links, we are waiting for a database upgrade...
+        </div>
+        <div>
+          This tech is still experimental - you may lose all of your data.
         </div>
         <div>
           That said, you can still create links! Just type anything after your url.

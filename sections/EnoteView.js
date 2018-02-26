@@ -1,4 +1,8 @@
+import { inject, observer } from 'mobx-react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import Form from 'components/Form'
+import GeneralInput from 'components/GeneralInput'
 
 const EnoteViewWrapper = styled.div`
   margin-top:48px;
@@ -9,27 +13,75 @@ const Title = styled.h1`
   font-size: 48px;
 `
 
-export default class EnoteView extends React.Component {
+@inject('store') @observer
+class EditView extends React.Component {
   render() {
-    const username = this.props.url.query.username
-
-    console.log('this.props.url.query', this.props.url.query)
+    const enote = this.props.store.enote
 
     return (
       <EnoteViewWrapper>
         <Title>
-          Welcome, {username}!
+          Encrypted Note
         </Title>
         <div>
-          We still don't have a list of all of your links, we are waiting for a database upgrade...
+          Use this page to create your encrypted message
         </div>
-        <div>
-          That said, you can still create links! Just type anything after your url.
-        </div>
-        <div>
-          For instance: <a href={`/${username}/try-this-out`}>https://akagi.co/{username}/try-this-out</a>
-        </div>
+        <Form maxWidth={'1200px'}>
+          <GeneralInput
+            value={enote.body}
+            onChange={enote.onBodyChange}
+            type={'textarea'}
+            name={'enote'}
+            rows={20}
+            autoFocus
+          />
+        </Form>
       </EnoteViewWrapper>
     )
+  }
+}
+
+@inject('store') @observer
+class PublicView extends React.Component {
+  render() {
+    return (
+      <EnoteViewWrapper>
+      </EnoteViewWrapper>
+    )
+  }
+}
+
+@inject('store') @observer
+class AuthView extends React.Component {
+  render() {
+    return (
+      <EnoteViewWrapper>
+      </EnoteViewWrapper>
+    )
+  }
+}
+
+@inject('store') @observer
+export default class EnoteView extends React.Component {
+  static propTypes = {
+    username: PropTypes.string.isRequired,
+    enoteSlug: PropTypes.string.isRequired,
+  }
+
+  componentDidMount() {
+    const { username, enoteSlug } = this.props
+    this.props.store.enote.init({ username, enoteSlug })
+  }
+
+  render() {
+    const { loggedInAsThisUser, body } = this.props.store.enote
+
+    if (loggedInAsThisUser) {
+      return <EditView />
+    } else if (!loggedInAsThisUser && body) {
+      return <PublicView />
+    } else if (!loggedInAsThisUser && !body) {
+      return <AuthView />
+    }
   }
 }

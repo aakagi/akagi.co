@@ -2,15 +2,11 @@ import styled from 'styled-components'
 import AppLayout from 'containers/AppLayout'
 import SeoHead from 'components/SeoHead'
 import EnoteView from 'sections/EnoteView'
-import NewEnote from 'sections/NewEnote'
 
-const ENote = (props) => (
+const ENote = ({ url: { query } }) => (
   <AppLayout>
     <SeoHead />
-    {props.url.query.enoteExists
-      ? <EnoteView {...props} />
-      : <NewEnote {...props} />
-    }
+    <EnoteView {...query} />
   </AppLayout>
 )
 

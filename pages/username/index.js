@@ -2,10 +2,10 @@ import AppLayout from 'containers/AppLayout'
 import SeoHead from 'components/SeoHead'
 import UserPage from 'sections/UserPage'
 
-const Username = (props) => (
+const Username = ({ url: { query } }) => (
   <AppLayout>
     <SeoHead />
-    <UserPage {...props} />
+    <UserPage {...query} />
   </AppLayout>
 )
 
