@@ -1,14 +1,11 @@
 import { observable, action } from 'mobx'
+import GunStore from './GunStore'
 
-export default class UserFormStore {
+export default class UserFormStore extends GunStore {
   @observable username = ''
   @observable usernameError = ''
   @observable loading = false
   @observable complete = false
-
-  @action loadGun(Gun) {
-    this.gun = Gun('http://localhost:8080/gun')
-  }
   
   // TODO: Move out to lib once proper conventions are determined
   checkUsernameExists(username) {

@@ -1,8 +1,12 @@
 import { observable, action } from 'mobx'
 
+// TODO: Figure out how to import env in a clean way
+const dev = process.env.NODE_ENV !== 'production'
+const BASE_URL = dev ? 'http://localhost' : 'https://akagi.co'
+
 export default class GunStore {
   @action loadGun(Gun) {
-    this.gun = Gun('http://localhost:8080/gun')
+    this.gun = Gun(`${BASE_URL}:8080/gun`)
     this.user = this.gun.user()
   }
 
