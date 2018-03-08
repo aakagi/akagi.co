@@ -93,6 +93,11 @@ app.prepare().then(() => {
     res.redirect(301, 'https://github.com/aakagi/akagi-website/tree/master/pages/things/temp.md')
   })
 
+  // GCal to whatever country I'm in
+  server.get('/location', (req, res) => {
+    res.redirect(301, 'https://calendar.google.com/calendar/embed?src=8f81s8hdak4fjbl0jeikmr823s%40group.calendar.google.com&ctz=America%2FLos_Angeles')
+  })
+
   server.get('/thoughts', (req, res) => {
     cachedRender(req, res, '/thoughts')
   })
