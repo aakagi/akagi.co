@@ -7,7 +7,7 @@ const BASE_URL = dev ? 'http://localhost' : 'https://akagi.co'
 export default class GunStore {
   @action loadGun(Gun) {
     this.gun = Gun(`${BASE_URL}:8080/gun`)
-    this.user = this.gun.user()
+    this.user = this.gun && this.gun.user ? this.gun.user() : () => {}
   }
 
   loadUser(username, password) {
