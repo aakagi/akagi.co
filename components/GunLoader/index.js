@@ -10,8 +10,8 @@ export default class GunLoader extends React.Component {
   render() {
     return (
       <NextHead>
-        <script src="https://cdn.jsdelivr.net/npm/gun/gun.js" />
-        <script src="https://cdn.jsdelivr.net/npm/gun/sea.js" />
+        {/*<script src="https://cdn.jsdelivr.net/npm/gun/gun.js" />*/}
+        {/*<script src="https://cdn.jsdelivr.net/npm/gun/sea.js" />*/}
       </NextHead>
     )
   }
