@@ -16,10 +16,10 @@ export default class AppStore {
     })
   }
 
-  @action loadGun(Gun) {
-    runInAction(() => {
-      this.userForm.loadGun(Gun)
-      this.enote.loadGun(Gun)
-    })
-  }
+  // @action loadGun(Gun) {
+  //   runInAction(() => {
+  //     this.userForm.loadGun(Gun)
+  //     this.enote.loadGun(Gun)
+  //   })
+  // }
 }
