@@ -18,6 +18,7 @@ const GoogleAnalyticsTag = ({ gaTrackingId }) => {
   return dev ? <div /> : (
     <NextHead>
       <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`} />
+      <meta name="google-site-verification" content="MoopvqQmoDTts7VxfGEDuplqnFeErmfT1jQVKgdJIYk" />
       
       {/*
         This ensures that the first page view gets sent to GA. All subsequent
