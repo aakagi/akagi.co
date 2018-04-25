@@ -16,7 +16,7 @@ const GoogleAnalyticsTag = ({ gaTrackingId }) => {
   }
   
   return dev ? <div /> : (
-    <Helmet>
+    <NextHead>
       <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`} />
       <meta name="google-site-verification" content="MoopvqQmoDTts7VxfGEDuplqnFeErmfT1jQVKgdJIYk" />
       
@@ -35,7 +35,7 @@ const GoogleAnalyticsTag = ({ gaTrackingId }) => {
         gtag('js', new Date())
         gtag('config', '${gaTrackingId}')
       `}} />
-    </Helmet>
+    </NextHead>
   )
 }
 
