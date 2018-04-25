@@ -14,3 +14,5 @@ export const silverDark = '#ececec'
 
 export const red = '#cc0000'
 export const redFill = '#fff6f6'
+
+export const gold = '#ffcc33'
