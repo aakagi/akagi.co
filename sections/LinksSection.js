@@ -9,16 +9,17 @@ const LinksWrapper = styled.div`
 `
 
 const Group = styled.div`
-  margin-bottom: 36px;
+  margin-bottom: 48px;
 `
 
 const GroupTitle = styled.h3`
-  margin-bottom: 6px;
+  margin-bottom: 12px;
 `
 
 const PageLinkWrapper = styled.div`
   margin-bottom: 12px;
-  
+  padding-left: 24px;
+
   a {
     color: ${red};
   }
