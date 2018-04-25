@@ -40,14 +40,8 @@ export default class ContactMe extends React.Component {
           />
           <GeneralInput
             form={formId}
-            placeholder={'What’s your name? *'}
-            name={'name'}
-            required
-          />
-          <GeneralInput
-            form={formId}
             type={'textarea'}
-            placeholder={'What’s up?'}
+            placeholder={'What’s the context?'}
             rows={5}
             name={'message'}
           />
