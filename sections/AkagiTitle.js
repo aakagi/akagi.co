@@ -1,8 +1,16 @@
 import styled from 'styled-components'
 import { red } from 'utils/colors'
 
+const TitleWrapper = styled.div`
+`
+
+const LogoWrapper = styled.div`
+  text-align: center;
+  margin: 24px 0px 12px;
+`
+
 const AkagiHeader = styled.h1`
-  margin-top: 48px;
+  
   text-align: center;
   font-size: 48px;
   padding: 24px 0;
@@ -15,9 +23,14 @@ const Red = styled.span`
 `
 
 const AkagiTitle = () => (
-  <AkagiHeader>
-    AKAGI<Red>.</Red>CO
-  </AkagiHeader>
+  <TitleWrapper>
+    <LogoWrapper>
+      <img width={'100px'} height={'100px'} src={'/static/logo'} />
+    </LogoWrapper>
+    <AkagiHeader>
+      AKAGI<Red>.</Red>CO
+    </AkagiHeader>
+  </TitleWrapper>
 )
 
 export default AkagiTitle
