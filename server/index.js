@@ -63,14 +63,15 @@ app.prepare().then(() => {
 
   // Gzip
   server.use(compression())
-  
+
   // Remove Express default header
   server.disable('x-powered-by')
 
   server.use('/static', express.static('./static', {
     maxage: '48h',
     index: false,
-    redirect: false
+    redirect: false,
+    extensions: ['png', 'jpg'],
   }))
 
   // Catch update pings in dev
@@ -81,7 +82,7 @@ app.prepare().then(() => {
     })
   }
 
-  // Redirects for social links
+  // Redirect social links
   Object.keys(socialUrls).forEach(socialAccount => {
     server.get('/' + socialAccount, (req, res) => {
       res.redirect(301, socialUrls[socialAccount])
@@ -97,6 +98,10 @@ app.prepare().then(() => {
   server.get('/location', (req, res) => {
     res.redirect(301, 'https://calendar.google.com/calendar/embed?src=8f81s8hdak4fjbl0jeikmr823s%40group.calendar.google.com&ctz=America%2FLos_Angeles')
   })
+
+  // 
+  // Routes
+  // 
 
   server.get('/thoughts', (req, res) => {
     cachedRender(req, res, '/thoughts')

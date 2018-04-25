@@ -5,8 +5,8 @@ export default class SeoHead extends Component {
   render() {
     const {
       title = 'AKAGI.CO',
-      description = 'Platform for thoughts and self-reflection',
-      image = 'https://www.styled-components.com/static/atom.png',
+      description = 'Entrepreneurial Adventurer Enjoying Life',
+      image = 'https://akagi.co/static/logo.png',
       children,
       canonical,
       url = '',
@@ -24,7 +24,7 @@ export default class SeoHead extends Component {
         <link itemProp="url" href="https://akagi.co" />
         <meta itemProp="name" content={title} />
         <meta itemProp="description" content={description} />
-        <meta itemProp="image" content="/static/atom.png" />
+        <meta itemProp="image" content="/static/logo.png" />
 
         <meta
           name="google-site-verification"
