@@ -18,7 +18,6 @@ const GroupTitle = styled.h3`
 
 const PageLinkWrapper = styled.div`
   margin-bottom: 12px;
-  padding-left: 24px;
 
   a {
     color: ${red};

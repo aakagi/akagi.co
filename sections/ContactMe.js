@@ -6,12 +6,13 @@ import Button from 'components/Button'
 import { red } from 'utils/colors'
 
 const ContactWrapper = styled.div`
-  margin-bottom: 36px;
+  margin-bottom: 48px;
   text-align: center;
 `
 
 const ContactSubtext = styled.h3`
   font-size 16px;
+  line-height: 12px;
   padding: 24px 0;
 `
 
