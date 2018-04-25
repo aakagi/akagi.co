@@ -26,11 +26,6 @@ export default class SeoHead extends Component {
         <meta itemProp="description" content={description} />
         <meta itemProp="image" content="/static/logo.png" />
 
-        <meta
-          name="google-site-verification"
-          content="lWntYW6AWVMcShSIWLmOzKr8Wyek2TR-zuQn6_XGu_c"
-        />
-
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
@@ -42,16 +37,13 @@ export default class SeoHead extends Component {
         <meta property="og:site_name" content="AKAGI.CO" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@mxstbr" />
+        <meta name="twitter:site" content="@aakagi" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:creator" content="@mxstbr" />
+        <meta name="twitter:creator" content="@aakagi" />
         <meta name="twitter:image" content={image} />
         <meta name="twitter:url" content={url} />
-        <meta
-          name="twitter:image:src"
-          content=""
-        />
+        <meta name="twitter:image:src" content="" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -62,8 +54,8 @@ export default class SeoHead extends Component {
 
         {children}
 
-        <link rel="shortcut icon" href="/static/atom.png" />
-        <link rel="icon" href="/static/atom.png" />
+        <link rel="shortcut icon" href="/static/logo.png" />
+        <link rel="icon" href="/static/logo.png" />
       </NextHead>
     )
   }
