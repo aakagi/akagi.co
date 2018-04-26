@@ -7,7 +7,7 @@ const LogoWrapper = styled.div`
 
 const AkagiLogo = ({ className }) => (
   <LogoWrapper className={className}>
-    <img width={'100px'} height={'100px'} src={'/static/logo'} />
+    <img width={'100px'} height={'100px'} src={'/static/logo-100'} />
   </LogoWrapper>
 )
 
