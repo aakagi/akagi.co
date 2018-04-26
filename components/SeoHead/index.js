@@ -4,9 +4,9 @@ import { Component } from 'react'
 export default class SeoHead extends Component {
   render() {
     const {
-      title = 'AKAGI.CO',
-      description = 'Entrepreneurial Adventurer Enjoying Life',
-      image = 'https://akagi.co/static/logo.png',
+      title = 'Akagi.co',
+      description = 'Entrepreneurial Adventurer Enjoying Life - Read my stuff here!',
+      image = 'https://akagi.co/static/profile.png',
       children,
       canonical,
       url = '',
@@ -34,7 +34,7 @@ export default class SeoHead extends Component {
         <meta property="og:image:height" content="652" />
         <meta property="og:image:width" content="652" />
         <meta property="og:description" content={description} />
-        <meta property="og:site_name" content="AKAGI.CO" />
+        <meta property="og:site_name" content="Akagi.co" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@aakagi" />
