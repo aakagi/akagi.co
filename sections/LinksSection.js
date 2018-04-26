@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { red } from 'utils/colors'
 
 const LinksWrapper = styled.div`
-  margin: 0 auto 200px;
+  margin: 0 auto;
   padding: 24px;
   max-width: 500px;
 `
@@ -32,8 +32,8 @@ const PageLink = ({ text, ...props }) => (
   </PageLinkWrapper>
 )
 
-const LinksSection = () => (
-  <LinksWrapper>
+const LinksSection = ({ className }) => (
+  <LinksWrapper className={className}>
     <Group>
       <GroupTitle>
         Links

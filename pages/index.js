@@ -13,12 +13,17 @@ const BottomLogo = styled(AkagiLogo)`
   margin-bottom: 48px;
 `
 
+const Links = styled(LinksSection)`
+  padding-top: 100px;
+  margin-bottom: 200px;
+`
+
 const Home = () => (
   <AppLayout>
     <SeoHead />
     <TopLogo />
     <ContactMe />
-    <LinksSection />
+    <Links />
     <BottomLogo />
   </AppLayout>
 )
