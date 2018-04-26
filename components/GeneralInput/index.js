@@ -2,12 +2,19 @@ import styled from 'styled-components'
 import { red, redFill, white } from 'utils/colors'
 import PropTypes from 'prop-types'
 
+const InputWrapper = styled.div`
+  width: 100%;
+  margin-bottom: 12px;
+`
+
 const baseStyles = (props) => `
   border-color: ${props.theme.input.border};
   width: 100%;
   padding: 6px;
   border-width: 1px;
   outline: none;
+  font-size: 12px;
+  line-height: 1.7;
 `
 
 const Input = styled.input`
@@ -18,7 +25,6 @@ const Input = styled.input`
 const TextArea = styled.textarea`
   ${props => baseStyles(props)}
   resize: ${props => props.resize || 'auto'};
-  line-height: 1.7;
 `
 
 const InputError = styled.div`
@@ -27,11 +33,6 @@ const InputError = styled.div`
   text-align: left;
   padding-left: 8px;
   height: 10px;
-`
-
-const InputWrapper = styled.div`
-  width: 100%;
-  margin-bottom: 12px;
 `
 
 const GeneralInput = (props) => (
