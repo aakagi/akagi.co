@@ -24,7 +24,7 @@ export default class SeoHead extends Component {
         <link itemProp="url" href="https://akagi.co" />
         <meta itemProp="name" content={title} />
         <meta itemProp="description" content={description} />
-        <meta itemProp="image" content="/static/logo.png" />
+        <meta itemProp="image" content={image} />
 
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
