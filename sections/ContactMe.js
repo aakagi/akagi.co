@@ -6,18 +6,24 @@ import Button from 'components/Button'
 import { red } from 'utils/colors'
 
 const ContactWrapper = styled.div`
-  margin-bottom: 48px;
   text-align: center;
 `
 
-const ContactSubtext = styled.h3`
-  font-size 16px;
-  line-height: 12px;
+const AkagiHeader = styled.h1`
+  font-size: 48px;
   padding: 24px 0;
+  line-height: 12px;
 `
 
 const Red = styled.span`
   color: ${red};
+  line-height: inherit;
+`
+
+const ContactSubtext = styled.h3`
+  font-size 16px;
+  line-height: 12px !important;
+  padding: 24px 0;
 `
 
 @inject('store') @observer
@@ -28,6 +34,9 @@ export default class ContactMe extends React.Component {
 
     return (
       <ContactWrapper>
+        <AkagiHeader>
+          AKAGI<Red>.</Red>CO
+        </AkagiHeader>
         <ContactSubtext>
           Let<Red>’</Red>s keep in touch<Red>!</Red>
         </ContactSubtext>
