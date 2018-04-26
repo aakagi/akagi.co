@@ -22,7 +22,7 @@ const Red = styled.span`
 
 const ContactSubtext = styled.h3`
   font-size 16px;
-  line-height: 12px !important;
+  line-height: 12px;
   padding: 24px 0;
 `
 
@@ -50,10 +50,10 @@ export default class ContactMe extends React.Component {
           />
           <GeneralInput
             form={formId}
-            type={'textarea'}
             placeholder={'What’s the context?'}
-            rows={5}
             name={'message'}
+            type={'textarea'}
+            rows={5}
           />
           <Button hoverAnimation={'pop'} width={'100%'} form={formId}>
             {contactForm.isLoading ? 'Sending...' : 'Send'}
