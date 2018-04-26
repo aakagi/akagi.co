@@ -19,6 +19,7 @@ injectGlobal`
     border: 0;
     font: inherit;
     vertical-align: baseline;
+    line-height: 1;
   }
 
   ol, ul {

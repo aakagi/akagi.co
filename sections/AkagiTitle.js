@@ -10,7 +10,6 @@ const LogoWrapper = styled.div`
 `
 
 const AkagiHeader = styled.h1`
-  
   text-align: center;
   font-size: 48px;
   padding: 24px 0;
