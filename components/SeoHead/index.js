@@ -6,7 +6,7 @@ export default class SeoHead extends Component {
     const {
       title = 'Akagi.co',
       description = 'Entrepreneurial Adventurer Enjoying Life - Read my stuff here!',
-      image = 'https://akagi.co/static/profile.png',
+      image = 'https://akagi.co/static/profile',
       children,
       canonical,
       url = '',
