@@ -5,9 +5,15 @@ const LogoWrapper = styled.div`
   margin-bottom: 10px;
 `
 
-const AkagiLogo = ({ className }) => (
+const AkagiLogo = ({ className, ...props }) => (
   <LogoWrapper className={className}>
-    <img width={'100px'} height={'100px'} src={'/static/logo-100'} />
+    <img
+      width={'100px'}
+      height={'100px'}
+      src={'/static/logo-100'}
+      draggable={false}
+      {...props}
+    />
   </LogoWrapper>
 )
 

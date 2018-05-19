@@ -43,11 +43,6 @@ const LinksSection = ({ className }) => (
         href={'https://github.com/aakagi/akagi-website'}
       />
       <PageLink
-        text={'Gift List'}
-        as={'/me/0001-gift-list'}
-        href={'/post?postId=0001'}
-      />
-      <PageLink
         text={'Heliocentric Ventures'}
         href={'http://helio.ventures'}
       />
