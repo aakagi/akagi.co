@@ -99,6 +99,14 @@ app.prepare().then(() => {
     res.redirect(301, 'https://calendar.google.com/calendar/embed?src=8f81s8hdak4fjbl0jeikmr823s%40group.calendar.google.com&ctz=America%2FLos_Angeles')
   })
 
+  server.get('/universe', (req, res) => {
+    res.redirect('https://gist.github.com/aakagi/5416d5cb33db066051f0bb3a06dfec6e')
+  })
+
+  server.get('/too-many-mushrooms-lol', (req, res) => {
+    res.redirect('https://gist.github.com/aakagi/3c942c5c642554ce7029a035068440a7')
+  })
+
   // 
   // Routes
   // 
