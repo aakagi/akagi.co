@@ -3,7 +3,7 @@ const socialUrls = {
   github: 'https://github.com/aakagi',
   linkedin: 'https://linkedin.com/in/aakagi',
   quora: 'https://medium.com/@akagi',
-  twitter: 'https://twitter.com/alex_akagi',
+  twitter: 'https://twitter.com/akagico',
   earn: 'https://earn.com/akagi',
 }
 

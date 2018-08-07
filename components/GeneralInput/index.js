@@ -4,17 +4,17 @@ import PropTypes from 'prop-types'
 
 const InputWrapper = styled.div`
   width: 100%;
-  margin-bottom: 12px;
 `
 
 const baseStyles = (props) => `
   border-color: ${props.theme.input.border};
   width: 100%;
-  padding: 6px;
+  padding: 6px 12px;
   border-width: 1px;
   outline: none;
   font-size: 12px;
   line-height: 1.7;
+  border-radius: 20px;
 `
 
 const Input = styled.input`

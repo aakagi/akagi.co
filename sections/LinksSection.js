@@ -4,8 +4,7 @@ import { red } from 'utils/colors'
 
 const LinksWrapper = styled.div`
   margin: 0 auto;
-  padding: 24px;
-  max-width: 500px;
+  padding: 24px 0;
 `
 
 const Group = styled.div`

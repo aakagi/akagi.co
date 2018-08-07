@@ -15,10 +15,6 @@ const compression = require('compression')
 const forceHTTPS = require('express-force-https')
 
 const socialUrls = require('../constants/socialUrls')
-const redirectUsername = require('./middleware/redirectUsername')
-
-// Temp gun server hosted on port 8080
-const gun = require('./gunServer')
 
 mobxReact.useStaticRendering(true)
 
@@ -118,17 +114,6 @@ app.prepare().then(() => {
   server.get('/new', (req, res) => {
     const username = req.query.username
     cachedRender(req, res, '/new', { username })
-  })
-
-  server.get('/:username', redirectUsername, (req, res) => {
-    cachedRender(req, res, res.locals.renderPath, res.locals.renderParams)
-  })
-
-  server.get('/:username/:enoteSlug', redirectUsername, (req, res) => {
-    // Note: missing username would have already been redirected
-    const username = req.params.username
-    const enoteSlug = req.params.enoteSlug
-    cachedRender(req, res, '/enote', { username, enoteSlug })
   })
 
   server.get('*', (req, res) => {

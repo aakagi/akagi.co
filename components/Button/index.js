@@ -8,6 +8,7 @@ const Button = styled.button`
   width: ${props => props.width ? props.width : 'auto'};
   padding: 6px;
   transform: perspective(1px) translateZ(0);
+  border-radius: 20px;
 
   &:hover, &:focus, &:active {
     animation-name: ${({ hoverAnimation }) => hoverAnimation ? animations[hoverAnimation] : ''};

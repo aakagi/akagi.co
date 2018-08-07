@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import AppStore from 'store'
 import theme from 'utils/theme'
 import GoogleAnalyticsTag from 'components/GoogleAnalyticsTag'
-// import GunLoader from 'components/GunLoader'
+import SeoHead from 'components/SeoHead'
 
 const GA_TRACKING_ID = 'UA-76371065-1'
 
@@ -19,8 +19,8 @@ export default class AppLayout extends React.Component {
       <MobxProvider store={this.store}>
         <ThemeProvider theme={theme}>
           <div>
-            {/*<GunLoader />*/}
             <GoogleAnalyticsTag gaTrackingId={GA_TRACKING_ID} />
+            <SeoHead />
             {this.props.children}
           </div>
         </ThemeProvider>

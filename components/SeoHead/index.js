@@ -5,7 +5,7 @@ export default class SeoHead extends Component {
   render() {
     const {
       title = 'Akagi.co',
-      description = 'Entrepreneurial Adventurer Enjoying Life - Read my stuff here!',
+      description = 'Engineer / Entrepreneur Living Out of a Backpack & Enjoying Life - Read my stuff here!',
       image = 'https://akagi.co/static/profile',
       children,
       canonical,
@@ -46,7 +46,6 @@ export default class SeoHead extends Component {
         <meta name="twitter:image:src" content="" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
-
 
         <link
           rel="canonical"
