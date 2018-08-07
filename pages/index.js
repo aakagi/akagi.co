@@ -8,7 +8,7 @@ import { profile, logo } from 'utils/images'
 const HomeWrapper = styled.div`
   max-width: 450px;
   margin: 0 auto;
-  padding: 24px 36px;
+  padding: 48px 36px;
 `
 
 const CenterImage = styled.div`
@@ -20,6 +20,7 @@ const ProfileImage = styled.img`
   width: 250px;
   height: 250px;
   border-radius: 100%;
+  margin-bottom: 12px;
 `
 
 const BottomLogo = styled.img`

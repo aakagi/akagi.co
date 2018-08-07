@@ -19,7 +19,7 @@ const GeneralInputWrapper = styled(GeneralInput)`
 `
 
 @inject('store') @observer
-export default class ContactMe extends React.Component {
+export default class ContactForm extends React.Component {
   render() {
     const formId = 'contact-me'
     const contactForm = this.props.store.contactForm
