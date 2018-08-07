@@ -40,6 +40,7 @@ const cachedRender = (req, res, pagePath, queryParams) => {
       ssrCache.set(key, html)
 
       res.append('X-Cache', 'MISS')
+      res.append('Cache-Control', 'public, max-age=86400')
       res.send(html)
     })
     .catch((err) => {
