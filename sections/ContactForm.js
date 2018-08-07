@@ -2,7 +2,6 @@ import { inject, observer } from 'mobx-react'
 import styled from 'styled-components'
 import GeneralInput from 'components/GeneralInput'
 import Button from 'components/Button'
-import { red } from 'utils/colors'
 
 const ContactWrapper = styled.div`
 

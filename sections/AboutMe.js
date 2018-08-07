@@ -1,7 +1,4 @@
 import styled from 'styled-components'
-import Form from 'components/Form'
-import GeneralInput from 'components/GeneralInput'
-import Button from 'components/Button'
 import { red } from 'utils/colors'
 
 const AboutMeWrapper = styled.div`
