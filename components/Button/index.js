@@ -9,6 +9,7 @@ const Button = styled.button`
   padding: 6px;
   transform: perspective(1px) translateZ(0);
   border-radius: 20px;
+  color: ${red};
 
   &:hover, &:focus, &:active {
     animation-name: ${({ hoverAnimation }) => hoverAnimation ? animations[hoverAnimation] : ''};

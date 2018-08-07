@@ -40,7 +40,7 @@ export default class ContactMe extends React.Component {
             name={'message'}
           />
           <Button hoverAnimation={'pop'} width={'100%'} form={formId}>
-            {contactForm.isLoading ? 'Sending...' : 'Submit'}
+            {contactForm.isLoading ? '...' : '⇪'}
           </Button>
         </Form>
       </ContactWrapper>
