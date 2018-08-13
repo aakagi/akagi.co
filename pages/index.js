@@ -25,7 +25,7 @@ const ProfileImage = styled.img`
 `
 
 const BottomLogo = styled.img`
-  margin-bottom: 60px;
+  margin-bottom: 48px;
   width: 100px;
   height: 100px;
 `
