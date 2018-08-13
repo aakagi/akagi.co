@@ -20,14 +20,14 @@ const ProfileImage = styled.img`
   width: 350px;
   height: 350px;
   border-radius: 100%;
-  margin-top: 60px;
+  margin-top: 48px;
   margin-bottom: 12px;
 `
 
 const BottomLogo = styled.img`
-  margin-bottom: 48px;
   width: 100px;
   height: 100px;
+  margin-bottom: 60px;
 `
 
 const Links = styled(LinksSection)`
