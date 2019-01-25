@@ -4,6 +4,7 @@ import AboutMe from 'sections/AboutMe'
 import ContactForm from 'sections/ContactForm'
 import LinksSection from 'sections/LinksSection'
 import { profile, logo } from 'utils/images'
+import StreamBlog from 'sections/StreamBlog'
 
 const HomeWrapper = styled.div`
   max-width: 450px;
@@ -51,6 +52,7 @@ const Home = () => (
           src={logo}
         />
       </CenterImage>
+      <StreamBlog />
     </HomeWrapper>
   </AppLayout>
 )

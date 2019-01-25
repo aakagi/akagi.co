@@ -5,14 +5,14 @@
     "babel-plugin-polished",
     ["module-resolver", {
       "alias": {
+        "blog": "./blog",
         "components": "./components",
-        "utils": "./utils",
-        "lib": "./lib",
-        "sections": "./sections",
-        "store": "./store",
         "containers": "./containers",
         "constants": "./constants",
-        "THOUGHT": "./TEMP-DATA/gifts.js"
+        "lib": "./lib",
+        "utils": "./utils",
+        "sections": "./sections",
+        "store": "./store",
       }
     }],
     ["styled-components", {

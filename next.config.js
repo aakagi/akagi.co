@@ -28,10 +28,19 @@ module.exports = {
       })
 
     config.resolve.alias = config.resolve.alias || {}
+    
+    config.module.rules.push({
+      test: /\.md$/,
+      use: 'raw-loader'
+    })
 
     if (dev) {
       return config
     }
+
+    // 
+    // PROD ONLY
+    // 
 
     config.plugins.push(
       new SWPrecacheWebpackPlugin({

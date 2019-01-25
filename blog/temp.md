@@ -1,0 +1,8 @@
+
+# Hello World!
+
+I'm currently trying to figure out how to use Markdown in React to create a stream of consciousness blog...
+
+This is a test post to see if I can figure out how to convert a .md file into a js string, to then be inserted into my React element.
+
+No clue how it'll go...
