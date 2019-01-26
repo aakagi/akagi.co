@@ -26,6 +26,7 @@
     "compression": "^1.7.1",
     "express": "^4.15.2",
     "express-force-https": "^1.0.0",
+    "file-loader": "^3.0.1",
     "gun": "^0.9.94",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.5",

@@ -22,14 +22,18 @@ module.exports = {
           // path.resolve('./utils/offline.js'),
           // path.resolve('./utils/track.js')
         )
-
-        // entry.commons = ['./utils/prismTemplateString.js']
         return entry
       })
 
     config.resolve.alias = config.resolve.alias || {}
-    
+
     config.module.rules.push({
+      test: /\.md$/,
+      loader: 'emit-file-loader',
+      options: {
+        name: 'dist/[path][name].[ext]',
+      },
+    }, {
       test: /\.md$/,
       use: 'raw-loader'
     })

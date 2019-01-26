@@ -12,7 +12,7 @@
         "lib": "./lib",
         "utils": "./utils",
         "sections": "./sections",
-        "store": "./store",
+        "store": "./store"
       }
     }],
     ["styled-components", {
