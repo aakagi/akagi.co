@@ -61,12 +61,13 @@ const StreamBlogWrapper = styled.div`
   }
 
   li {
+    list-style-type: disc;
     margin-block-start: 0.8em;
     margin-block-end: 0em;
     margin-inline-start: 1em;
     
-    ul, ol {
-      padding-inline-start: 1em;
+    li {
+      list-style-type: circle;
     }
   }
 
