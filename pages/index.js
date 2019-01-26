@@ -5,7 +5,6 @@ import ContactForm from 'sections/ContactForm'
 import LinksSection from 'sections/LinksSection'
 import StreamBlog from 'sections/StreamBlog'
 import { profile, logo } from 'utils/images'
-import { mobile } from 'utils/media'
 
 const HomeWrapper = styled.div`
   max-width: 450px;
@@ -37,14 +36,6 @@ const Links = styled(LinksSection)`
   margin-bottom: 100px;
 `
 
-const StreamBlogWrapper = styled.div`
-  margin: 9rem;
-
-  ${mobile`
-    margin: 1rem;
-  `}
-`
-
 const Home = () => (
   <AppLayout>
     <HomeWrapper>
@@ -62,9 +53,7 @@ const Home = () => (
         />
       </CenterImage>
     </HomeWrapper>
-    <StreamBlogWrapper>
-      <StreamBlog />
-    </StreamBlogWrapper>
+    <StreamBlog />
   </AppLayout>
 )
 
