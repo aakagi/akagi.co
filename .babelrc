@@ -1,0 +1,30 @@
+{
+  "plugins": [
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ["@babel/plugin-proposal-class-properties", { "loose": true }],
+    ["module-resolver", {
+      "alias": {
+        "components": "./components",
+        "containers": "./containers",
+        "store": "./store",
+        "utils": "./utils"
+      }
+    }]
+  ],
+  "presets": [
+    "next/babel",
+    "@zeit/next-typescript/babel"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "babel-plugin-styled-components"
+      ]
+    },
+    "production": {
+      "plugins": [
+        "babel-plugin-styled-components"
+      ]
+    }
+  }
+}
