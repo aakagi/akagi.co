@@ -12,7 +12,7 @@ export default class Footer extends React.Component {
   render() {
     return (
       <FooterWrapper>
-        <span>&copy; Akagi.co</span>
+        {/*<span>&copy; Akagi.co</span>*/}
       </FooterWrapper>
     );
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Provider as MobxProvider } from 'mobx-react'
+import SeoHead from 'components/SeoHead';
 import Navbar from 'components/Navbar';
 import GlobalStyle from 'components/GlobalStyle';
 import Footer from 'components/Footer';
@@ -26,6 +27,7 @@ export default class AppLayout extends React.Component {
     return (
       <MobxProvider loginModal={this.store.loginModal}>
         <AppLayoutWrapper>
+          <SeoHead />
           <GlobalStyle />
           <Navbar
             onLoginClick={this.store.loginModal.openModal}

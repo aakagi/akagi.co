@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { blackNav, white, blueNav, redNav } from 'utils/colors';
-import Link from 'next/link';
+// import { blueNav, redNav } from 'utils/colors';
+// import Link from 'next/link';
 
 interface Props {
   onLoginClick: () => void;
@@ -13,8 +13,8 @@ const NavbarWrapper = styled.div`
 
 const NavFixed = styled.div`
   align-items: center;
-  background-color: ${blackNav};
-  color: ${white};
+  background: transparent;
+  color: black;
   display: flex;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
@@ -30,49 +30,49 @@ const RightContainer = styled.div `
   display: flex;
 `;
 
-const Logo = styled.a`
-  color: ${blueNav};
-  cursor: pointer;
-  font-size: 1.7em;
-  font-weight: 700;
-`;
+// const Logo = styled.a`
+//   // color: ${blueNav};
+//   cursor: pointer;
+//   font-size: 1.7em;
+//   font-weight: 700;
+// `;
 
-const LinkWrapper = styled.div`
-  margin-left: 2rem;
-`;
+// const LinkWrapper = styled.div`
+//   margin-left: 2rem;
+// `;
 
-const LinkAnchor = styled.a`
-  color: ${blueNav};
-  cursor: pointer;
+// const LinkAnchor = styled.a`
+//   // color: ${blueNav};
+//   cursor: pointer;
 
-  :hover {
-    color: ${redNav};
-  }
-`;
+//   :hover {
+//     // color: ${redNav};
+//   }
+// `;
 
 export default class Navbar extends React.Component<Props> {
   render() {
     return (
       <NavbarWrapper>
         <NavFixed>
-          <Link href={'/'}>
+          {/*<Link href={'/'}>
             <Logo>
               AKAGI
             </Logo>
-          </Link>
+          </Link>*/}
           <RightContainer>
-            <LinkWrapper>
+            {/*<LinkWrapper>
               <Link href={'/'}>
                 <LinkAnchor>
-                  Link
+                  Thoughts
                 </LinkAnchor>
               </Link>
-            </LinkWrapper>
-            <LinkWrapper>
+            </LinkWrapper>*/}
+            {/*<LinkWrapper>
               <LinkAnchor onClick={this.props.onLoginClick}>
                 Log in
               </LinkAnchor>
-            </LinkWrapper>
+            </LinkWrapper>*/}
           </RightContainer>
         </NavFixed>
       </NavbarWrapper>

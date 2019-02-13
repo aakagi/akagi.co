@@ -9,8 +9,8 @@
     "website": "https://akagi.co"
   },
   "repository": {
-    "type" : "git",
-    "url" : "git@github.com:aakagi/ssr-starter.git"
+    "type": "git",
+    "url": "git@github.com:aakagi/ssr-starter.git"
   },
   "engines": {
     "node": "10.11.0",
