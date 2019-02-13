@@ -27,6 +27,7 @@ const NavFixed = styled.div`
 const RightContainer = styled.div `
   margin-left: auto;
   align-items: center;
+  display: flex;
 `;
 
 const Logo = styled.a`
@@ -34,6 +35,10 @@ const Logo = styled.a`
   cursor: pointer;
   font-size: 1.7em;
   font-weight: 700;
+`;
+
+const LinkWrapper = styled.div`
+  margin-left: 2rem;
 `;
 
 const LinkAnchor = styled.a`
@@ -56,14 +61,18 @@ export default class Navbar extends React.Component<Props> {
             </Logo>
           </Link>
           <RightContainer>
-            <Link href={'/sxsw'}>
-              <LinkAnchor>
-                Link
+            <LinkWrapper>
+              <Link href={'/'}>
+                <LinkAnchor>
+                  Link
+                </LinkAnchor>
+              </Link>
+            </LinkWrapper>
+            <LinkWrapper>
+              <LinkAnchor onClick={this.props.onLoginClick}>
+                Log in
               </LinkAnchor>
-            </Link>
-            {/*<Link onClick={this.props.onLoginClick}>
-              Log in
-            </Link>*/}
+            </LinkWrapper>
           </RightContainer>
         </NavFixed>
       </NavbarWrapper>
