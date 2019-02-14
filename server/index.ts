@@ -57,7 +57,7 @@ app.prepare().then(() => {
     maxAge: '48h',
     index: false,
     redirect: false,
-    extensions: ['png', 'jpg'],
+    extensions: ['png', 'jpg', 'pdf'],
   }));
 
   // Catch update pings in DEV

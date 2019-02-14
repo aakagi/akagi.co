@@ -1,5 +1,6 @@
 import React from 'react';
 import NextHead from 'next/head';
+import { profile } from 'utils/images';
 
 interface Props {
   title?: string;
@@ -15,7 +16,7 @@ export default class SeoHead extends React.Component<Props, {}> {
     const {
       title = 'Akagi.co',
       description = 'Engineer / Entrepreneur Living Out of a Backpack & Enjoying Life - Read my stuff here!',
-      image = 'https://akagi.co/static/profile.jpg',
+      image = profile,
       children,
       canonical,
       url = '',

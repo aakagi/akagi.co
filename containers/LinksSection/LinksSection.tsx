@@ -40,12 +40,20 @@ const LinksSection = ({ className }: { className?: string }) => (
         Links
       </GroupTitle>
       <PageLink
+        text={'Feb 2019 Resume'}
+        href={'/static/resume.pdf'}
+      />
+      <PageLink
         text={'Source For This Website'}
         href={'https://github.com/aakagi/akagi-website'}
       />
       <PageLink
-        text={'Heliocentric Ventures'}
-        href={'http://helio.ventures'}
+        text={'Website Page Speed'}
+        href={'https://developers.google.com/speed/pagespeed/insights/?url=akagi.co'}
+      />
+      <PageLink
+        text={'Professional Mission'}
+        href={'https://medium.com/@akagi/heliocentric-ventures-master-plan-abd28eb3153a'}
       />
     </Group>
     <Group>
