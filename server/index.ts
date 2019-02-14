@@ -54,7 +54,8 @@ app.prepare().then(() => {
   server.disable('x-powered-by'); // Remove Express default header
 
   server.use('/static', express.static('./static', {
-    maxAge: '48h',
+    maxAge: '2h',
+    etag: false,
     index: false,
     redirect: false,
     extensions: ['png', 'jpg', 'pdf'],
