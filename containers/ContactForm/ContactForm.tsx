@@ -50,6 +50,8 @@ export default class ContactForm extends React.Component<Props, State> {
 
   handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
+    alert('Temporarily disabled');
+    return; //temporarily disable
     this.isLoading = true;
 
     fetch(api.CONTACT_FORM, {
