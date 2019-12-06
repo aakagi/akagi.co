@@ -17,6 +17,12 @@ const CenterImage = styled.div`
   justify-content: center;
 `;
 
+const Divider = styled.div`
+  border-bottom: 1px solid black;
+  margin: 0 auto;
+  width: 50%;
+`;
+
 const ProfileImage = styled.img`
   width: 350px;
   height: 350px;
@@ -39,6 +45,7 @@ export default class Home extends React.Component {
             <ProfileImage src={profile} />
           </CenterImage>
           <Bio />
+          <Divider />
           {/* <ContactForm /> */}
           <LinksSection />
           <CenterImage>

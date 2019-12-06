@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { red } from 'utils/colors';
 
 const LinksWrapper = styled.div`
-  margin: 0 auto 24px;
+  margin: 24px auto 24px;
   padding: 24px 0;
 `;
 
@@ -51,35 +51,35 @@ const LinksSection = ({ className }: { className?: string }) => (
         text={'Website Page Speed'}
         href={'https://developers.google.com/speed/pagespeed/insights/?url=akagi.co'}
       />
-      <PageLink
-        text={'Professional Mission'}
-        href={'https://medium.com/@akagi/heliocentric-ventures-master-plan-abd28eb3153a'}
-      />
-    </Group>
-    <Group>
-      <GroupTitle>
-        Heliocentric
-      </GroupTitle>
-      <PageLink
-        text={'1 - Heliocentric'}
-        href={'https://medium.com/@akagi/heliocentric-ef6d80001ef2'}
-      />
-      <PageLink
-        text={'2 - How Alex’s Brain Works'}
-        href={'https://medium.com/@akagi/how-alexs-brain-works-39451a4becd0'}
-      />
-      <PageLink
-        text={'3 - Living Lavish Out of a Backpack'}
-        href={'https://medium.com/@akagi/living-lavish-out-of-a-backpack-61a80401d6a4'}
-      />
       {/* <PageLink */}
-      {/*   text={'4 - The Ephemeral River (in progress)'} */}
-      {/*   href={''} */}
+      {/*   text={'Professional Mission'} */}
+      {/*   href={'https://medium.com/@akagi/heliocentric-ventures-master-plan-abd28eb3153a'} */}
       {/* /> */}
     </Group>
+    {/* <Group> */}
+    {/*   <GroupTitle> */}
+    {/*     Heliocentric */}
+    {/*   </GroupTitle> */}
+    {/*   <PageLink */}
+    {/*     text={'1 - Heliocentric'} */}
+    {/*     href={'https://medium.com/@akagi/heliocentric-ef6d80001ef2'} */}
+    {/*   /> */}
+    {/*   <PageLink */}
+    {/*     text={'2 - How Alex’s Brain Works'} */}
+    {/*     href={'https://medium.com/@akagi/how-alexs-brain-works-39451a4becd0'} */}
+    {/*   /> */}
+    {/*   <PageLink */}
+    {/*     text={'3 - Living Lavish Out of a Backpack'} */}
+    {/*     href={'https://medium.com/@akagi/living-lavish-out-of-a-backpack-61a80401d6a4'} */}
+    {/*   /> */}
+    {/* <PageLink */}
+    {/*   text={'4 - The Ephemeral River (in progress)'} */}
+    {/*   href={''} */}
+    {/* /> */}
+    {/* </Group> */}
     <Group>
       <GroupTitle>
-        College Dropout
+        College Dropout (2014 - 2017)
       </GroupTitle>
       <PageLink
         text={'Vegas & SF - Part 1 - "Vegas Airport"'}

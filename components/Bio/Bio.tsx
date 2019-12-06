@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { red } from 'utils/colors';
 
 const BioWrapper = styled.div`
-  padding: 24px 0;
-  font-size 16px;
+  padding: 24px 0 36px;
+  font-size: 16px;
 `;
 
 const P = styled.p`
@@ -28,29 +28,34 @@ const RedAnchor = styled.a`
   text-decoration: underline;
 `;
 
-const Bio = () => (
-  <BioWrapper>
-    <P>
-      Hi I<Red>’</Red>m Alex<Red>!</Red>
-    </P>
-    <P>
-      I<Red>’</Red>m an Engineer <Red>/</Red> Entrepreneur primarily based out of
-      {' '}
-      <RedAnchor href={'https://en.wikipedia.org/wiki/San_Francisco'} target={'_blank'}>San Francisco</RedAnchor>
-      <Red>,</Red> but I live out of a
-      {' '}
-      <RedAnchor href={'https://medium.com/@akagi/living-lavish-out-of-a-backpack-61a80401d6a4'} target={'_blank'}>backpack</RedAnchor>
-      {' '}
-      so that I can go
-      {' '}
-      <Contain>
-        <Red>~</Red> anywhere <Red>~</Red><Red>.</Red>
-      </Contain>
-    </P>
-    <P>
-      Let<Red>’</Red>s keep in touch<Red>!</Red> You can reach me at <RedAnchor href="mailto:alex@akagi.co">alex@akagi.co</RedAnchor><Red>.</Red>
-    </P>
-  </BioWrapper>
-);
+const Bio = () => {
+  return (
+    <BioWrapper>
+      <P>
+        Hi I<Red>’</Red>m Alex<Red>!</Red>
+      </P>
+      <P>
+        I<Red>’</Red>m an Engineer <Red>/</Red> Entrepreneur primarily based out of
+        {' '}
+        <RedAnchor href={'https://en.wikipedia.org/wiki/San_Francisco'} target={'_blank'}>San Francisco</RedAnchor>
+        <Red>,</Red> but I live out of a
+        {' '}
+        <RedAnchor href={'https://medium.com/@akagi/living-lavish-out-of-a-backpack-61a80401d6a4'} target={'_blank'}>backpack</RedAnchor>
+        {' '}
+        so that I can go
+        {' '}
+        <Contain>
+          <Red>~</Red> anywhere <Red>~</Red><Red>.</Red>
+        </Contain>
+      </P>
+      <P>
+        You can reach me at <RedAnchor href="mailto:alex@akagi.co">alex@akagi.co</RedAnchor><Red>.</Red>
+      </P>
+      <P>
+        Let<Red>’</Red>s keep in touch<Red>!</Red>
+      </P>
+    </BioWrapper>
+  );
+};
 
 export default Bio;
