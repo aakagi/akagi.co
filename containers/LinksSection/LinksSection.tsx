@@ -39,10 +39,10 @@ const LinksSection = ({ className }: { className?: string }) => (
       <GroupTitle>
         Links
       </GroupTitle>
-      <PageLink
-        text={'Feb 2019 Resume'}
-        href={'/static/resume.pdf'}
-      />
+      {/* <PageLink */}
+      {/*   text={'Feb 2019 Resume'} */}
+      {/*   href={'/static/resume.pdf'} */}
+      {/* /> */}
       <PageLink
         text={'Source For This Website'}
         href={'https://github.com/aakagi/akagi-website'}
@@ -72,10 +72,10 @@ const LinksSection = ({ className }: { className?: string }) => (
         text={'3 - Living Lavish Out of a Backpack'}
         href={'https://medium.com/@akagi/living-lavish-out-of-a-backpack-61a80401d6a4'}
       />
-      <PageLink
-        text={'4 - The Ephemeral River (in progress)'}
-        href={''}
-      />
+      {/* <PageLink */}
+      {/*   text={'4 - The Ephemeral River (in progress)'} */}
+      {/*   href={''} */}
+      {/* /> */}
     </Group>
     <Group>
       <GroupTitle>

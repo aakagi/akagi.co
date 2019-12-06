@@ -39,7 +39,7 @@ export default class Home extends React.Component {
             <ProfileImage src={profile} />
           </CenterImage>
           <Bio />
-          <ContactForm />
+          {/* <ContactForm /> */}
           <LinksSection />
           <CenterImage>
             <LogoImage src={logo} />

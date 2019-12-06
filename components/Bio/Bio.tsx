@@ -47,9 +47,9 @@ const Bio = () => (
         <Red>~</Red> anywhere <Red>~</Red><Red>.</Red>
       </Contain>
     </P>
-    <P>
-      Let<Red>’</Red>s keep in touch<Red>!</Red>
-    </P>
+    {* <P> *}
+    {*  Let<Red>’</Red>s keep in touch<Red>!</Red> *}
+    {* </P> *}
   </BioWrapper>
 );
 
