@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import AppContainer from 'containers/AppContainer';
 import Bio from 'components/Bio';
-import ContactForm from 'containers/ContactForm';
+// import ContactForm from 'containers/ContactForm';
 import LinksSection from 'containers/LinksSection';
 import { profile, logo } from 'utils/images'
 

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { red } from 'utils/colors';
 
 const LinksWrapper = styled.div`
-  margin: 48px auto 24px;
+  margin: 0 auto 24px;
   padding: 24px 0;
 `;
 

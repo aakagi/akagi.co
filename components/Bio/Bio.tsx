@@ -48,7 +48,7 @@ const Bio = () => (
       </Contain>
     </P>
     <P>
-      Let<Red>’</Red>s keep in touch<Red>!</Red>
+      Let<Red>’</Red>s keep in touch<Red>!</Red> You can reach me at <RedAnchor href="mailto:alex@akagi.co">alex@akagi.co</RedAnchor><Red>.</Red>
     </P>
   </BioWrapper>
 );
