@@ -1,0 +1,15 @@
+{
+  "plugins": [
+    "@babel/plugin-transform-react-jsx",
+    ["module-resolver", {
+      "alias": {
+        "components": "./components",
+        "atoms": "./atoms",
+        "molecules": "./molecules",
+        "compounds": "./compounds",
+        "styles": "./styles",
+        "utils": "./utils"
+      }
+    }]
+  ]
+}
