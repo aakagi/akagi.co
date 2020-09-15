@@ -1,5 +1,7 @@
 import React from "react";
 
+import ProfilePhoto from 'components/ProfilePhoto';
+
 import styles from "./Home.module.css";
 
 const Red = ({ children }) => <span className={styles.red}>{children}</span>;
@@ -9,7 +11,7 @@ const RedAnchor = (props) => <a className={styles.redAnchor} {...props} />;
 export default function Home(props) {
   return (
     <main className={styles.main}>
-      <img className={styles.profilePhoto} src="/profile-450.webp" />
+      <ProfilePhoto className={styles.profilePhoto} />
 
       <div>
         <p>
