@@ -4,9 +4,7 @@ import styles from "./Home.module.css";
 
 const Red = ({ children }) => <span className={styles.red}>{children}</span>;
 
-const RedAnchor = ({ children }) => (
-  <a className={styles.redAnchor}>{children}</a>
-);
+const RedAnchor = (props) => <a className={styles.redAnchor} {...props} />;
 
 export default function Home(props) {
   return (
@@ -15,13 +13,15 @@ export default function Home(props) {
 
       <div>
         <p>
-          Hi I<Red>’</Red>m Alex<Red>!</Red>
+          Hi<Red>,</Red> I<Red>’</Red>m Alex<Red>!</Red>
         </p>
         <p>
           I<Red>’</Red>m an Engineer <Red>/</Red> Entrepreneur primarily based
           out of{" "}
           <RedAnchor
-            href={"https://en.wikipedia.org/wiki/San_Francisco"}
+            href={
+              "https://www.google.com/maps/place/San+Francisco,+CA/data=!4m2!3m1!1s0x80859a6d00690021:0x4a501367f076adff"
+            }
             target={"_blank"}
           >
             San Francisco
@@ -35,7 +35,7 @@ export default function Home(props) {
           >
             backpack
           </RedAnchor>{" "}
-          so that I can go <Red>~</Red> anywhere <Red>~</Red>
+          so that I can live from <Red>~</Red> anywhere <Red>~</Red>
           <Red>.</Red>
         </p>
         <p>

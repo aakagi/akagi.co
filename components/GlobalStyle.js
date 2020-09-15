@@ -2,7 +2,7 @@ import React from "react";
 
 export default function GlobalStyle(props) {
   return (
-    <style jsx global>{`
+    <style>{`
       html,
       body {
         padding: 0;
