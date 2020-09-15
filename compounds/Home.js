@@ -9,7 +9,7 @@ const RedAnchor = (props) => <a className={styles.redAnchor} {...props} />;
 export default function Home(props) {
   return (
     <main className={styles.main}>
-      <img className={styles.profilePhoto} src="/profile.jpg" />
+      <img className={styles.profilePhoto} src="/profile-450.webp" />
 
       <div>
         <p>
