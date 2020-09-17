@@ -1,7 +1,7 @@
 .main {
   max-width: 450px;
   margin: 0 auto;
-  padding: 64px 32px;
+  padding: 0 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,6 +11,7 @@
   width: 100%;
   border-radius: 100%;
   margin-bottom: 64px;
+  margin-top: 64px;
 }
 
 .intro {
@@ -20,11 +21,11 @@
 .divider {
   border-bottom: 1px solid black;
   margin: 0 auto;
-  width: 50%;
+  width: 33%;
 }
 
 .akagiLogo {
   max-width: 100px;
-  margin-top: 64px;
-  margin-bottom: 64px;
+  margin-top: 256px;
+  margin-bottom: 256px;
 }
