@@ -56,8 +56,8 @@ export default class Seo extends React.Component {
 
         {children}
 
-        <link rel="shortcut icon" href="/logo.png" />
-        <link rel="icon" href="/logo.png" />
+        <link rel="shortcut icon" href="/akagi-logo.png" />
+        <link rel="icon" href="/akagi-logo.png" />
       </NextHead>
     )
   }

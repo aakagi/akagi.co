@@ -22,3 +22,13 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
+.intro {
+  margin-bottom: 64px;
+}
+
+.akagiLogo {
+  max-width: 100px;
+  margin-top: 64px;
+  margin-bottom: 64px;
+}

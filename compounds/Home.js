@@ -13,7 +13,7 @@ export default function Home(props) {
     <main className={styles.main}>
       <ProfilePhoto className={styles.profilePhoto} />
 
-      <div>
+      <div className={styles.intro}>
         <p>
           Hi<Red>,</Red> I<Red>’</Red>m Alex<Red>!</Red>
         </p>
@@ -49,6 +49,12 @@ export default function Home(props) {
           Let<Red>’</Red>s keep in touch<Red>!</Red>
         </p>
       </div>
+
+      <img
+        className={styles.akagiLogo}
+        src="/akagi-logo.png"
+      />
+
     </main>
   );
 }
