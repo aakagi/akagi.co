@@ -13,18 +13,14 @@
   margin-bottom: 64px;
 }
 
-.red {
-  color: #c31130;
-}
-
-.redAnchor {
-  composes: red;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
 .intro {
   margin-bottom: 64px;
+}
+
+.divider {
+  border-bottom: 1px solid black;
+  margin: 0 auto;
+  width: 50%;
 }
 
 .akagiLogo {
