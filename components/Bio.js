@@ -1,17 +1,15 @@
 import React from "react";
 
-import styles from "./Bio.module.css";
-
-const Red = ({ children }) => <span className={styles.red}>{children}</span>;
-const RedAnchor = (props) => <a className={styles.redAnchor} {...props} />;
+const Red = ({ children }) => <span className="text-red-700">{children}</span>;
+const RedAnchor = (props) => <a className="text-red-700 underline" {...props} />;
 
 export default function Bio({ className }) {
   return (
     <div className={className}>
-      <p>
+      <p className="leading-6 py-2">
         Hi<Red>,</Red> I<Red>’</Red>m Alex<Red>!</Red>
       </p>
-      <p>
+      <p className="leading-6 py-2">
         I<Red>’</Red>m an Engineer <Red>/</Red> Entrepreneur primarily based out
         of{" "}
         <RedAnchor
@@ -37,12 +35,12 @@ export default function Bio({ className }) {
         </span>
         <Red>.</Red>
       </p>
-      <p>
+      <p className="leading-6 py-2">
         You can reach me at{" "}
         <RedAnchor href="mailto:alex@akagi.co">alex@akagi.co</RedAnchor>
         <Red>.</Red>
       </p>
-      <p>
+      <p className="leading-6 py-2">
         Let<Red>’</Red>s keep in touch<Red>!</Red>
       </p>
     </div>
