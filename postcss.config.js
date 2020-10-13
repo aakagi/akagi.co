@@ -17,6 +17,7 @@ const purgecss = [
     },
   },
 ];
+
 module.exports = {
   plugins: [
     "tailwindcss",
