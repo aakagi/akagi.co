@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
     "start": "next start -p $PORT",
     "heroku-postbuild": "npm run build",
     "clean": "npm prune; npm cache verify; rm -rf ./node_modules package-lock.json; npm i",
