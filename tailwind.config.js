@@ -3,11 +3,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        display: ["gotham", "sans-serif"],
-        body: ["gotham", "sans-serif"],
+        display: ['gotham', 'sans-serif'],
+        body: ['gotham', 'sans-serif'],
       },
     },
   },
   variants: {},
   plugins: [],
-};
+}

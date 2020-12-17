@@ -1,5 +1,5 @@
-import React from 'react';
-import NextHead from 'next/head';
+import React from 'react'
+import NextHead from 'next/head'
 
 export default class Seo extends React.Component {
   render() {
@@ -10,9 +10,9 @@ export default class Seo extends React.Component {
       children,
       canonical,
       url = '',
-    } = this.props;
+    } = this.props
 
-    const properCanonical = canonical || url;
+    const properCanonical = canonical || url
 
     return (
       <NextHead>

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 export default function ProfilePhoto({ className }) {
   return (
@@ -7,5 +7,5 @@ export default function ProfilePhoto({ className }) {
       <source srcSet="/profile-320.jpg 320w, /profile-320-2x 2x" type="image/jpg" />
       <img className={className} src="/profile.jpg" alt="" />
     </picture>
-  );
+  )
 }

@@ -6,18 +6,34 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start -p $PORT",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "clean": "npm prune; npm cache verify; rm -rf ./node_modules package-lock.json; npm i",
+    "== ESLINT ==": "",
+    "fix": "./node_modules/.bin/eslint . --config=.eslintrc --fix",
+    "l": "./node_modules/.bin/eslint . --config=.eslintrc"
   },
   "dependencies": {
-    "next": "^9.5.5",
+    "autoprefixer": "^10.1.0",
+    "classnames": "^2.2.6",
+    "lodash": "^4.17.20",
+    "next": "10.0.3",
+    "postcss": "^8.2.1",
     "postcss-preset-env": "^6.7.0",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "tailwindcss": "^1.8.10"
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-icons": "^4.1.0",
+    "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
-    "@babel/plugin-transform-react-jsx": "^7.10.4",
-    "babel-plugin-module-resolver": "^4.0.0",
-    "prettier": "2.1.1"
+    "eslint": "7.15.0",
+    "eslint-config-standard": "16.0.2",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-react": "7.21.5",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "eslint-plugin-standard": "5.0.0",
+    "eslint-plugin-unused-imports": "1.0.1",
+    "tailwind.macro": "0.5.10"
   }
 }
