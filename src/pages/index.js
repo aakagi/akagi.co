@@ -1,5 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
+import cx from 'classnames'
 
 import MainLayout from 'layouts/MainLayout'
 
@@ -12,7 +13,13 @@ export default function HomePage() {
     <MainLayout>
       <Seo title="Home · Alex Akagi" />
 
-      <ProfilePhoto className="rounded-full" />
+      <ProfilePhoto
+        className={cx(
+          'mt-16',
+          'sm:mt-20',
+          'rounded-full',
+        )}
+      />
 
       <Bio className="py-16" />
 

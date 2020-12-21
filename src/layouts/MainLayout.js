@@ -1,14 +1,21 @@
 import React from 'react'
-
-import Navbar from 'components/Navbar'
+import cx from 'classnames'
 
 export default function MainLayout({
   children,
 }) {
   return (
-    <div className="flex flex-col items-center max-w-sm mx-auto pb-16 sm:px-0 px-8">
-      <Navbar classes={'pb-8 pt-8'} />
-
+    <div
+      className={cx(
+        'flex',
+        'flex-col',
+        'items-center',
+        'max-w-sm',
+        'mx-auto',
+        'px-8',
+        'sm:px-0',
+      )}
+    >
       {children}
     </div>
   )
