@@ -30,9 +30,9 @@ export default function Bio({ className }) {
         >
           backpack
         </RedAnchor>{' '}
-        so that I can live from{' '}
+        so I can live{' '}
         <span style={{ whiteSpace: 'pre' }}>
-          <Red>~</Red> anywhere <Red>~</Red>
+          ✨anywhere✨
         </span>
         <Red>.</Red>
       </p>
