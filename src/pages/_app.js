@@ -1,4 +1,4 @@
-import '../styles/tailwind.css'
+import 'styles/main.css'
 
 import React from 'react'
 

@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main {
+  @apply flex;
+  @apply flex-col;
+  @apply items-center;
+  @apply max-w-sm;
+  @apply mx-auto;
+  @apply px-8;
+}
+
+@screen sm {
+  .main {
+    @apply px-0;
+  }
+}
