@@ -58,6 +58,17 @@ export default class Seo extends React.Component {
 
         <link rel="shortcut icon" href="/akagi-logo.png" />
         <link rel="icon" href="/akagi-logo.png" />
+
+        {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-76371065-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-76371065-1');
+        </script>
+
       </NextHead>
     )
   }
