@@ -47,6 +47,9 @@ export default class Seo extends React.Component {
         <meta name="twitter:url" content={url} />
         <meta name="twitter:image:src" content="" />
 
+        {/* Content Security Policy for vercel analytics */}
+        <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src vitals.vercel-insights.com;" />
+
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
 
         <link
@@ -58,17 +61,6 @@ export default class Seo extends React.Component {
 
         <link rel="shortcut icon" href="/akagi-logo.png" />
         <link rel="icon" href="/akagi-logo.png" />
-
-        {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-76371065-1"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'UA-76371065-1');
-        </script>
-
       </NextHead>
     )
   }
