@@ -16,9 +16,7 @@ export default class Seo extends React.Component {
 
     return (
       <NextHead>
-        <title>
-          {title}
-        </title>
+        <title>{title}</title>
 
         <meta name="description" content={description} />
 
@@ -47,12 +45,12 @@ export default class Seo extends React.Component {
         <meta name="twitter:url" content={url} />
         <meta name="twitter:image:src" content="" />
 
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
-
-        <link
-          rel="canonical"
-          href={`https://akagi.co${properCanonical}`}
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
         />
+
+        <link rel="canonical" href={`https://akagi.co${properCanonical}`} />
 
         {children}
 

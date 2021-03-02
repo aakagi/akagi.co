@@ -13,7 +13,7 @@ module.exports = {
     extend: {
       borderColor: ['hover'],
       borderWidth: ['hover'],
-    }
+    },
   },
   plugins: [],
 }

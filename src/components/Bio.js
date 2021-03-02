@@ -1,7 +1,9 @@
 import React from 'react'
 
 const Red = ({ children }) => <span className="text-red-700">{children}</span>
-const RedAnchor = ({ className, ...props }) => <a className={`text-red-700 underline ${className}`} {...props} />
+const RedAnchor = ({ className, ...props }) => (
+  <a className={`text-red-700 underline ${className}`} {...props} />
+)
 
 export default function Bio({ className }) {
   return (
@@ -10,13 +12,10 @@ export default function Bio({ className }) {
         Hi<Red>,</Red> I<Red>’</Red>m Alex<Red>!</Red>
       </p>
       <p className="leading-6 py-2">
-        I<Red>’</Red>m a Software Engineer <Red>/</Red> Entrepreneur primarily based out
-        of
-        {' '}
+        I<Red>’</Red>m a Software Engineer <Red>/</Red> Entrepreneur primarily
+        based out of{' '}
         <RedAnchor
-          href={
-            'https://www.google.com/maps/place/Manhattan,+NY'
-          }
+          href={'https://www.google.com/maps/place/Manhattan,+NY'}
           target={'_blank'}
         >
           New York
@@ -30,10 +29,7 @@ export default function Bio({ className }) {
         >
           backpack
         </RedAnchor>{' '}
-        so I can live{' '}
-        <span style={{ whiteSpace: 'pre' }}>
-          ✨anywhere✨
-        </span>
+        so I can live <span style={{ whiteSpace: 'pre' }}>✨anywhere✨</span>
         <Red>.</Red>
       </p>
       <p className="leading-6 py-2">
