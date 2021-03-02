@@ -3,6 +3,7 @@ import Image from 'next/image'
 
 import Seo from 'components/Seo'
 import Bio from 'components/Bio'
+import Footer from 'components/Footer'
 
 export default function HomePage() {
   return (
@@ -31,6 +32,9 @@ export default function HomePage() {
         />
       </div>
 
+      <div className="py-16">
+        <Footer />
+      </div>
     </main>
   )
 }

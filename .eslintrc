@@ -5,8 +5,9 @@
     "node": true
   },
   "extends": ["plugin:react/recommended", "standard"],
-  "plugins": ["react", "react-hooks", "unused-imports"],
+  "plugins": ["prettier", "react", "react-hooks", "unused-imports"],
   "rules": {
+    "prettier/prettier": ["error", { "singleQuote": true, "semi": false }],
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "arrow-parens": ["error", "as-needed"],
