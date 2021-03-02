@@ -15,7 +15,7 @@ export default function Bio({ className }) {
         I<Red>’</Red>m a Software Engineer <Red>/</Red> Entrepreneur primarily
         based out of{' '}
         <RedAnchor
-          href={'https://www.google.com/maps/place/Manhattan,+NY'}
+          href={'https://www.google.com/maps/place/Lower+East+Side,+NY'}
           target={'_blank'}
         >
           New York
