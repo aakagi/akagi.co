@@ -1,23 +1,23 @@
 import {
-  FaFacebook,
+  FaFacebookF,
   FaInstagram,
   FaTwitter,
-  FaLinkedin,
+  FaLinkedinIn,
   FaGithub,
 } from 'react-icons/fa'
 
 const footerLinks = [
   {
-    href: 'https://instagram.com/alexakagi',
-    Icon: FaInstagram,
-  },
-  {
     href: 'https://facebook.com/alexakagi',
-    Icon: FaFacebook,
+    Icon: FaFacebookF,
   },
   {
     href: 'https://twitter.com/akagi____',
     Icon: FaTwitter,
+  },
+  {
+    href: 'https://instagram.com/alexakagi',
+    Icon: FaInstagram,
   },
   {
     href: 'https://github.com/aakagi',
@@ -25,7 +25,7 @@ const footerLinks = [
   },
   {
     href: 'https://www.linkedin.com/in/aakagi/',
-    Icon: FaLinkedin,
+    Icon: FaLinkedinIn,
   },
 ]
 
