@@ -47,9 +47,6 @@ export default class Seo extends React.Component {
         <meta name="twitter:url" content={url} />
         <meta name="twitter:image:src" content="" />
 
-        {/* Content Security Policy for vercel analytics */}
-        <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src vitals.vercel-insights.com;" />
-
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
 
         <link
