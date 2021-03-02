@@ -38,7 +38,7 @@ export default function Footer() {
           target="_blank"
           rel="noreferrer"
           href={href}
-          className="text-2xl opacity-40 hover:opacity-80 mx-3 transition-opacity duration-100"
+          className="text-2xl opacity-40 hover:opacity-80 mx-3 sm:mx-4 transition-opacity duration-100"
         >
           <Icon />
         </a>
