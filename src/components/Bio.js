@@ -12,8 +12,8 @@ export default function Bio({ className }) {
         Hi<Red>,</Red> I<Red>’</Red>m Alex<Red>!</Red>
       </p>
       <p className="leading-6 py-2">
-        I<Red>’</Red>m a Software Dev <Red>/</Red> Entrepreneur primarily based
-        out of{' '}
+        I<Red>’</Red>m a Software Developer <Red>/</Red> Entrepreneur primarily
+        based out of{' '}
         <RedAnchor
           href={'https://www.google.com/maps/place/Lower+East+Side,+NY'}
           target={'_blank'}
