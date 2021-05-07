@@ -30,6 +30,7 @@ export default function HomePage() {
           height="96"
           src="/akagi-logo.png"
           alt="赤木"
+          priority
         />
       </div>
 
