@@ -24,6 +24,7 @@ export default class MyDocument extends Document {
 
           {__PROD__ && (
             <script
+              async
               dangerouslySetInnerHTML={{
                 __html: `
               window.dataLayer = window.dataLayer || [];
