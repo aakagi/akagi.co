@@ -16,7 +16,6 @@ function redMap(str) {
   const redStr = strings.map((s) =>
     s.match(NON_ALPLA_NUMERIC) ? <Red>{s}</Red> : s
   )
-  console.log('redStr', redStr)
   return redStr
 }
 
