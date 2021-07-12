@@ -6,8 +6,10 @@ import Prolific from 'lib/published/prolific.mdx'
 export default function BlogPage() {
   return (
     <MDXProvider>
-      <div className="max-w-md pt-12 pb-24 px-6">
-        <Prolific />
+      <div className="flex justify-center">
+        <div className="max-w-md pt-12 pb-24 px-6">
+          <Prolific />
+        </div>
       </div>
 
       <div className="w-full flex justify-center pt-4 pb-32">
