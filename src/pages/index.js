@@ -1,8 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-
 import MDXProvider from 'providers/MDXProvider'
-
 import Seo from 'components/Seo'
 import Bio from 'components/Bio.mdx'
 import Footer from 'components/Footer'

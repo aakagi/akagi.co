@@ -1,5 +1,6 @@
+import Image from 'next/image'
+import Link from 'next/link'
 import MDXProvider from 'providers/MDXProvider'
-
 import Prolific from 'lib/published/prolific.mdx'
 
 export default function BlogPage() {
@@ -7,6 +8,21 @@ export default function BlogPage() {
     <MDXProvider>
       <div className="max-w-md pt-12 pb-24 px-6">
         <Prolific />
+      </div>
+
+      <div className="w-full flex justify-center pt-4 pb-32">
+        <Link href="/">
+          <a>
+            <Image
+              layout="intrinsic"
+              width="96"
+              height="96"
+              src="/akagi-logo.png"
+              alt="赤木"
+              priority
+            />
+          </a>
+        </Link>
       </div>
     </MDXProvider>
   )
