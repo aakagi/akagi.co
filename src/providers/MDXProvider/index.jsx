@@ -41,8 +41,15 @@ function H1(props) {
   return <h1 className="text-2xl font-medium mb-4" {...props} />
 }
 
+function H6(props) {
+  return (
+    <h6 className="text-sm text-gray-400 font-medium mt-8 mb-4" {...props} />
+  )
+}
+
 const components = {
   h1: H1,
+  h6: H6,
   p: Paragraph,
   a: RedAnchor,
 }
