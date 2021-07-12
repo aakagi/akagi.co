@@ -28,8 +28,6 @@ export default function HomePage() {
           <Bio />
         </div>
 
-        {/* <Bio className="py-16" /> */}
-
         <div className="w-24 py-40">
           <Image
             layout="intrinsic"

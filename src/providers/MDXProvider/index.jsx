@@ -6,7 +6,13 @@ function Red({ children }) {
 }
 
 function RedAnchor({ className, ...props }) {
-  return <a className={`text-red-700 underline ${className}`} {...props} />
+  return (
+    <a
+      className={`text-red-700 underline ${className}`}
+      target="_blank"
+      {...props}
+    />
+  )
 }
 
 const NON_ALPLA_NUMERIC = /([^a-z\d\s])/i
@@ -31,7 +37,12 @@ function Paragraph({ children, ...props }) {
   )
 }
 
+function H1(props) {
+  return <h1 className="text-2xl font-medium mb-4" {...props} />
+}
+
 const components = {
+  h1: H1,
   p: Paragraph,
   a: RedAnchor,
 }
