@@ -37,6 +37,18 @@ function Paragraph({ children, ...props }) {
   )
 }
 
+function Li({ children, ...props }) {
+  const text = Array.isArray(children) ? children.map(redMap) : redMap(children)
+  return (
+    <div className="flex">
+      <p>-</p>
+      <p className="font-normal leading-6 pl-1 mb-1" {...props}>
+        {text}
+      </p>
+    </div>
+  )
+}
+
 function H1(props) {
   return <h1 className="text-2xl font-medium mb-4" {...props} />
 }
@@ -56,7 +68,7 @@ const components = {
   h3: H3,
   h6: H6,
   p: Paragraph,
-  li: Paragraph,
+  li: Li,
   a: RedAnchor,
 }
 
