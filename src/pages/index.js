@@ -20,6 +20,7 @@ const postTitles = [
   'Attempting to Establish Good Habits',
   'Enjoyable Goals',
   'Historical Record',
+  'Adventuring More',
 ]
 
 export default function HomePage() {
