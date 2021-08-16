@@ -9,6 +9,7 @@ import Week2 from 'lib/published/week-2.mdx'
 import Week3 from 'lib/published/week-3.mdx'
 import Week4 from 'lib/published/week-4.mdx'
 import Week5 from 'lib/published/week-5.mdx'
+import Week6 from 'lib/published/week-6.mdx'
 
 const posts = {
   'week-1': Week1,
@@ -16,6 +17,7 @@ const posts = {
   'week-3': Week3,
   'week-4': Week4,
   'week-5': Week5,
+  'week-6': Week6,
 }
 
 export default function PostPage(props) {
