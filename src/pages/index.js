@@ -21,6 +21,7 @@ const postTitles = [
   'Enjoyable Goals',
   'Historical Record',
   'Adventuring More',
+  'The Man in the Arena',
 ]
 
 export default function HomePage() {
