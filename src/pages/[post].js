@@ -10,6 +10,7 @@ import Week3 from 'lib/published/week-3.mdx'
 import Week4 from 'lib/published/week-4.mdx'
 import Week5 from 'lib/published/week-5.mdx'
 import Week6 from 'lib/published/week-6.mdx'
+import Week7 from 'lib/published/week-7.mdx'
 
 const posts = {
   'week-1': Week1,
@@ -18,6 +19,7 @@ const posts = {
   'week-4': Week4,
   'week-5': Week5,
   'week-6': Week6,
+  'week-7': Week7,
 }
 
 export default function PostPage(props) {
@@ -62,6 +64,5 @@ export async function getStaticPaths() {
   const paths = Object.keys(posts).map((postPath) => ({
     params: { post: postPath },
   }))
-  console.log('paths', paths)
   return { paths, fallback: 'blocking' }
 }
