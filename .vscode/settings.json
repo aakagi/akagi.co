@@ -7,6 +7,9 @@
   "eslint.validate": ["javascript", "javascriptreact"],
   "eslint.run": "onSave",
   "explorer.confirmDelete": false,
+  "emmet.includeLanguages": {
+    "javascript": "html"
+  },
   "files.exclude": {
     "**/node_modules": true,
     "**/.git": true

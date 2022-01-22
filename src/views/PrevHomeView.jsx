@@ -32,6 +32,7 @@ export default function HomePage() {
 
         <div className="mt-16 sm:mt-20">
           <Image
+            alt="profile-pic"
             src="/profile.jpg"
             layout="intrinsic"
             width="420"
@@ -45,16 +46,13 @@ export default function HomePage() {
           <Bio />
         </div>
 
-        {/* <div className="w-full pb-16 text-left">
+        <div className="w-full pb-16 text-left">
           <h4 className="text-gray-500 font-medium mb-3 text-sm">
-            I'm Attempting to Write Weekly:
+            I‘m Attempting to Write Weekly:
           </h4>
           {postTitles.reverse().map((postTitle, index) => (
             <div className="flex items-end" key={`post-${index}`}>
-              <div
-                className="text-gray-500 text-sm mr-3 "
-                style={{ minWidth: '3rem' }}
-              >
+              <div className="text-gray-500 text-sm mr-3 " style={{ minWidth: '3rem' }}>
                 Week {postTitles.length - index}
               </div>
               <Link href={`/week-${postTitles.length - index}`}>
@@ -62,7 +60,7 @@ export default function HomePage() {
               </Link>
             </div>
           ))}
-        </div> */}
+        </div>
 
         <div className="w-24 py-32">
           <Image
