@@ -1,6 +1,7 @@
 import React from 'react'
-import MDXProvider from 'providers/MDXProvider'
+
 import Seo from 'components/Seo'
+import MDXProvider from 'providers/MDXProvider'
 import HomeView from 'views/HomeView'
 
 export default function HomePage() {

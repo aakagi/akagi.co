@@ -7,11 +7,7 @@ function Red({ children }) {
 
 function RedAnchor({ className, ...props }) {
   return (
-    <a
-      className={`text-red-700 underline ${className}`}
-      target="_blank"
-      {...props}
-    />
+    <a className={`text-red-700 underline ${className}`} target="_blank" {...props} />
   )
 }
 
@@ -23,7 +19,7 @@ function redMap(str) {
   }
   const strings = str.split(NON_ALPLA_NUMERIC)
   const redStr = strings.map((s, index) =>
-    s.match(NON_ALPLA_NUMERIC) ? <Red key={index}>{s}</Red> : s
+    s.match(NON_ALPLA_NUMERIC) ? <Red key={index}>{s}</Red> : s,
   )
   return redStr
 }
@@ -58,9 +54,7 @@ function H3(props) {
 }
 
 function H6(props) {
-  return (
-    <h6 className="text-sm text-gray-400 font-medium mt-8 mb-4" {...props} />
-  )
+  return <h6 className="text-sm text-gray-400 font-medium mt-8 mb-4" {...props} />
 }
 
 const components = {
