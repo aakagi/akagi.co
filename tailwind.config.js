@@ -1,6 +1,5 @@
 module.exports = {
-  purge: ['./**/*.js', './**/*.jsx', './**/*.md', './**/*.mdx'],
-  darkMode: false,
+  content: ['./src/**/*.js', './src/**/*.jsx', './src/**/*.md', './src/**/*.mdx'],
   theme: {
     extend: {
       fontFamily: {
