@@ -45,7 +45,7 @@ export default function HomePage() {
           <Bio />
         </div>
 
-        <div className="w-full pb-16 text-left">
+        {/* <div className="w-full pb-16 text-left">
           <h4 className="text-gray-500 font-medium mb-3 text-sm">
             I'm Attempting to Write Weekly:
           </h4>
@@ -62,9 +62,9 @@ export default function HomePage() {
               </Link>
             </div>
           ))}
-        </div>
+        </div> */}
 
-        <div className="w-24 py-40">
+        <div className="w-24 py-32">
           <Image
             layout="intrinsic"
             width="96"
