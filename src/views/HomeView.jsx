@@ -1,26 +1,15 @@
-
-
-
 import React from 'react'
-
 
 import Bio from 'components/Bio.mdx'
 import Footer from 'components/Footer'
 import Image from 'next/image'
-
-
-
-
 
 export default function HomeView() {
   return (
     <div className="flex flex-col items-center max-w-sm mx-auto px-8">
       <div className="mt-16 sm:mt-20">
         <Image
-          alt='profile-pic'
-
-
-
+          alt="profile-pic"
           src="/profile.jpg"
           layout="intrinsic"
           width="420"
