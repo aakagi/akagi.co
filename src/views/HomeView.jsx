@@ -1,9 +1,8 @@
 import React from 'react'
 import cx from 'classnames'
-
+import Image from 'next/image'
 import Bio from 'components/Bio.mdx'
 import Footer from 'components/Footer'
-import Image from 'next/image'
 
 function ProfilePhoto() {
   return (
@@ -38,18 +37,18 @@ function HomeLayout(props) {
     <div
       className={cx(
         'w-full',
+        'min-h-screen',
         'flex',
-        'flex-col',
         'items-center',
-        'max-w-sm',
-        'mx-auto',
-        'px-8 lg:px-0',
+        'justify-center',
       )}
     >
-      <div className={cx('mt-16 sm:mt-20')}>{profilePhoto}</div>
-      <div className="w-full py-16 text-left">{bio}</div>
-      <div className="w-24 py-32">{kanji}</div>
-      <div className="py-16">{footer}</div>
+      <div className="w-full max-w-sm flex flex-col items-center px-8 lg:px-0">
+        <div className={cx('mt-16 sm:mt-20')}>{profilePhoto}</div>
+        <div className="w-full py-16">{bio}</div>
+        <div className="w-24 py-32">{kanji}</div>
+        <div className="py-16">{footer}</div>
+      </div>
     </div>
   )
 }

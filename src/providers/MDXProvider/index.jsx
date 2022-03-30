@@ -1,4 +1,3 @@
-import React from 'react'
 import { MDXProvider as MdxJsProvider } from '@mdx-js/react'
 
 function Red({ children }) {
@@ -7,7 +6,11 @@ function Red({ children }) {
 
 function RedAnchor({ className, ...props }) {
   return (
-    <a className={`text-red-700 underline ${className}`} target="_blank" {...props} />
+    <a
+      className={`text-red-700 underline ${className}`}
+      target="_blank"
+      {...props}
+    />
   )
 }
 
@@ -54,7 +57,9 @@ function H3(props) {
 }
 
 function H6(props) {
-  return <h6 className="text-sm text-gray-400 font-medium mt-8 mb-4" {...props} />
+  return (
+    <h6 className="text-sm text-gray-400 font-medium mt-8 mb-4" {...props} />
+  )
 }
 
 const components = {
