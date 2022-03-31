@@ -1,4 +1,7 @@
-// VIA https://medium.com/frontend-digest/using-nextjs-with-google-analytics-and-typescript-620ba2359dea
+// https://medium.com/frontend-digest/using-nextjs-with-google-analytics-and-typescript-620ba2359dea
+
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 const __PROD__ = process.env.NODE_ENV === 'production'
 
@@ -22,4 +25,18 @@ export const event = ({ action, category, label, value }) => {
       value: value,
     })
   }
+}
+
+export default function useGoogleAnalytics() {
+  const router = useRouter()
+
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url)
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
 }

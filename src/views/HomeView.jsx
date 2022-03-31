@@ -1,7 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 import Image from 'next/image'
-import Bio from 'components/Bio.mdx'
+import Bio from 'components/Bio'
 import Footer from 'components/Footer'
 
 function ProfilePhoto() {

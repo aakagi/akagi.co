@@ -1,5 +1,3 @@
-import { MDXProvider as MdxJsProvider } from '@mdx-js/react'
-
 function Red({ children }) {
   return <span className="text-red-700">{children}</span>
 }
@@ -71,6 +69,4 @@ const components = {
   a: RedAnchor,
 }
 
-export default function MDXProvider(props) {
-  return <MdxJsProvider components={components} {...props} />
-}
+export default components

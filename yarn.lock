@@ -177,11 +177,6 @@
   dependencies:
     glob "7.1.7"
 
-"@next/mdx@12.1.3":
-  version "12.1.3"
-  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-12.1.3.tgz#f6ad6a710f0188b1d737ee8048062222136265b6"
-  integrity sha512-K0Bl/HsIEeqlhv/RcP188sc8HEVMTKYZPUeW6WJLsrkMmIee5f+qWzvWrMu40jV2pC+JdeDc4BHWCIF1ryBaIw==
-
 "@next/swc-android-arm-eabi@12.1.3":
   version "12.1.3"
   resolved "https://registry.yarnpkg.com/@next/swc-android-arm-eabi/-/swc-android-arm-eabi-12.1.3.tgz#2b3f30814dfbee3a62b23d3dbbd1b6ee28743ad5"
