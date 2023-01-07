@@ -20,14 +20,7 @@ function ProfilePhoto() {
 
 function Kanji() {
   return (
-    <Image
-      layout="intrinsic"
-      width="96"
-      height="96"
-      src="/akagi-logo.png"
-      alt="赤木"
-      priority
-    />
+    <Image width="96" height="96" src="/akagi-logo.png" alt="赤木" priority />
   )
 }
 
