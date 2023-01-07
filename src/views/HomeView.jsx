@@ -31,8 +31,7 @@ function Kanji() {
   )
 }
 
-function HomeLayout(props) {
-  const { profilePhoto, bio, kanji, footer } = props
+function HomeLayout({ profilePhoto, bio, kanji, footer }) {
   return (
     <div
       className={cx(
