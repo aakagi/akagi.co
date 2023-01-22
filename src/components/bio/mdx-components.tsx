@@ -1,8 +1,10 @@
-function Red({ children }) {
+import { PropsWithChildren, ReactNode } from 'react'
+
+function Red({ children }: PropsWithChildren) {
   return <span className="text-red-700">{children}</span>
 }
 
-function RedAnchor({ className, ...props }) {
+function RedAnchor({ className, ...props }: JSX.IntrinsicElements['a']) {
   return (
     <a
       className={`text-red-700 underline ${className}`}
@@ -14,7 +16,7 @@ function RedAnchor({ className, ...props }) {
 
 const NON_ALPLA_NUMERIC = /([^a-z\d\s])/i
 
-function redMap(str) {
+function redMap(str: ReactNode | string) {
   if (typeof str !== 'string') {
     return str
   }
@@ -25,7 +27,10 @@ function redMap(str) {
   return redStr
 }
 
-function Paragraph({ children, ...props }) {
+function Paragraph({
+  children,
+  ...props
+}: PropsWithChildren<{ text: string }>) {
   const text = Array.isArray(children) ? children.map(redMap) : redMap(children)
   return (
     <p className="font-normal leading-6 py-2" {...props}>
@@ -34,7 +39,7 @@ function Paragraph({ children, ...props }) {
   )
 }
 
-function Li({ children, ...props }) {
+function Li({ children, ...props }: PropsWithChildren<{ text: string }>) {
   const text = Array.isArray(children) ? children.map(redMap) : redMap(children)
   return (
     <div className="flex">
@@ -46,15 +51,15 @@ function Li({ children, ...props }) {
   )
 }
 
-function H1(props) {
+function H1(props: JSX.IntrinsicElements['h1']) {
   return <h1 className="text-2xl font-medium mb-4" {...props} />
 }
 
-function H3(props) {
+function H3(props: JSX.IntrinsicElements['h3']) {
   return <h1 className="text-lg mt-6 font-bold mb-3" {...props} />
 }
 
-function H6(props) {
+function H6(props: JSX.IntrinsicElements['h6']) {
   return (
     <h6 className="text-sm text-gray-400 font-medium mt-8 mb-4" {...props} />
   )

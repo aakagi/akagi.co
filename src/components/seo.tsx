@@ -1,23 +1,19 @@
-import NextHead from 'next/head'
+import Script from 'next/script'
 
-export default function Seo(props) {
-  const {
-    title = 'Akagi.co',
-    description = 'Read my stuff!',
-    image = '/profile.jpg',
-    children,
-    canonical = '',
-    url = '',
-  } = props
-
+export const Seo = ({
+  title = 'Akagi.co',
+  description = 'Read my stuff!',
+  image = '/profile.jpg',
+  children = null,
+  canonical = '',
+  url = '',
+}) => {
   return (
-    <NextHead>
+    <>
       <title>{title}</title>
 
       <meta name="description" content={description} />
 
-      {/* Open Graph */}
-      <link itemProp="url" href="https://akagi.co" />
       <meta itemProp="name" content={title} />
       <meta itemProp="description" content={description} />
       <meta itemProp="image" content={image} />
@@ -52,6 +48,21 @@ export default function Seo(props) {
 
       <link rel="shortcut icon" href="/akagi-logo.png" />
       <link rel="icon" href="/akagi-logo.png" />
-    </NextHead>
+
+      {/* Google tag (gtag.js) */}
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=UA-76371065-1"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-76371065-1');
+        `}
+      </Script>
+    </>
   )
 }
