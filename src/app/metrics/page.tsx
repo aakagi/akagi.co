@@ -1,7 +1,9 @@
+import { ColdShowerGraph } from './cold-shower-graph'
+
 export default function MetricsPage() {
   return (
-    <div>
-      <div>MetricsPage</div>
+    <div className="w-full h-screen">
+      <ColdShowerGraph />
     </div>
   )
 }
