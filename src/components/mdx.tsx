@@ -1,4 +1,6 @@
-import { PropsWithChildren, ReactNode } from 'react'
+/* eslint-disable jsx-a11y/heading-has-content,jsx-a11y/anchor-has-content */
+
+import type { PropsWithChildren, ReactNode } from 'react'
 
 function Red({ children }: PropsWithChildren) {
   return <span className="text-red-700">{children}</span>
@@ -21,16 +23,12 @@ function redMap(str: ReactNode | string) {
     return str
   }
   const strings = str.split(NON_ALPLA_NUMERIC)
-  const redStr = strings.map((s, index) =>
+  return strings.map((s, index) =>
     s.match(NON_ALPLA_NUMERIC) ? <Red key={index}>{s}</Red> : s,
   )
-  return redStr
 }
 
-function Paragraph({
-  children,
-  ...props
-}: PropsWithChildren<{ text: string }>) {
+function Paragraph({ children, ...props }: JSX.IntrinsicElements['p']) {
   const text = Array.isArray(children) ? children.map(redMap) : redMap(children)
   return (
     <p className="font-normal leading-6 py-2" {...props}>
@@ -39,14 +37,14 @@ function Paragraph({
   )
 }
 
-function Li({ children, ...props }: PropsWithChildren<{ text: string }>) {
+function Li({ children, ...props }: JSX.IntrinsicElements['li']) {
   const text = Array.isArray(children) ? children.map(redMap) : redMap(children)
   return (
     <div className="flex">
       <p>-</p>
-      <p className="font-normal leading-6 pl-1 mb-1" {...props}>
+      <li className="font-normal leading-6 pl-1 mb-1" {...props}>
         {text}
-      </p>
+      </li>
     </div>
   )
 }
@@ -65,7 +63,7 @@ function H6(props: JSX.IntrinsicElements['h6']) {
   )
 }
 
-const components = {
+export const mdxComponents = {
   h1: H1,
   h3: H3,
   h6: H6,
@@ -73,5 +71,3 @@ const components = {
   li: Li,
   a: RedAnchor,
 }
-
-export default components

@@ -1,7 +1,8 @@
 import classNames from 'classnames'
 import Image from 'next/image'
-import Bio from '../components/bio'
-import Footer from '../components/footer'
+import { mdxComponents } from '../components/mdx'
+import Bio from './bio.mdx'
+import { Footer } from './footer'
 
 const ProfilePhoto = () => {
   return (
@@ -38,7 +39,7 @@ export default function HomePage() {
           <ProfilePhoto />
         </div>
         <div className="w-full py-16">
-          <Bio />
+          <Bio components={mdxComponents} />
         </div>
         <div className="w-24 py-32">
           <Kanji />
