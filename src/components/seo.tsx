@@ -1,3 +1,5 @@
+import Script from 'next/script'
+
 export const Seo = ({
   title = 'Akagi.co',
   description = 'Read my stuff!',
@@ -46,6 +48,21 @@ export const Seo = ({
 
       <link rel="shortcut icon" href="/akagi-logo.png" />
       <link rel="icon" href="/akagi-logo.png" />
+
+      {/* Google tag (gtag.js) */}
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=UA-76371065-1"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-76371065-1');
+        `}
+      </Script>
     </>
   )
 }
