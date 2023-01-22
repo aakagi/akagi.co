@@ -1,4 +1,6 @@
-import { PropsWithChildren, ReactNode } from 'react'
+/* eslint-disable jsx-a11y/heading-has-content,jsx-a11y/anchor-has-content */
+
+import type { PropsWithChildren, ReactNode } from 'react'
 
 function Red({ children }: PropsWithChildren) {
   return <span className="text-red-700">{children}</span>
@@ -21,10 +23,9 @@ function redMap(str: ReactNode | string) {
     return str
   }
   const strings = str.split(NON_ALPLA_NUMERIC)
-  const redStr = strings.map((s, index) =>
+  return strings.map((s, index) =>
     s.match(NON_ALPLA_NUMERIC) ? <Red key={index}>{s}</Red> : s,
   )
-  return redStr
 }
 
 function Paragraph({ children, ...props }: JSX.IntrinsicElements['p']) {
