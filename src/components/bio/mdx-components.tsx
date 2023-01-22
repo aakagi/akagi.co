@@ -27,10 +27,7 @@ function redMap(str: ReactNode | string) {
   return redStr
 }
 
-function Paragraph({
-  children,
-  ...props
-}: PropsWithChildren<{ text: string }>) {
+function Paragraph({ children, ...props }: JSX.IntrinsicElements['p']) {
   const text = Array.isArray(children) ? children.map(redMap) : redMap(children)
   return (
     <p className="font-normal leading-6 py-2" {...props}>
@@ -39,14 +36,14 @@ function Paragraph({
   )
 }
 
-function Li({ children, ...props }: PropsWithChildren<{ text: string }>) {
+function Li({ children, ...props }: JSX.IntrinsicElements['li']) {
   const text = Array.isArray(children) ? children.map(redMap) : redMap(children)
   return (
     <div className="flex">
       <p>-</p>
-      <p className="font-normal leading-6 pl-1 mb-1" {...props}>
+      <li className="font-normal leading-6 pl-1 mb-1" {...props}>
         {text}
-      </p>
+      </li>
     </div>
   )
 }
