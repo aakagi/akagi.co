@@ -62,7 +62,7 @@ function H6(props: JSX.IntrinsicElements['h6']) {
   )
 }
 
-const components = {
+export const mdxComponents = {
   h1: H1,
   h3: H3,
   h6: H6,
@@ -70,5 +70,3 @@ const components = {
   li: Li,
   a: RedAnchor,
 }
-
-export default components

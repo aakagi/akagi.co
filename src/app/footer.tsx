@@ -29,7 +29,7 @@ const footerLinks = [
   },
 ]
 
-export default function Footer() {
+export const Footer = () => {
   return (
     <footer className="flex">
       {footerLinks.map(({ href, Icon }, index) => (
