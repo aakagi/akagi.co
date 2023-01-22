@@ -1,5 +1,5 @@
-import Seo from 'components/Seo'
-import HomeView from 'views/HomeView'
+import Seo from '../components/Seo'
+import HomeView from '../views/HomeView'
 
 export default function HomePage() {
   return (

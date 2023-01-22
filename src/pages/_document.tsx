@@ -1,10 +1,10 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { GA_TRACKING_ID } from 'hooks/useGoogleAnalytics'
+import { GA_TRACKING_ID } from '../hooks/useGoogleAnalytics'
 
 const __PROD__ = process.env.NODE_ENV === 'production'
 
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx) {
+  static async getInitialProps(ctx: any) {
     const initialProps = await Document.getInitialProps(ctx)
     return { ...initialProps }
   }

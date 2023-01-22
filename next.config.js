@@ -1,11 +1,8 @@
-const nextConfig = {
+/** @type {import('next').NextConfig} */
+module.exports = {
   reactStrictMode: true,
-  experimental: {
-    // Prefer loading of ES Modules over CommonJS
-    esmExternals: true,
-  },
   // Support MDX files as pages:
-  pageExtensions: ['js', 'jsx', 'mdx'],
+  pageExtensions: ['ts', 'tsx', 'mdx'],
   webpack(config, options) {
     config.module.rules.push({
       test: /\.mdx?$/,
@@ -25,5 +22,3 @@ const nextConfig = {
     return config
   },
 }
-
-module.exports = nextConfig

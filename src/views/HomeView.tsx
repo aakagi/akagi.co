@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import cx from 'classnames'
 import Image from 'next/image'
-import Bio from 'components/Bio'
-import Footer from 'components/Footer'
+import Bio from '../components/Bio'
+import Footer from '../components/Footer'
 
 function ProfilePhoto() {
   return (
@@ -24,7 +24,17 @@ function Kanji() {
   )
 }
 
-function HomeLayout({ profilePhoto, bio, kanji, footer }) {
+function HomeLayout({
+  profilePhoto,
+  bio,
+  kanji,
+  footer,
+}: {
+  profilePhoto: ReactNode
+  bio: ReactNode
+  kanji: ReactNode
+  footer: ReactNode
+}) {
   return (
     <div
       className={cx(

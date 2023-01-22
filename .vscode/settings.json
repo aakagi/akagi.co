@@ -4,7 +4,10 @@
   "editor.formatOnSave": true,
   "eslint.format.enable": true,
   "eslint.alwaysShowStatus": true,
-  "eslint.validate": ["javascript", "javascriptreact"],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact"
+  ],
   "eslint.run": "onSave",
   "explorer.confirmDelete": false,
   "emmet.includeLanguages": {
@@ -13,5 +16,10 @@
   "files.exclude": {
     "**/node_modules": true,
     "**/.git": true
-  }
+  },
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }
