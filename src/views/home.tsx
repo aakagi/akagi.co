@@ -1,15 +1,14 @@
 import React, { ReactNode } from 'react'
 import cx from 'classnames'
 import Image from 'next/image'
-import Bio from '../components/Bio'
-import Footer from '../components/Footer'
+import Bio from '../components/temp-bio'
+import Footer from '../components/temp-footer'
 
 function ProfilePhoto() {
   return (
     <Image
       alt="profile-pic"
       src="/profile.jpg"
-      layout="intrinsic"
       width="420"
       height="420"
       className="rounded-full"

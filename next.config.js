@@ -3,6 +3,9 @@ module.exports = {
   reactStrictMode: true,
   // Support MDX files as pages:
   pageExtensions: ['ts', 'tsx', 'mdx'],
+  experimental: {
+    appDir: true,
+  },
   webpack(config, options) {
     config.module.rules.push({
       test: /\.mdx?$/,

@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { GA_TRACKING_ID } from '../hooks/useGoogleAnalytics'
+import { GA_TRACKING_ID } from '../hooks/use-google-analytics'
 
 const __PROD__ = process.env.NODE_ENV === 'production'
 

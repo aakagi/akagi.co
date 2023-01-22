@@ -1,4 +1,4 @@
-import BioMdx from './Bio.mdx'
+import BioMdx from './temp-bio.mdx'
 import components from './mdx-components'
 
 export default function Bio() {
