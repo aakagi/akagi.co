@@ -1,25 +1,40 @@
 {
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  "editor.tabSize": 2,
-  "editor.formatOnSave": true,
-  "eslint.format.enable": true,
-  "eslint.alwaysShowStatus": true,
-  "eslint.validate": ["javascript", "javascriptreact"],
-  "eslint.run": "onSave",
-  "explorer.confirmDelete": false,
-  "emmet.includeLanguages": {
-    "javascript": "html"
-  },
-  "files.exclude": {
-    "**/node_modules": true,
-    "**/.git": true
+  "[typescriptreact][typescript][javascript][json][jsonc]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
   },
   "[ignore]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "[dotenv]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  }
+  "files.associations": {
+    "wrangler.json": "jsonc"
+  },
+  "search.exclude": {
+    "node_modules": true,
+    ".yarn": true,
+    "dist": true,
+    "build": true,
+    "public": true,
+    "scripts": true
+  },
+  "tailwindCSS.experimental.classRegex": [
+    [
+      "(?:\\b(?:const|let|var)\\s+)?[\\w$_]*(?:[Cc]lass(?:es)|[Cc]lassnames|[*_]CLASSES)[\\w\\d]*\\s*(?:=|\\+=)\\s*['\"]([^'\"]*)['\"]"
+    ],
+    // Match `variants` util function calls.
+    ["variants\\([^,]+,\\s*\\{([^}]+)\\}\\)", "[\"']([^\"']+)[\"']"],
+    [
+      // Match object property class values for `const classes = { ... }`.
+      "(?<=const classes\\s*=\\s*\\{[\\s\\S]*?)\\w+\\s*:\\s*\"([^\"]*)\""
+    ],
+    [
+      // Match object property class values with single quotes for `const classes = { ... }`.
+      "(?<=const classes\\s*=\\s*\\{[\\s\\S]*?)\\w+\\s*:\\s*'([^']*)'"
+    ]
+  ],
+  "typescript.preferences.useAliasesForRenames": false,
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

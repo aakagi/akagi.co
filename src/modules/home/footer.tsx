@@ -29,7 +29,7 @@ const footerLinks = [
   },
 ]
 
-export const Footer = () => {
+const Footer = () => {
   return (
     <footer className="flex">
       {footerLinks.map(({ href, Icon }, index) => (
@@ -46,3 +46,5 @@ export const Footer = () => {
     </footer>
   )
 }
+
+export { Footer }
