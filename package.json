@@ -2,7 +2,9 @@
   "name": "akagi-co",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "yarn@1.22.22",
+  "engines": {
+    "npm": "please-use-yarn"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
