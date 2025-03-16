@@ -35,6 +35,6 @@
       "(?<=const classes\\s*=\\s*\\{[\\s\\S]*?)\\w+\\s*:\\s*'([^']*)'"
     ]
   ],
-  "typescript.preferences.useAliasesForRenames": false,
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.preferences.useAliasesForRenames": false
+  // "typescript.tsdk": "node_modules/typescript/lib"
 }

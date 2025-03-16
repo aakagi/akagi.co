@@ -7,8 +7,8 @@ import Image from "next/image";
 
 export default function HomePage() {
   return (
-    <div className="w-full min-h-screen flex items-center justify-center">
-      <div className="w-full max-w-sm flex flex-col items-center px-8 lg:px-0">
+    <div className="flex min-h-screen w-full items-center justify-center">
+      <div className="flex w-full max-w-sm flex-col items-center px-8 lg:px-0">
         <div className="mt-16 sm:mt-20">
           <Image
             alt="profile-pic"
