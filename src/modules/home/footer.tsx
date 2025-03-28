@@ -34,7 +34,6 @@ const Footer = () => {
       {footerLinks.map(({ href, Icon, ariaLabel }, index) => (
         <a
           key={"social-" + index}
-          target="_blank"
           rel="noreferrer"
           href={href}
           aria-label={ariaLabel}

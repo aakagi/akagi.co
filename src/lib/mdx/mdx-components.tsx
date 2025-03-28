@@ -9,7 +9,7 @@ const Red = ({ children }: PropsWithChildren) => {
 };
 
 const RedAnchor = ({ className, ...props }: ComponentProps<"a">) => {
-  return <a className={`text-red-700 underline ${className}`} target="_blank" {...props} />;
+  return <a className={`text-red-700 underline ${className}`} {...props} />;
 };
 
 const NON_ALPLA_NUMERIC = /([^a-z\d\s])/i;
