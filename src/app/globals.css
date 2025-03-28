@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+@layer base {
+  *:focus {
+    @apply outline-red-700/80;
+  }
+}
