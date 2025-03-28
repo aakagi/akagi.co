@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import "./globals.css";
 
 import { MdxProvider } from "@/lib/mdx/mdx-components";
@@ -38,13 +38,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://akagi.co",
   },
-};
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {

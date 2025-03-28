@@ -9,14 +9,7 @@ const Red = ({ children }: PropsWithChildren) => {
 };
 
 const RedAnchor = ({ className, ...props }: ComponentProps<"a">) => {
-  console.log("anchor");
-  return (
-    <a
-      className={`text-red-700 underline ${className}`}
-      target="_blank"
-      {...props}
-    />
-  );
+  return <a className={`text-red-700 underline ${className}`} target="_blank" {...props} />;
 };
 
 const NON_ALPLA_NUMERIC = /([^a-z\d\s])/i;
@@ -26,30 +19,24 @@ const redMap = (str: ReactNode | string) => {
     return str;
   }
   const strings = str.split(NON_ALPLA_NUMERIC);
-  return strings.map((s, index) =>
-    s.match(NON_ALPLA_NUMERIC) ? <Red key={index}>{s}</Red> : s
-  );
+  return strings.map((s, index) => (s.match(NON_ALPLA_NUMERIC) ? <Red key={index}>{s}</Red> : s));
 };
 
 const Paragraph = ({ children, ...props }: ComponentProps<"p">) => {
-  const text = Array.isArray(children)
-    ? children.map(redMap)
-    : redMap(children);
+  const text = Array.isArray(children) ? children.map(redMap) : redMap(children);
   return (
-    <p className="font-normal leading-6 py-2" {...props}>
+    <p className="py-2 leading-6 font-normal" {...props}>
       {text}
     </p>
   );
 };
 
 const Li = ({ children, ...props }: ComponentProps<"li">) => {
-  const text = Array.isArray(children)
-    ? children.map(redMap)
-    : redMap(children);
+  const text = Array.isArray(children) ? children.map(redMap) : redMap(children);
   return (
     <div className="flex">
       <p>-</p>
-      <li className="font-normal leading-6 pl-1 mb-1" {...props}>
+      <li className="mb-1 pl-1 leading-6 font-normal" {...props}>
         {text}
       </li>
     </div>
@@ -57,17 +44,15 @@ const Li = ({ children, ...props }: ComponentProps<"li">) => {
 };
 
 const H1 = (props: ComponentProps<"h1">) => {
-  return <h1 className="text-2xl font-medium mb-4" {...props} />;
+  return <h1 className="mb-4 text-2xl font-medium" {...props} />;
 };
 
 const H3 = (props: ComponentProps<"h3">) => {
-  return <h1 className="text-lg mt-6 font-bold mb-3" {...props} />;
+  return <h1 className="mt-6 mb-3 text-lg font-bold" {...props} />;
 };
 
 const H6 = (props: ComponentProps<"h6">) => {
-  return (
-    <h6 className="text-sm text-gray-400 font-medium mt-8 mb-4" {...props} />
-  );
+  return <h6 className="mt-8 mb-4 text-sm font-medium text-gray-400" {...props} />;
 };
 
 export const mdxComponents: MDXComponents = {

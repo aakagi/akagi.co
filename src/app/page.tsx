@@ -1,6 +1,5 @@
 "use client";
 
-import { Kanji } from "@/modules/home/akagi-kanji";
 import { Footer } from "@/modules/home/footer";
 import Bio from "@/modules/home/bio.mdx";
 import Image from "next/image";
@@ -11,8 +10,8 @@ export default function HomePage() {
       <div className="flex w-full max-w-sm flex-col items-center px-8 lg:px-0">
         <div className="mt-16 sm:mt-20">
           <Image
-            alt="profile-pic"
-            src="/profile.jpg"
+            alt="Profile picture"
+            src="/profile-420x420.webp"
             width="420"
             height="420"
             className="rounded-full"
@@ -23,7 +22,7 @@ export default function HomePage() {
           <Bio />
         </div>
         <div className="w-24 py-32">
-          <Kanji />
+          <Image width="96" height="96" src="/akagi-kanji-96x96.webp" alt="赤木" priority />
         </div>
         <div className="py-16">
           <Footer />
