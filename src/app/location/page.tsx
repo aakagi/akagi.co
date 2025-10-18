@@ -1,11 +1,3 @@
-import dayjs from "dayjs";
-import utc from "dayjs/plugin/utc";
-import timezone from "dayjs/plugin/timezone";
-
-// Extend dayjs with useful plugins
-dayjs.extend(utc);
-dayjs.extend(timezone);
-
 export default async function Page() {
   return (
     <iframe
