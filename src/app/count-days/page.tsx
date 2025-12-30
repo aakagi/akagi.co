@@ -1,75 +1,45 @@
 "use client";
 
 import { cn } from "@/lib/cn";
+import {
+  buildSelectionMap,
+  getDaysInYear,
+  getValidRangeIndices,
+} from "@/modules/count-days/count-days-utils";
 import dayjs from "dayjs";
 import dayOfYear from "dayjs/plugin/dayOfYear";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 dayjs.extend(dayOfYear);
 
-const buildSelectionMap = (totalDays: number): Map<number, boolean> => {
-  const map = new Map<number, boolean>();
-  for (let day = 1; day <= totalDays; day += 1) {
-    map.set(day, false);
-  }
-  return map;
-};
-
 export default function CountDaysPage() {
   const now = useMemo(() => dayjs(), []);
-  const [year, setYear] = useState(
-    now
-      .add(10, "days") // At the end of the year we generally care about the upcoming year.
-      .year()
-  );
+
+  // At the end of the year we generally care about the upcoming year.
+  const defaultYear = now.add(16, "days").year();
+  const [year, setYear] = useState(defaultYear);
 
   const [highlightStartIndex, setHighlightStartIndex] = useState<number | null>(null);
   const [highlightEndIndex, setHighlightEndIndex] = useState<number | null>(null);
 
   const activePointerIdRef = useRef<number | null>(null);
 
+  const totalDaysInYear = useMemo(() => getDaysInYear(year), [year]);
+
   const [selectedDates, setSelectedDates] = useState<Map<number, boolean>>(() => {
-    const daysInYear = dayjs(`${year}-12-31`).dayOfYear();
-    return buildSelectionMap(daysInYear);
+    return buildSelectionMap(totalDaysInYear);
   });
 
-  const totalDaysInYear = useMemo(() => dayjs(`${year}-12-31`).dayOfYear(), [year]);
-
+  // Reset the selection map when the year changes.
   useEffect(() => {
-    setSelectedDates((prev) => {
-      if (prev.size === totalDaysInYear) {
-        return prev;
-      }
-      return buildSelectionMap(totalDaysInYear);
-    });
+    setSelectedDates(buildSelectionMap(totalDaysInYear));
     setHighlightStartIndex(null);
     setHighlightEndIndex(null);
-  }, [totalDaysInYear]);
+  }, [year, totalDaysInYear]);
 
   const count = useMemo(() => {
-    let total = 0;
-    selectedDates.forEach((isSelected) => {
-      if (isSelected) {
-        total += 1;
-      }
-    });
-    return total;
+    return Array.from(selectedDates.values()).filter(Boolean).length;
   }, [selectedDates]);
-
-  const getValidRangeIndices = useCallback(
-    (startIndex: number, endIndex: number) => {
-      const min = Math.max(1, Math.min(startIndex, endIndex));
-      const max = Math.min(totalDaysInYear, Math.max(startIndex, endIndex));
-      const valid: number[] = [];
-
-      for (let idx = min; idx <= max; idx += 1) {
-        valid.push(idx);
-      }
-
-      return valid;
-    },
-    [totalDaysInYear]
-  );
 
   const resetHighlightSelection = useCallback(() => {
     if (highlightStartIndex === null || highlightEndIndex === null) {
@@ -79,32 +49,29 @@ export default function CountDaysPage() {
     setHighlightStartIndex(null);
     setHighlightEndIndex(null);
     setSelectedDates((prev) => {
-      const range = getValidRangeIndices(highlightStartIndex, highlightEndIndex);
+      const range = getValidRangeIndices({
+        startIndex: highlightStartIndex,
+        endIndex: highlightEndIndex,
+        totalDaysInYear,
+      });
 
       if (range.length === 0) {
         return prev;
       }
 
+      // Set all to false if the entire selected range is already selected.
       const allInSelected = range.every((idx) => prev.get(idx) === true);
-
       if (allInSelected) {
         const next = new Map(prev);
         range.forEach((idx) => next.set(idx, false));
         return next;
       }
 
-      let changed = false;
       const next = new Map(prev);
-      range.forEach((idx) => {
-        if (next.get(idx) !== true) {
-          next.set(idx, true);
-          changed = true;
-        }
-      });
-
-      return changed ? next : prev;
+      range.forEach((idx) => next.set(idx, true));
+      return next;
     });
-  }, [getValidRangeIndices, highlightEndIndex, highlightStartIndex]);
+  }, [highlightEndIndex, highlightStartIndex, totalDaysInYear]);
 
   // Add a global pointerup / pointercancel listener to reset highlight when pointer released anywhere
   useEffect(() => {
