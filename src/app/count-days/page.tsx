@@ -155,7 +155,7 @@ export default function CountDaysPage() {
                             className={cn(
                               "flex aspect-square w-full items-center justify-center select-none",
                               isValidDay ? "cursor-pointer" : "cursor-default text-slate-300",
-                              isSelected && "bg-red-100",
+                              isSelected && "bg-red-200",
                               isHighlighted && "bg-red-50"
                             )}
                             onMouseDown={() => {
