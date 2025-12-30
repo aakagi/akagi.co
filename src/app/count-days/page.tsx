@@ -104,22 +104,12 @@ export default function CountDaysPage() {
     : null;
 
   return (
-    <div className="mx-auto my-16 flex min-h-screen w-full max-w-sm flex-col items-center">
+    <div className="mx-auto my-16 flex min-h-screen w-full flex-col items-center">
       <h1>Count Days: {year}</h1>
       <h3>Count: {count}</h3>
 
-      <div className="mt-4 w-full">
-        <div className="grid grid-cols-7">
-          <div className="flex items-center justify-center">Sun</div>
-          <div className="flex items-center justify-center">Mon</div>
-          <div className="flex items-center justify-center">Tue</div>
-          <div className="flex items-center justify-center">Wed</div>
-          <div className="flex items-center justify-center">Thu</div>
-          <div className="flex items-center justify-center">Fri</div>
-          <div className="flex items-center justify-center">Sat</div>
-        </div>
-
-        <div className="mt-4 w-full">
+      <div className="@container mt-4 w-full max-w-5xl border-gray-200">
+        <div className="mt-4 grid w-full grid-cols-1 gap-px border-x border-gray-200 bg-gray-200 @xl:grid-cols-2 @4xl:grid-cols-3">
           {Array.from({ length: 12 }).map((_, index) => {
             const monthNumber = index + 1;
             const firstDayOfMonth = dayjs(`${year}-${monthNumber}-01`);
@@ -129,8 +119,11 @@ export default function CountDaysPage() {
             const numWeekRows = Math.ceil(totalCells / 7);
 
             return (
-              <div key={index} className="mt-2 flex w-full flex-col items-center justify-center">
-                <h4 className="mb-2 font-medium">{firstDayOfMonth.format("MMM")}</h4>
+              <div
+                key={index}
+                className="mt-px flex h-full w-full flex-col items-center border-gray-200 bg-white"
+              >
+                <h4 className="my-2 font-medium">{firstDayOfMonth.format("MMM")}</h4>
                 <div className="flex w-full flex-col items-center justify-center">
                   {Array.from({ length: numWeekRows }).map((_, weekIndex) => (
                     <div key={weekIndex} className="grid w-full grid-cols-7">
