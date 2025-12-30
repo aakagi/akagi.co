@@ -2,7 +2,18 @@
 
 import { cn } from "@/lib/cn";
 import dayjs from "dayjs";
+import dayOfYear from "dayjs/plugin/dayOfYear";
 import { useCallback, useEffect, useMemo, useState } from "react";
+
+dayjs.extend(dayOfYear);
+
+const buildSelectionMap = (totalDays: number): Map<number, boolean> => {
+  const map = new Map<number, boolean>();
+  for (let day = 1; day <= totalDays; day += 1) {
+    map.set(day, false);
+  }
+  return map;
+};
 
 export default function CountDaysPage() {
   const now = useMemo(() => dayjs(), []);
@@ -15,55 +26,47 @@ export default function CountDaysPage() {
   const [highlightStartIndex, setHighlightStartIndex] = useState<number | null>(null);
   const [highlightEndIndex, setHighlightEndIndex] = useState<number | null>(null);
 
-  const [selectedDates, setSelectedDates] = useState<number[]>([]);
-  const count = useMemo(() => selectedDates.length, [selectedDates]);
+  const [selectedDates, setSelectedDates] = useState<Map<number, boolean>>(() => {
+    const daysInYear = dayjs(`${year}-12-31`).dayOfYear();
+    return buildSelectionMap(daysInYear);
+  });
 
-  const getDayInfoForCell = useCallback(
-    (cellIndex: number) => {
-      const monthNumber = Math.floor(cellIndex / 100);
-      if (monthNumber < 1 || monthNumber > 12) {
-        return { isValidDay: false };
+  const totalDaysInYear = useMemo(() => dayjs(`${year}-12-31`).dayOfYear(), [year]);
+
+  useEffect(() => {
+    setSelectedDates((prev) => {
+      if (prev.size === totalDaysInYear) {
+        return prev;
       }
+      return buildSelectionMap(totalDaysInYear);
+    });
+    setHighlightStartIndex(null);
+    setHighlightEndIndex(null);
+  }, [totalDaysInYear]);
 
-      const remainder = cellIndex % 100;
-      const weekIndex = Math.floor(remainder / 7);
-      const dayIndex = remainder % 7;
-
-      const firstDayOfMonth = dayjs(`${year}-${String(monthNumber).padStart(2, "0")}-01`);
-      const firstDayWeekday = firstDayOfMonth.day();
-      const numDays = firstDayOfMonth.daysInMonth();
-      const dayNumber = weekIndex * 7 + dayIndex - firstDayWeekday + 1;
-
-      const isValidDay = dayNumber > 0 && dayNumber <= numDays;
-
-      return {
-        monthNumber,
-        weekIndex,
-        dayIndex,
-        dayNumber,
-        numDays,
-        firstDayWeekday,
-        isValidDay,
-      };
-    },
-    [year]
-  );
+  const count = useMemo(() => {
+    let total = 0;
+    selectedDates.forEach((isSelected) => {
+      if (isSelected) {
+        total += 1;
+      }
+    });
+    return total;
+  }, [selectedDates]);
 
   const getValidRangeIndices = useCallback(
     (startIndex: number, endIndex: number) => {
-      const min = Math.min(startIndex, endIndex);
-      const max = Math.max(startIndex, endIndex);
+      const min = Math.max(1, Math.min(startIndex, endIndex));
+      const max = Math.min(totalDaysInYear, Math.max(startIndex, endIndex));
       const valid: number[] = [];
 
-      for (let idx = min; idx <= max; idx++) {
-        if (getDayInfoForCell(idx).isValidDay) {
-          valid.push(idx);
-        }
+      for (let idx = min; idx <= max; idx += 1) {
+        valid.push(idx);
       }
 
       return valid;
     },
-    [getDayInfoForCell]
+    [totalDaysInYear]
   );
 
   // Add a global mouseup event listener to reset highlight when mouse released anywhere
@@ -81,14 +84,24 @@ export default function CountDaysPage() {
           return prev;
         }
 
-        const allInSelected = range.every((idx) => prev.includes(idx));
+        const allInSelected = range.every((idx) => prev.get(idx) === true);
+
         if (allInSelected) {
-          // Unselect all in range
-          return prev.filter((idx) => !range.includes(idx));
-        } else {
-          // Select all in range (add new only)
-          return [...prev, ...range.filter((idx) => !prev.includes(idx))];
+          const next = new Map(prev);
+          range.forEach((idx) => next.set(idx, false));
+          return next;
         }
+
+        let changed = false;
+        const next = new Map(prev);
+        range.forEach((idx) => {
+          if (next.get(idx) !== true) {
+            next.set(idx, true);
+            changed = true;
+          }
+        });
+
+        return changed ? next : prev;
       });
     };
     window.addEventListener("mouseup", handleMouseUp);
@@ -115,6 +128,7 @@ export default function CountDaysPage() {
             const firstDayOfMonth = dayjs(`${year}-${monthNumber}-01`);
             const numDays = firstDayOfMonth.daysInMonth();
             const firstDayWeekday = firstDayOfMonth.day();
+            const firstDayOfMonthDayOfYear = firstDayOfMonth.dayOfYear();
             const totalCells = firstDayWeekday + numDays;
             const numWeekRows = Math.ceil(totalCells / 7);
 
@@ -128,19 +142,25 @@ export default function CountDaysPage() {
                   {Array.from({ length: numWeekRows }).map((_, weekIndex) => (
                     <div key={weekIndex} className="grid w-full grid-cols-7">
                       {Array.from({ length: 7 }).map((_, dayIndex) => {
-                        const cellGlobalIndex = monthNumber * 100 + weekIndex * 7 + dayIndex;
-
                         const dayNumber = weekIndex * 7 + dayIndex - firstDayWeekday + 1;
                         const isValidDay = dayNumber > 0 && dayNumber <= numDays;
 
-                        const isSelected = isValidDay && selectedDates.includes(cellGlobalIndex);
+                        const dayOfYearValue = isValidDay
+                          ? firstDayOfMonthDayOfYear + dayNumber - 1
+                          : null;
+
+                        const isSelected =
+                          isValidDay &&
+                          dayOfYearValue !== null &&
+                          selectedDates.get(dayOfYearValue) === true;
 
                         const isHighlighted =
                           isValidDay &&
+                          dayOfYearValue !== null &&
                           highlightLowerBound !== null &&
                           highlightUpperBound !== null &&
-                          cellGlobalIndex >= highlightLowerBound &&
-                          cellGlobalIndex <= highlightUpperBound;
+                          dayOfYearValue >= highlightLowerBound &&
+                          dayOfYearValue <= highlightUpperBound;
 
                         return (
                           <div
@@ -152,17 +172,21 @@ export default function CountDaysPage() {
                               isHighlighted && "bg-red-50"
                             )}
                             onMouseDown={() => {
-                              if (!isValidDay) {
+                              if (!isValidDay || dayOfYearValue === null) {
                                 return;
                               }
-                              setHighlightStartIndex(cellGlobalIndex);
-                              setHighlightEndIndex(cellGlobalIndex);
+                              setHighlightStartIndex(dayOfYearValue);
+                              setHighlightEndIndex(dayOfYearValue);
                             }}
                             onMouseEnter={() => {
-                              if (!isValidDay || highlightStartIndex === null) {
+                              if (
+                                !isValidDay ||
+                                highlightStartIndex === null ||
+                                dayOfYearValue === null
+                              ) {
                                 return;
                               }
-                              setHighlightEndIndex(cellGlobalIndex);
+                              setHighlightEndIndex(dayOfYearValue);
                             }}
                           >
                             {isValidDay ? dayNumber : ""}
