@@ -132,8 +132,21 @@ export default function CountDaysPage() {
     : null;
 
   return (
-    <div className="mx-auto my-16 flex min-h-screen w-full flex-col items-center">
-      <h1>Count Days: {year}</h1>
+    <div className="mx-auto mt-8 mb-16 flex min-h-screen w-full flex-col items-center">
+      <select
+        className="mb-4"
+        value={year}
+        onChange={(event) => setYear(Number(event.target.value))}
+      >
+        {Array.from({ length: 11 }).map((_, i) => {
+          const yearValue = now.add(i, "year").year();
+          return (
+            <option key={yearValue} value={yearValue}>
+              {yearValue}
+            </option>
+          );
+        })}
+      </select>
       <h3>Count: {count}</h3>
 
       <div className="@container mt-4 w-full max-w-5xl border-gray-200">
