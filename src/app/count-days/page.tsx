@@ -149,8 +149,8 @@ export default function CountDaysPage() {
       </select>
       <h3>Count: {count}</h3>
 
-      <div className="@container mt-4 w-full max-w-5xl border-gray-200">
-        <div className="mt-4 grid w-full grid-cols-1 gap-px border-x border-gray-200 bg-gray-200 @xl:grid-cols-2 @4xl:grid-cols-3">
+      <div className="@container mt-4 w-full max-w-5xl">
+        <div className="mt-4 grid w-full grid-cols-1 gap-px border border-gray-200 bg-gray-200 @xl:grid-cols-2 @4xl:grid-cols-3">
           {Array.from({ length: 12 }).map((_, index) => {
             const monthNumber = index + 1;
             const firstDayOfMonth = dayjs(`${year}-${monthNumber}-01`);
@@ -161,10 +161,7 @@ export default function CountDaysPage() {
             const numWeekRows = Math.ceil(totalCells / 7);
 
             return (
-              <div
-                key={index}
-                className="mt-px flex h-full w-full flex-col items-center border-gray-200 bg-white"
-              >
+              <div key={index} className="flex h-full w-full flex-col items-center bg-white">
                 <h4 className="my-2 font-medium">{firstDayOfMonth.format("MMM")}</h4>
                 <div className="flex w-full flex-col items-center justify-center">
                   {Array.from({ length: numWeekRows }).map((_, weekIndex) => (
