@@ -165,7 +165,14 @@ export default function CountDaysPage() {
                 <h4 className="my-2 font-medium">{firstDayOfMonth.format("MMM")}</h4>
                 <div className="flex w-full flex-col items-center justify-center">
                   {Array.from({ length: numWeekRows }).map((_, weekIndex) => (
-                    <div key={weekIndex} className="grid w-full grid-cols-7">
+                    <div
+                      key={weekIndex}
+                      className="grid w-full"
+                      style={{
+                        // Ensures correct aspect ratio.
+                        gridTemplateColumns: "repeat(7, minmax(0, calc(100% / 7)))",
+                      }}
+                    >
                       {Array.from({ length: 7 }).map((_, dayIndex) => {
                         const dayNumber = weekIndex * 7 + dayIndex - firstDayWeekday + 1;
                         const isValidDay = dayNumber > 0 && dayNumber <= numDays;
