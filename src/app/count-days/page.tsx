@@ -36,6 +36,25 @@ export default function CountDaysPage() {
   const pointerActivationTimeoutRef = useRef<number | null>(null);
   const pointerStartDayRef = useRef<number | null>(null);
 
+  const [isTouchDragging, setIsTouchDragging] = useState(false);
+  const isTouchDraggingRef = useRef(false);
+
+  const enableTouchDragMode = useCallback(() => {
+    if (isTouchDraggingRef.current) {
+      return;
+    }
+    isTouchDraggingRef.current = true;
+    setIsTouchDragging(true);
+  }, []);
+
+  const disableTouchDragMode = useCallback(() => {
+    if (!isTouchDraggingRef.current) {
+      return;
+    }
+    isTouchDraggingRef.current = false;
+    setIsTouchDragging(false);
+  }, []);
+
   const [selectedDates, setSelectedDates] = useState<Map<number, boolean>>(() => {
     const daysInYear = dayjs(`${year}-12-31`).dayOfYear();
     return buildSelectionMap(daysInYear);
@@ -128,9 +147,10 @@ export default function CountDaysPage() {
     }
     pointerIntentRef.current = "dragging";
     clearPointerActivationTimeout();
+    enableTouchDragMode();
     setHighlightStartIndex(startDay);
     setHighlightEndIndex(startDay);
-  }, [clearPointerActivationTimeout]);
+  }, [clearPointerActivationTimeout, enableTouchDragMode]);
 
   // Add a global pointerup / pointercancel listener to reset highlight when pointer released anywhere
   useEffect(() => {
@@ -142,6 +162,7 @@ export default function CountDaysPage() {
       pointerStartRef.current = null;
       const intent = pointerIntentRef.current;
       pointerIntentRef.current = "pending";
+      disableTouchDragMode();
       if (intent === "scroll") {
         setHighlightStartIndex(null);
         setHighlightEndIndex(null);
@@ -155,7 +176,7 @@ export default function CountDaysPage() {
       window.removeEventListener("pointerup", handlePointerEnd);
       window.removeEventListener("pointercancel", handlePointerEnd);
     };
-  }, [resetHighlightSelection]);
+  }, [disableTouchDragMode, resetHighlightSelection]);
 
   const hasHighlightBounds = highlightStartIndex !== null && highlightEndIndex !== null;
   const highlightLowerBound = hasHighlightBounds
@@ -226,7 +247,8 @@ export default function CountDaysPage() {
                             data-day-of-year={dayOfYearValue ?? undefined}
                             key={dayIndex}
                             className={cn(
-                              "relative w-full touch-pan-y overflow-hidden select-none before:block before:pb-[100%] before:content-['']",
+                              "relative w-full overflow-hidden select-none before:block before:pb-[100%] before:content-['']",
+                              isTouchDragging ? "touch-none" : "touch-pan-y",
                               isValidDay ? "cursor-pointer" : "cursor-default"
                             )}
                             onPointerDown={(event) => {
@@ -249,6 +271,7 @@ export default function CountDaysPage() {
                                   y: event.clientY,
                                 };
                               }
+                              disableTouchDragMode();
                               activePointerIdRef.current = event.pointerId;
                               event.currentTarget.setPointerCapture(event.pointerId);
                               setHighlightStartIndex(dayOfYearValue);
@@ -272,6 +295,7 @@ export default function CountDaysPage() {
                                     activePointerIdRef.current = null;
                                     setHighlightStartIndex(null);
                                     setHighlightEndIndex(null);
+                                    disableTouchDragMode();
                                     try {
                                       event.currentTarget.releasePointerCapture(event.pointerId);
                                     } catch {
@@ -282,6 +306,7 @@ export default function CountDaysPage() {
                                   if (deltaX >= TOUCH_DRAG_THRESHOLD) {
                                     pointerIntentRef.current = "dragging";
                                     pointerStartRef.current = null;
+                                    enableTouchDragMode();
                                   }
                                 }
                                 if (pointerIntentRef.current !== "dragging") {
@@ -290,6 +315,7 @@ export default function CountDaysPage() {
                                 event.preventDefault();
                               } else {
                                 pointerIntentRef.current = "dragging";
+                                disableTouchDragMode();
                               }
                               const hovered = document.elementFromPoint(
                                 event.clientX,
