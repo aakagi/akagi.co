@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/cn";
+import { CalendarSidebar } from "@/modules/count-days/calendar-sidebar";
 import {
   buildSelectionMap,
   getDaysInYear,
@@ -73,6 +74,21 @@ export default function CountDaysPage() {
     });
   }, [highlightEndIndex, highlightStartIndex, totalDaysInYear]);
 
+  const handleCalendarDaysSelected = useCallback(
+    (dayIndices: number[]) => {
+      setSelectedDates((prev) => {
+        const next = buildSelectionMap(totalDaysInYear);
+        for (const idx of dayIndices) {
+          if (idx >= 1 && idx <= totalDaysInYear) {
+            next.set(idx, true);
+          }
+        }
+        return next;
+      });
+    },
+    [totalDaysInYear]
+  );
+
   // Add a global pointerup / pointercancel listener to reset highlight when pointer released anywhere
   useEffect(() => {
     const handlePointerEnd = (event: PointerEvent) => {
@@ -99,24 +115,28 @@ export default function CountDaysPage() {
     : null;
 
   return (
-    <div className="mx-auto mt-8 mb-16 flex min-h-screen w-full flex-col items-center">
-      <select
-        className="mb-4"
-        value={year}
-        onChange={(event) => setYear(Number(event.target.value))}
-      >
-        {Array.from({ length: 11 }).map((_, i) => {
-          const yearValue = now.add(i, "year").year();
-          return (
-            <option key={yearValue} value={yearValue}>
-              {yearValue}
-            </option>
-          );
-        })}
-      </select>
-      <h3>Count: {count}</h3>
+    <div className="mx-auto mt-8 mb-16 flex min-h-screen w-full gap-4 px-4">
+      <aside className="w-64 shrink-0">
+        <CalendarSidebar year={year} onDaysSelected={handleCalendarDaysSelected} />
+      </aside>
+      <div className="flex flex-1 flex-col items-center">
+        <select
+          className="mb-4"
+          value={year}
+          onChange={(event) => setYear(Number(event.target.value))}
+        >
+          {Array.from({ length: 11 }).map((_, i) => {
+            const yearValue = now.add(i, "year").year();
+            return (
+              <option key={yearValue} value={yearValue}>
+                {yearValue}
+              </option>
+            );
+          })}
+        </select>
+        <h3>Count: {count}</h3>
 
-      <div className="@container mt-4 w-full max-w-5xl">
+        <div className="@container mt-4 w-full max-w-5xl">
         <div className="mt-4 grid w-full grid-cols-1 gap-px border border-gray-200 bg-gray-200 @xl:grid-cols-2 @4xl:grid-cols-3">
           {Array.from({ length: 12 }).map((_, index) => {
             const monthNumber = index + 1;
@@ -228,6 +248,7 @@ export default function CountDaysPage() {
               </div>
             );
           })}
+        </div>
         </div>
       </div>
     </div>
