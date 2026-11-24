@@ -6,9 +6,11 @@ type GetValidRangeIndicesParams = {
   totalDaysInYear: number;
 };
 
-export const getValidRangeIndices = (
-  { startIndex, endIndex, totalDaysInYear }: GetValidRangeIndicesParams,
-) => {
+export const getValidRangeIndices = ({
+  startIndex,
+  endIndex,
+  totalDaysInYear,
+}: GetValidRangeIndicesParams) => {
   const min = Math.max(1, Math.min(startIndex, endIndex));
   const max = Math.min(totalDaysInYear, Math.max(startIndex, endIndex));
   const valid: number[] = [];
