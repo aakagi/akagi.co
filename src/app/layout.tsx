@@ -44,7 +44,6 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <MdxProvider>
       <html lang="en">
-        <head></head>
         <body>{children}</body>
       </html>
     </MdxProvider>
