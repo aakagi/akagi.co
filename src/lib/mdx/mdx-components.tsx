@@ -1,8 +1,5 @@
-"use client";
-
 import type { MDXComponents } from "mdx/types";
 import type { ComponentProps, PropsWithChildren, ReactNode } from "react";
-import { MDXProvider as MdxJsProvider } from "@mdx-js/react";
 import { cn } from "@/lib/cn";
 
 const Red = ({ children }: PropsWithChildren) => {
@@ -61,8 +58,4 @@ export const mdxComponents: MDXComponents = {
   p: Paragraph,
   li: Li,
   a: RedAnchor,
-};
-
-export const MdxProvider = ({ children }: PropsWithChildren) => {
-  return <MdxJsProvider components={mdxComponents}>{children}</MdxJsProvider>;
 };

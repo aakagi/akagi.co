@@ -1,5 +1,3 @@
-"use client";
-
 import { Footer } from "@/modules/home/footer";
 import Bio from "@/modules/home/bio.mdx";
 import Image from "next/image";

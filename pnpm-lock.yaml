@@ -11,9 +11,6 @@ importers:
       '@mdx-js/loader':
         specifier: ^3.1.1
         version: 3.1.1
-      '@mdx-js/react':
-        specifier: ^3.1.1
-        version: 3.1.1(@types/react@19.3.1)(react@19.3.1)
       '@next/mdx':
         specifier: ^16.4.6
         version: 16.4.6(@mdx-js/loader@3.1.1)(@mdx-js/react@3.1.1(@types/react@19.3.1)(react@19.3.1))
@@ -5051,6 +5048,7 @@ snapshots:
       '@types/mdx': 2.0.14
       '@types/react': 19.3.1
       react: 19.3.1
+    optional: true
 
   '@napi-rs/wasm-runtime@1.2.7(@emnapi/core@1.8.1)(@emnapi/runtime@1.11.3)':
     dependencies:

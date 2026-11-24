@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import { MdxProvider } from "@/lib/mdx/mdx-components";
 import { PropsWithChildren } from "react";
 
 const description = "Welcome to my website!";
@@ -44,10 +43,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <MdxProvider>
-      <html lang="en">
-        <body>{children}</body>
-      </html>
-    </MdxProvider>
+    <html lang="en">
+      <body>{children}</body>
+    </html>
   );
 }
