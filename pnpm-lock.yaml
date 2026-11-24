@@ -28,7 +28,7 @@ importers:
         version: 1.11.23
       next:
         specifier: ^16.4.6
-        version: 16.4.6(@babel/core@7.29.13)(@types/node@25.9.10)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+        version: 16.4.6(@babel/core@7.29.13)(@types/node@24.19.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       react:
         specifier: ^19.3.1
         version: 19.3.1
@@ -44,7 +44,7 @@ importers:
     devDependencies:
       '@cloudflare/next-on-pages':
         specifier: ^1.13.16
-        version: 1.13.16(@cloudflare/workers-types@4.20260702.1)(next@16.4.6(@babel/core@7.29.13)(@types/node@25.9.10)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(vercel@50.44.0(@emnapi/core@1.8.1)(@emnapi/runtime@1.11.3)(typescript@5.9.3))(wrangler@4.168.0(@cloudflare/workers-types@4.20260702.1)(@types/node@25.9.10))
+        version: 1.13.16(@cloudflare/workers-types@4.20260702.1)(next@16.4.6(@babel/core@7.29.13)(@types/node@24.19.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(vercel@50.44.0(@emnapi/core@1.8.1)(@emnapi/runtime@1.11.3)(typescript@5.9.3))(wrangler@4.168.0(@cloudflare/workers-types@4.20260702.1)(@types/node@24.19.2))
       '@cloudflare/workers-types':
         specifier: ^4.20260702.1
         version: 4.20260702.1
@@ -52,8 +52,8 @@ importers:
         specifier: ^4.3.5
         version: 4.3.5
       '@types/node':
-        specifier: ^25.9.10
-        version: 25.9.10
+        specifier: ^24.19.2
+        version: 24.19.2
       '@types/react':
         specifier: ^19.3.1
         version: 19.3.1
@@ -86,7 +86,7 @@ importers:
         version: 50.44.0(@emnapi/core@1.8.1)(@emnapi/runtime@1.11.3)(typescript@5.9.3)
       wrangler:
         specifier: ^4.168.0
-        version: 4.168.0(@cloudflare/workers-types@4.20260702.1)(@types/node@25.9.10)
+        version: 4.168.0(@cloudflare/workers-types@4.20260702.1)(@types/node@24.19.2)
 
 packages:
 
@@ -1387,6 +1387,9 @@ packages:
 
   '@types/node@20.11.0':
     resolution: {integrity: sha512-o9bjXmDNcF7GbM4CNQpmi+TutCgap/K3w1JyKgxAjqx41zp9qlIAVFi0IhCNsJcXolEqLWhbFbEeL0PvYm4pcQ==}
+
+  '@types/node@24.19.2':
+    resolution: {integrity: sha512-93d49wCWJkCyN87MxLpNN6KXPCwFw7bVUg79mGUV1OS40JGWwVCr8n61DXCSqz7CV6/VfPkb7xec7uP2M+QHWQ==}
 
   '@types/node@25.9.10':
     resolution: {integrity: sha512-vNjzbf3gOlO91fEfXCex403DoqITNlhqGr3ALh0JaC+wAWYeDiR21m2e5k+JSl8pboDuQCWQ/9dQduKqLxU3dw==}
@@ -4520,7 +4523,7 @@ snapshots:
 
   '@cloudflare/kv-asset-handler@0.5.1': {}
 
-  '@cloudflare/next-on-pages@1.13.16(@cloudflare/workers-types@4.20260702.1)(next@16.4.6(@babel/core@7.29.13)(@types/node@25.9.10)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(vercel@50.44.0(@emnapi/core@1.8.1)(@emnapi/runtime@1.11.3)(typescript@5.9.3))(wrangler@4.168.0(@cloudflare/workers-types@4.20260702.1)(@types/node@25.9.10))':
+  '@cloudflare/next-on-pages@1.13.16(@cloudflare/workers-types@4.20260702.1)(next@16.4.6(@babel/core@7.29.13)(@types/node@24.19.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(vercel@50.44.0(@emnapi/core@1.8.1)(@emnapi/runtime@1.11.3)(typescript@5.9.3))(wrangler@4.168.0(@cloudflare/workers-types@4.20260702.1)(@types/node@24.19.2))':
     dependencies:
       acorn: 8.19.0
       ast-types: 0.14.2
@@ -4531,12 +4534,12 @@ snapshots:
       esbuild: 0.15.18
       js-yaml: 4.3.2
       miniflare: 3.20250718.3
-      next: 16.4.6(@babel/core@7.29.13)(@types/node@25.9.10)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      next: 16.4.6(@babel/core@7.29.13)(@types/node@24.19.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       package-manager-manager: 0.2.0
       pcre-to-regexp: 1.1.0
       semver: 7.8.6
       vercel: 50.44.0(@emnapi/core@1.8.1)(@emnapi/runtime@1.11.3)(typescript@5.9.3)
-      wrangler: 4.168.0(@cloudflare/workers-types@4.20260702.1)(@types/node@25.9.10)
+      wrangler: 4.168.0(@cloudflare/workers-types@4.20260702.1)(@types/node@24.19.2)
     optionalDependencies:
       '@cloudflare/workers-types': 4.20260702.1
     transitivePeerDependencies:
@@ -5378,6 +5381,10 @@ snapshots:
   '@types/node@20.11.0':
     dependencies:
       undici-types: 5.26.5
+
+  '@types/node@24.19.2':
+    dependencies:
+      undici-types: 7.24.6
 
   '@types/node@25.9.10':
     dependencies:
@@ -7857,10 +7864,10 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  miniflare@5.20261123.1-beta(@types/node@25.9.10):
+  miniflare@5.20261123.1-beta(@types/node@24.19.2):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
-      sharp: 0.35.5(@types/node@25.9.10)
+      sharp: 0.35.5(@types/node@24.19.2)
       undici: 7.30.2
       workerd: 1.20261123.1
       ws: 8.21.0
@@ -7915,7 +7922,7 @@ snapshots:
 
   netmask@2.1.2: {}
 
-  next@16.4.6(@babel/core@7.29.13)(@types/node@25.9.10)(react-dom@19.3.1(react@19.3.1))(react@19.3.1):
+  next@16.4.6(@babel/core@7.29.13)(@types/node@24.19.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1):
     dependencies:
       '@next/env': 16.4.6
       '@swc/helpers': 0.5.23
@@ -7934,7 +7941,7 @@ snapshots:
       '@next/swc-linux-x64-musl': 16.4.6
       '@next/swc-win32-arm64-msvc': 16.4.6
       '@next/swc-win32-x64-msvc': 16.4.6
-      sharp: 0.35.5(@types/node@25.9.10)
+      sharp: 0.35.5(@types/node@24.19.2)
     transitivePeerDependencies:
       - '@babel/core'
       - '@types/node'
@@ -8444,7 +8451,7 @@ snapshots:
 
   setprototypeof@1.1.1: {}
 
-  sharp@0.35.5(@types/node@25.9.10):
+  sharp@0.35.5(@types/node@24.19.2):
     dependencies:
       '@img/colour': 1.1.0
       detect-libc: 2.1.2
@@ -8475,7 +8482,7 @@ snapshots:
       '@img/sharp-win32-arm64': 0.35.5
       '@img/sharp-win32-ia32': 0.35.5
       '@img/sharp-win32-x64': 0.35.5
-      '@types/node': 25.9.10
+      '@types/node': 24.19.2
 
   shebang-command@2.0.0:
     dependencies:
@@ -9048,7 +9055,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20261123.1
       '@cloudflare/workerd-windows-64': 1.20261123.1
 
-  wrangler@4.168.0(@cloudflare/workers-types@4.20260702.1)(@types/node@25.9.10):
+  wrangler@4.168.0(@cloudflare/workers-types@4.20260702.1)(@types/node@24.19.2):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.5.1
       '@cloudflare/unenv-preset': 2.16.2(unenv@2.0.0-rc.24)(workerd@1.20261123.1)
@@ -9058,7 +9065,7 @@ snapshots:
       cloudflare: 5.2.0
       devtools-protocol: 0.0.1182435
       esbuild: 0.28.2
-      miniflare: 5.20261123.1-beta(@types/node@25.9.10)
+      miniflare: 5.20261123.1-beta(@types/node@24.19.2)
       path-to-regexp: 6.3.0
       undici: 7.30.2
       unenv: 2.0.0-rc.24
