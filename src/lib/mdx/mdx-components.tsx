@@ -3,23 +3,24 @@
 import type { MDXComponents } from "mdx/types";
 import type { ComponentProps, PropsWithChildren, ReactNode } from "react";
 import { MDXProvider as MdxJsProvider } from "@mdx-js/react";
+import { cn } from "@/lib/cn";
 
 const Red = ({ children }: PropsWithChildren) => {
   return <span className="text-red-700">{children}</span>;
 };
 
 const RedAnchor = ({ className, ...props }: ComponentProps<"a">) => {
-  return <a className={`text-red-700 underline ${className}`} {...props} />;
+  return <a className={cn("text-red-700 underline", className)} {...props} />;
 };
 
-const NON_ALPLA_NUMERIC = /([^a-z\d\s])/i;
+const NON_ALPHA_NUMERIC = /([^a-z\d\s])/i;
 
 const redMap = (str: ReactNode | string) => {
   if (typeof str !== "string") {
     return str;
   }
-  const strings = str.split(NON_ALPLA_NUMERIC);
-  return strings.map((s, index) => (s.match(NON_ALPLA_NUMERIC) ? <Red key={index}>{s}</Red> : s));
+  const strings = str.split(NON_ALPHA_NUMERIC);
+  return strings.map((s, index) => (s.match(NON_ALPHA_NUMERIC) ? <Red key={index}>{s}</Red> : s));
 };
 
 const Paragraph = ({ children, ...props }: ComponentProps<"p">) => {
@@ -34,12 +35,10 @@ const Paragraph = ({ children, ...props }: ComponentProps<"p">) => {
 const Li = ({ children, ...props }: ComponentProps<"li">) => {
   const text = Array.isArray(children) ? children.map(redMap) : redMap(children);
   return (
-    <div className="flex">
-      <p>-</p>
-      <li className="mb-1 pl-1 leading-6 font-normal" {...props}>
-        {text}
-      </li>
-    </div>
+    <li className="mb-1 flex leading-6 font-normal" {...props}>
+      <span>-</span>
+      <div className="pl-1">{text}</div>
+    </li>
   );
 };
 
@@ -48,7 +47,7 @@ const H1 = (props: ComponentProps<"h1">) => {
 };
 
 const H3 = (props: ComponentProps<"h3">) => {
-  return <h1 className="mt-6 mb-3 text-lg font-bold" {...props} />;
+  return <h3 className="mt-6 mb-3 text-lg font-bold" {...props} />;
 };
 
 const H6 = (props: ComponentProps<"h6">) => {

@@ -1,4 +1,8 @@
 import dayjs from "dayjs";
+import dayOfYear from "dayjs/plugin/dayOfYear";
+
+// getDaysInYear needs this; do not rely on callers to extend dayjs.
+dayjs.extend(dayOfYear);
 
 type GetValidRangeIndicesParams = {
   startIndex: number;
