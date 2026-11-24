@@ -54,9 +54,6 @@ importers:
       '@cloudflare/workers-types':
         specifier: ^4.20260702.1
         version: 4.20260702.1
-      '@eslint/eslintrc':
-        specifier: ^3.3.7
-        version: 3.3.7
       '@tailwindcss/postcss':
         specifier: ^4.3.5
         version: 4.3.5

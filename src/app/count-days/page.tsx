@@ -30,12 +30,13 @@ export default function CountDaysPage() {
     return buildSelectionMap(totalDaysInYear);
   });
 
-  // Reset the selection map when the year changes.
-  useEffect(() => {
-    setSelectedDates(buildSelectionMap(totalDaysInYear));
+  // Reset the selection when the year changes.
+  const handleYearChange = (nextYear: number) => {
+    setYear(nextYear);
+    setSelectedDates(buildSelectionMap(getDaysInYear(nextYear)));
     setHighlightStartIndex(null);
     setHighlightEndIndex(null);
-  }, [year, totalDaysInYear]);
+  };
 
   const count = useMemo(() => {
     return Array.from(selectedDates.values()).filter(Boolean).length;
@@ -103,7 +104,7 @@ export default function CountDaysPage() {
       <select
         className="mb-4"
         value={year}
-        onChange={(event) => setYear(Number(event.target.value))}
+        onChange={(event) => handleYearChange(Number(event.target.value))}
       >
         {Array.from({ length: 11 }).map((_, i) => {
           const yearValue = now.add(i, "year").year();
