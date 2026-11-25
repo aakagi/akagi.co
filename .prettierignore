@@ -2,5 +2,4 @@
 **/dist/**
 **/tmp/**
 .claude
-env.d.ts
 pnpm-lock.yaml

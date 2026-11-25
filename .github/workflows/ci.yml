@@ -26,5 +26,5 @@ jobs:
       - run: pnpm lint
       - run: pnpm typecheck
       - run: pnpm format:check
-      # Runs `next build`, then converts the output for Cloudflare Pages (the deployed artifact).
-      - run: pnpm pages:build
+      # Writes the static site to `out/` (the deployed artifact).
+      - run: pnpm build
