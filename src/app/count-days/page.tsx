@@ -8,11 +8,24 @@ import {
 } from "@/modules/count-days/count-days-utils";
 import dayjs from "dayjs";
 import dayOfYear from "dayjs/plugin/dayOfYear";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 
 dayjs.extend(dayOfYear);
 
+const subscribe = () => () => {};
+
+// The calendar depends on today's date, but the page is prerendered at build time.
+// Render it in the browser only, so a stale build date never causes a hydration mismatch.
 export default function CountDaysPage() {
+  const isClient = useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false
+  );
+  return isClient ? <CountDays /> : null;
+}
+
+function CountDays() {
   const now = useMemo(() => dayjs(), []);
 
   // At the end of the year we generally care about the upcoming year.
@@ -30,12 +43,13 @@ export default function CountDaysPage() {
     return buildSelectionMap(totalDaysInYear);
   });
 
-  // Reset the selection map when the year changes.
-  useEffect(() => {
-    setSelectedDates(buildSelectionMap(totalDaysInYear));
+  // Reset the selection when the year changes.
+  const handleYearChange = (nextYear: number) => {
+    setYear(nextYear);
+    setSelectedDates(buildSelectionMap(getDaysInYear(nextYear)));
     setHighlightStartIndex(null);
     setHighlightEndIndex(null);
-  }, [year, totalDaysInYear]);
+  };
 
   const count = useMemo(() => {
     return Array.from(selectedDates.values()).filter(Boolean).length;
@@ -101,9 +115,10 @@ export default function CountDaysPage() {
   return (
     <div className="mx-auto mt-8 mb-16 flex min-h-screen w-full flex-col items-center">
       <select
+        aria-label="Year"
         className="mb-4"
         value={year}
-        onChange={(event) => setYear(Number(event.target.value))}
+        onChange={(event) => handleYearChange(Number(event.target.value))}
       >
         {Array.from({ length: 11 }).map((_, i) => {
           const yearValue = now.add(i, "year").year();

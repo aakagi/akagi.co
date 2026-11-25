@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import { MdxProvider } from "@/lib/mdx/mdx-components";
 import { PropsWithChildren } from "react";
+
+const description = "Welcome to my website!";
 
 export const metadata: Metadata = {
   title: "Akagi",
-  description: "Welcome to my website!",
+  description,
   icons: {
     icon: "/favicon.ico",
   },
   metadataBase: new URL("https://akagi.co"),
   openGraph: {
     title: "Akagi.co",
-    description: "Your description here",
+    description,
     url: "https://akagi.co",
     siteName: "Akagi.co",
     locale: "en_US",
@@ -21,8 +22,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://akagi.co/akagi-kanji.webp",
-        width: 652,
-        height: 652,
+        width: 1024,
+        height: 1024,
         alt: "Akagi.co Image",
       },
     ],
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     site: "@akagi____",
     creator: "@akagi____",
     title: "Akagi.co",
-    description: "Your description here",
+    description,
     images: ["https://akagi.co/akagi-kanji.webp"],
   },
   alternates: {
@@ -42,11 +43,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <MdxProvider>
-      <html lang="en">
-        <head></head>
-        <body>{children}</body>
-      </html>
-    </MdxProvider>
+    <html lang="en">
+      <body>{children}</body>
+    </html>
   );
 }
