@@ -34,9 +34,7 @@ type EventsListResponse = {
   nextPageToken?: string;
 };
 
-export async function fetchCalendarList(
-  accessToken: string,
-): Promise<GoogleCalendar[]> {
+export async function fetchCalendarList(accessToken: string): Promise<GoogleCalendar[]> {
   const response = await fetch(`${CALENDAR_API_BASE}/users/me/calendarList`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
@@ -54,7 +52,7 @@ export async function fetchCalendarList(
 export async function fetchCalendarEvents(
   accessToken: string,
   calendarId: string,
-  year: number,
+  year: number
 ): Promise<CalendarEvent[]> {
   const timeMin = dayjs(`${year}-01-01`).toISOString();
   const timeMax = dayjs(`${year}-12-31`).endOf("day").toISOString();
@@ -74,14 +72,12 @@ export async function fetchCalendarEvents(
     }
 
     const response = await fetch(
-      `${CALENDAR_API_BASE}/calendars/${
-        encodeURIComponent(calendarId)
-      }/events?${params}`,
+      `${CALENDAR_API_BASE}/calendars/${encodeURIComponent(calendarId)}/events?${params}`,
       {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
-      },
+      }
     );
 
     if (!response.ok) {
@@ -96,10 +92,7 @@ export async function fetchCalendarEvents(
   return allEvents;
 }
 
-export function extractEventDayIndices(
-  events: CalendarEvent[],
-  year: number,
-): number[] {
+export function extractEventDayIndices(events: CalendarEvent[], year: number): number[] {
   const dayIndices = new Set<number>();
 
   for (const event of events) {
@@ -111,9 +104,7 @@ export function extractEventDayIndices(
     const start = dayjs(startStr);
     // For all-day events, end date is exclusive (e.g., Jan 1-2 means just Jan 1)
     // For timed events, we want to include both start and end days
-    const end = event.end.date
-      ? dayjs(endStr).subtract(1, "day")
-      : dayjs(endStr);
+    const end = event.end.date ? dayjs(endStr).subtract(1, "day") : dayjs(endStr);
 
     // Iterate through each day in the event range
     let current = start;

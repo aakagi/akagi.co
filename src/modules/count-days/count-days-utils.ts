@@ -1,4 +1,8 @@
 import dayjs from "dayjs";
+import dayOfYear from "dayjs/plugin/dayOfYear";
+
+// getDaysInYear needs this; do not rely on callers to extend dayjs.
+dayjs.extend(dayOfYear);
 
 type GetValidRangeIndicesParams = {
   startIndex: number;
@@ -6,9 +10,11 @@ type GetValidRangeIndicesParams = {
   totalDaysInYear: number;
 };
 
-export const getValidRangeIndices = (
-  { startIndex, endIndex, totalDaysInYear }: GetValidRangeIndicesParams,
-) => {
+export const getValidRangeIndices = ({
+  startIndex,
+  endIndex,
+  totalDaysInYear,
+}: GetValidRangeIndicesParams) => {
   const min = Math.max(1, Math.min(startIndex, endIndex));
   const max = Math.min(totalDaysInYear, Math.max(startIndex, endIndex));
   const valid: number[] = [];

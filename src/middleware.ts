@@ -12,6 +12,9 @@ const ICS_USER_AGENTS = [
   "Google-Calendar-Importer", // https://calendar.google.com/calendar/u/1/r/settings/addbyurl
 ];
 
+// Only run on /location so every other request skips the middleware.
+export const config = { matcher: "/location" };
+
 export function middleware(request: NextRequest) {
   const url = request.nextUrl.pathname;
 

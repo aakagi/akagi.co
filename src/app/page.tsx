@@ -1,5 +1,3 @@
-"use client";
-
 import { Footer } from "@/modules/home/footer";
 import Bio from "@/modules/home/bio.mdx";
 import Image from "next/image";
@@ -15,14 +13,14 @@ export default function HomePage() {
             width="420"
             height="420"
             className="rounded-full"
-            priority
+            preload
           />
         </div>
         <div className="w-full py-16">
           <Bio />
         </div>
         <div className="w-24 py-32">
-          <Image width="96" height="96" src="/akagi-kanji-96x96.webp" alt="赤木" priority />
+          <Image width="96" height="96" src="/akagi-kanji-96x96.webp" alt="赤木" />
         </div>
         <div className="py-16">
           <Footer />

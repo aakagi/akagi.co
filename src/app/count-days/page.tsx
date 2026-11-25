@@ -9,11 +9,24 @@ import {
 } from "@/modules/count-days/count-days-utils";
 import dayjs from "dayjs";
 import dayOfYear from "dayjs/plugin/dayOfYear";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 
 dayjs.extend(dayOfYear);
 
+const subscribe = () => () => {};
+
+// The calendar depends on today's date, but the page is prerendered at build time.
+// Render it in the browser only, so a stale build date never causes a hydration mismatch.
 export default function CountDaysPage() {
+  const isClient = useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false
+  );
+  return isClient ? <CountDays /> : null;
+}
+
+function CountDays() {
   const now = useMemo(() => dayjs(), []);
 
   // At the end of the year we generally care about the upcoming year.
@@ -31,12 +44,13 @@ export default function CountDaysPage() {
     return buildSelectionMap(totalDaysInYear);
   });
 
-  // Reset the selection map when the year changes.
-  useEffect(() => {
-    setSelectedDates(buildSelectionMap(totalDaysInYear));
+  // Reset the selection when the year changes.
+  const handleYearChange = (nextYear: number) => {
+    setYear(nextYear);
+    setSelectedDates(buildSelectionMap(getDaysInYear(nextYear)));
     setHighlightStartIndex(null);
     setHighlightEndIndex(null);
-  }, [year, totalDaysInYear]);
+  };
 
   const count = useMemo(() => {
     return Array.from(selectedDates.values()).filter(Boolean).length;
@@ -121,9 +135,10 @@ export default function CountDaysPage() {
       </aside>
       <div className="flex flex-1 flex-col items-center">
         <select
+          aria-label="Year"
           className="mb-4"
           value={year}
-          onChange={(event) => setYear(Number(event.target.value))}
+          onChange={(event) => handleYearChange(Number(event.target.value))}
         >
           {Array.from({ length: 11 }).map((_, i) => {
             const yearValue = now.add(i, "year").year();
@@ -137,118 +152,118 @@ export default function CountDaysPage() {
         <h3>Count: {count}</h3>
 
         <div className="@container mt-4 w-full max-w-5xl">
-        <div className="mt-4 grid w-full grid-cols-1 gap-px border border-gray-200 bg-gray-200 @xl:grid-cols-2 @4xl:grid-cols-3">
-          {Array.from({ length: 12 }).map((_, index) => {
-            const monthNumber = index + 1;
-            const firstDayOfMonth = dayjs(`${year}-${monthNumber}-01`);
-            const numDays = firstDayOfMonth.daysInMonth();
-            const firstDayWeekday = firstDayOfMonth.day();
-            const firstDayOfMonthDayOfYear = firstDayOfMonth.dayOfYear();
-            const totalCells = firstDayWeekday + numDays;
-            const numWeekRows = Math.ceil(totalCells / 7);
+          <div className="mt-4 grid w-full grid-cols-1 gap-px border border-gray-200 bg-gray-200 @xl:grid-cols-2 @4xl:grid-cols-3">
+            {Array.from({ length: 12 }).map((_, index) => {
+              const monthNumber = index + 1;
+              const firstDayOfMonth = dayjs(`${year}-${monthNumber}-01`);
+              const numDays = firstDayOfMonth.daysInMonth();
+              const firstDayWeekday = firstDayOfMonth.day();
+              const firstDayOfMonthDayOfYear = firstDayOfMonth.dayOfYear();
+              const totalCells = firstDayWeekday + numDays;
+              const numWeekRows = Math.ceil(totalCells / 7);
 
-            return (
-              <div key={index} className="flex h-full w-full flex-col items-center bg-white">
-                <h4 className="my-2 font-medium">{firstDayOfMonth.format("MMM")}</h4>
-                <div className="flex w-full flex-col items-center justify-center">
-                  {Array.from({ length: numWeekRows }).map((_, weekIndex) => (
-                    <div
-                      key={weekIndex}
-                      className="grid w-full"
-                      style={{
-                        // Ensures correct aspect ratio.
-                        gridTemplateColumns: "repeat(7, minmax(0, calc(100% / 7)))",
-                      }}
-                    >
-                      {Array.from({ length: 7 }).map((_, dayIndex) => {
-                        const dayNumber = weekIndex * 7 + dayIndex - firstDayWeekday + 1;
-                        const isValidDay = dayNumber > 0 && dayNumber <= numDays;
+              return (
+                <div key={index} className="flex h-full w-full flex-col items-center bg-white">
+                  <h4 className="my-2 font-medium">{firstDayOfMonth.format("MMM")}</h4>
+                  <div className="flex w-full flex-col items-center justify-center">
+                    {Array.from({ length: numWeekRows }).map((_, weekIndex) => (
+                      <div
+                        key={weekIndex}
+                        className="grid w-full"
+                        style={{
+                          // Ensures correct aspect ratio.
+                          gridTemplateColumns: "repeat(7, minmax(0, calc(100% / 7)))",
+                        }}
+                      >
+                        {Array.from({ length: 7 }).map((_, dayIndex) => {
+                          const dayNumber = weekIndex * 7 + dayIndex - firstDayWeekday + 1;
+                          const isValidDay = dayNumber > 0 && dayNumber <= numDays;
 
-                        const dayOfYearValue = isValidDay
-                          ? firstDayOfMonthDayOfYear + dayNumber - 1
-                          : null;
+                          const dayOfYearValue = isValidDay
+                            ? firstDayOfMonthDayOfYear + dayNumber - 1
+                            : null;
 
-                        const isSelected =
-                          isValidDay &&
-                          dayOfYearValue !== null &&
-                          selectedDates.get(dayOfYearValue) === true;
+                          const isSelected =
+                            isValidDay &&
+                            dayOfYearValue !== null &&
+                            selectedDates.get(dayOfYearValue) === true;
 
-                        const isHighlighted =
-                          isValidDay &&
-                          dayOfYearValue !== null &&
-                          highlightLowerBound !== null &&
-                          highlightUpperBound !== null &&
-                          dayOfYearValue >= highlightLowerBound &&
-                          dayOfYearValue <= highlightUpperBound;
+                          const isHighlighted =
+                            isValidDay &&
+                            dayOfYearValue !== null &&
+                            highlightLowerBound !== null &&
+                            highlightUpperBound !== null &&
+                            dayOfYearValue >= highlightLowerBound &&
+                            dayOfYearValue <= highlightUpperBound;
 
-                        return (
-                          <div
-                            data-day-of-year={dayOfYearValue ?? undefined}
-                            key={dayIndex}
-                            className={cn(
-                              "flex aspect-square w-full touch-none items-center justify-center select-none",
-                              isValidDay ? "cursor-pointer" : "cursor-default text-slate-300",
-                              isSelected && "bg-red-200",
-                              isHighlighted && "bg-red-50"
-                            )}
-                            onPointerDown={(event) => {
-                              if (!isValidDay || dayOfYearValue === null) {
-                                return;
-                              }
-                              if (
-                                activePointerIdRef.current !== null &&
-                                activePointerIdRef.current !== event.pointerId
-                              ) {
-                                return;
-                              }
-                              if (event.pointerType !== "mouse") {
-                                event.preventDefault();
-                              }
-                              activePointerIdRef.current = event.pointerId;
-                              event.currentTarget.setPointerCapture(event.pointerId);
-                              setHighlightStartIndex(dayOfYearValue);
-                              setHighlightEndIndex(dayOfYearValue);
-                            }}
-                            onPointerMove={(event) => {
-                              if (activePointerIdRef.current !== event.pointerId) {
-                                return;
-                              }
-                              if (highlightStartIndex === null) {
-                                return;
-                              }
-                              if (event.pointerType !== "mouse") {
-                                event.preventDefault();
-                              }
-                              const hovered = document.elementFromPoint(
-                                event.clientX,
-                                event.clientY
-                              );
-                              const dayElement =
-                                hovered instanceof Element
-                                  ? hovered.closest("[data-day-of-year]")
-                                  : null;
-                              const attributeValue = dayElement?.getAttribute("data-day-of-year");
-                              if (!attributeValue) {
-                                return;
-                              }
-                              const nextDay = Number.parseInt(attributeValue, 10);
-                              if (Number.isNaN(nextDay)) {
-                                return;
-                              }
-                              setHighlightEndIndex(nextDay);
-                            }}
-                          >
-                            {isValidDay ? dayNumber : ""}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  ))}
+                          return (
+                            <div
+                              data-day-of-year={dayOfYearValue ?? undefined}
+                              key={dayIndex}
+                              className={cn(
+                                "flex aspect-square w-full touch-none items-center justify-center select-none",
+                                isValidDay ? "cursor-pointer" : "cursor-default text-slate-300",
+                                isSelected && "bg-red-200",
+                                isHighlighted && "bg-red-50"
+                              )}
+                              onPointerDown={(event) => {
+                                if (!isValidDay || dayOfYearValue === null) {
+                                  return;
+                                }
+                                if (
+                                  activePointerIdRef.current !== null &&
+                                  activePointerIdRef.current !== event.pointerId
+                                ) {
+                                  return;
+                                }
+                                if (event.pointerType !== "mouse") {
+                                  event.preventDefault();
+                                }
+                                activePointerIdRef.current = event.pointerId;
+                                event.currentTarget.setPointerCapture(event.pointerId);
+                                setHighlightStartIndex(dayOfYearValue);
+                                setHighlightEndIndex(dayOfYearValue);
+                              }}
+                              onPointerMove={(event) => {
+                                if (activePointerIdRef.current !== event.pointerId) {
+                                  return;
+                                }
+                                if (highlightStartIndex === null) {
+                                  return;
+                                }
+                                if (event.pointerType !== "mouse") {
+                                  event.preventDefault();
+                                }
+                                const hovered = document.elementFromPoint(
+                                  event.clientX,
+                                  event.clientY
+                                );
+                                const dayElement =
+                                  hovered instanceof Element
+                                    ? hovered.closest("[data-day-of-year]")
+                                    : null;
+                                const attributeValue = dayElement?.getAttribute("data-day-of-year");
+                                if (!attributeValue) {
+                                  return;
+                                }
+                                const nextDay = Number.parseInt(attributeValue, 10);
+                                if (Number.isNaN(nextDay)) {
+                                  return;
+                                }
+                                setHighlightEndIndex(nextDay);
+                              }}
+                            >
+                              {isValidDay ? dayNumber : ""}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
