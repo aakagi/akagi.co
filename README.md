@@ -24,6 +24,10 @@ pnpm dev
 | `pnpm wrangler`   | Build and deploy to Cloudflare Pages        |
 | `pnpm cf-typegen` | Regenerate `env.d.ts` from `wrangler.jsonc` |
 
+## Deploy
+
+Every push to `main` deploys to production from CI (`.github/workflows/ci.yml`). It needs the `CLOUDFLARE_API_TOKEN` repo secret and the `CLOUDFLARE_ACCOUNT_ID` repo variable. `pnpm wrangler` deploys by hand.
+
 ## Routes
 
 - `/`: bio, from `src/modules/home/bio.mdx`
