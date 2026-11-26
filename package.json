@@ -45,7 +45,7 @@
     "prettier-plugin-tailwindcss": "^0.7.4",
     "tailwindcss": "^4.3.5",
     "typescript": "^5.9.3",
-    "vercel": "^50.44.0",
+    "vercel": "^52.2.0",
     "wrangler": "^4.168.0"
   }
 }
