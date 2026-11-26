@@ -26,7 +26,7 @@ pnpm dev
 
 ## Deploy
 
-Every push to `main` deploys to production from CI (`.github/workflows/ci.yml`). It needs the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repo secrets. `pnpm wrangler` deploys by hand.
+Every push to `main` deploys to production from CI (`.github/workflows/ci.yml`). It needs the `CLOUDFLARE_API_TOKEN` repo secret and the `CLOUDFLARE_ACCOUNT_ID` repo variable. `pnpm wrangler` deploys by hand.
 
 ## Routes
 

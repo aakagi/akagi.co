@@ -30,9 +30,9 @@ jobs:
       # Runs `next build`, then converts the output for Cloudflare Pages (the deployed artifact).
       - run: pnpm pages:build
       # Deploys to production on every push to main.
-      # Needs the CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID repo secrets.
+      # Needs the CLOUDFLARE_API_TOKEN secret and CLOUDFLARE_ACCOUNT_ID variable.
       - if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: pnpm exec wrangler pages deploy --branch main
+        run: pnpm exec wrangler pages deploy --branch main --commit-hash "$GITHUB_SHA"
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
